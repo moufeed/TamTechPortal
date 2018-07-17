@@ -1,0 +1,73 @@
+﻿@model IEnumerable<UserModel>
+@{
+    ViewData["Title"] = "Index";
+    
+            // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="clearfix">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Users </h3>
+        </div>
+        <div class="title_right text-right">
+            <a asp-controller="Users"
+               asp-action="Create"
+               class="btn btn-default btn-add-new">add new</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel p-x-0">
+            <div class="x_title clearfix p-y-3  form_search">
+                <div class="form-inline" method="Post" target="">
+                    <div class="form-group">
+                        <label for="Username" class="m-x-2">Username</label>
+                        <input type="text" class="form-control" name="Username" id="Username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="UserRole" class="m-x-2">User Role</label>
+                        <select class="form-control" name="UserRole" id="UserRole">
+                            <option value="">Roles</option>
+                            @foreach (var item in ViewBag.Roles)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-info m-y-0 m-x-1" id="searchBtn"> <i class="fa fa-search"></i> Search </button>
+                        <button type="button" class="btn btn-link  m-y-0 c-blue " id="resetBtn"> <i class="fa fa-times"></i> Reset </button>
+                    </div>
+                </div>
+            </div>
+            <div class="x_content">
+                <div class="table-responsive datatable">
+                    <table class="table table-middle table-striped" id="UsersTable" width="100%">
+                        <thead>
+                            <tr class="headings">
+                                <th>No.</th>
+                                <th>username</th>
+                                <th>mobileNumber</th>
+                                <th>Email</th>
+                                <th>Active</th>
+                                <th>Mobile Confirmed</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles{
+    <link href="~/admin/lib/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/admin/lib/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/admin/lib/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script>window.area = '@RazorViewEngine.GetNormalizedRouteValue(ViewContext, "area")';</script>
+    <script src="~/admin/js/users.min.js"></script>
+
+}
