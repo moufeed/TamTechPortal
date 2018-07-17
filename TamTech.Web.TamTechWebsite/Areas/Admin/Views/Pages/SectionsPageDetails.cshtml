@@ -1,0 +1,94 @@
+﻿
+@model TamTechSDK.Common.Services.ContentService.Pages.Models.SectionsPage
+@{
+    ViewData["Title"] = "Preview";
+}
+
+<div class="clearfix">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Page Details</h3>
+        </div>
+        <div class="title_right text-right">
+            <a asp-action="Index"
+               class="btn btn-default"><span class="fa fa-chevron-left"></span>Back to List</a>
+            <a asp-action="sections/edit" asp-route-id="@Model.Id" class="btn btn-default"><span class="fa fa-edit"></span>  Edit Page</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+
+            <div class="x_content p-y-5 ">
+                <div class="form-group clearfix">
+                    <strong class="control-label col-md-2 col-sm-4 col-xs-12">Page Title :</strong>
+                    <strong class="col-md-8 col-sm-8 col-xs-12">@Model.Title</strong>
+                </div>
+                <hr />
+                <ul class="clearfix metalist list-unstyled">
+                    <li class="col-md-4 col-xs-12 col-sm-4">
+                        <strong>Status</strong>
+                        @if (Model.Published)
+                        {
+                            <span class="c-green"> <i class="fa fa-check" aria-hidden="true"></i> Published</span>
+                        }
+                        else
+                        {
+                            <span class="c-red"> <i class="fa fa-times" aria-hidden="true"></i> Unpublished</span>
+                        }
+                    </li>
+                    <li class="col-md-4 col-xs-12 col-sm-4">
+                        <strong>Created date</strong>
+                        <span>@Model.CreatedDate</span>
+                    </li>
+                    <li class="col-md-4 col-xs-12 col-sm-4">
+                        <strong>Modified date</strong>
+                        <span>@Model.ModifiedDate</span>
+                    </li>
+                </ul>
+
+                <hr />
+                <div class="page_keywords clearfix">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <strong>keywords</strong>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <ul class="list-inline list-unstyled ">
+                            @foreach (var key in Model.Keywords)
+                            {
+                                <li>@key</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <hr />
+                <div class="clearfix">
+                    <div class="col-md-2 col-xs-12 col-sm-3">
+                        <strong>Page content : </strong>
+                    </div>
+                    <div class="col-md-8 col-xs-12 col-sm-8">
+
+                        @foreach (var item in Model.Content)
+                        {
+                            <article class="con_art">
+                                <h4><strong>@item.Key</strong></h4>
+                                <p>@item.Value</p>
+                            </article>
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+
+

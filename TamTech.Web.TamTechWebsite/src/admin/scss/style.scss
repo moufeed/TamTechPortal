@@ -1,0 +1,65 @@
+// colors
+$red : #df4818;
+
+$dark-red : #A33512;
+
+$green : #69b578;
+
+$dark-green : #1c7c54;
+
+$orange : #FF8C42;
+
+$dark-orange : #E67F0D;
+
+$yellow : #FFC051;
+
+$dark-yellow : #FFB22B;
+
+$blue: #2274a5;
+
+$dark-blue: #13293d;
+
+
+ 
+$textColor : #333333; 
+ 
+$gray : #C0C0C0;
+
+$dark-gray:#A9A9A9;
+
+$colors:(
+  "red"         : $red,
+  "dark-red "   : $dark-red,
+  "green"       : $green ,
+  "dark-green"  : $dark-green,
+  "blue"        : $blue,
+  "dark-blue"   : $dark-blue,
+  "gray"        : $gray,
+  "dark-gray"  : $dark-gray
+);
+
+
+$sides : (
+            t : top,
+            r : right,
+            b : bottom,
+            l : left
+        );
+
+
+$nav_menu_bg : #fff;
+
+$right_col_bg : #F3F5F8;
+$leftCol : $dark-blue;
+$switch-off-color : #fff;
+$switch-off-border: #eee;
+$switch-on-color: #00c169;
+$switch-toggle-color: #fff;
+
+$input_border_color : #f0f3f4;
+@import "_mixins" ; 
+@import "_template" ; 
+@import "_custom" ; 
+ 
+ 
+    

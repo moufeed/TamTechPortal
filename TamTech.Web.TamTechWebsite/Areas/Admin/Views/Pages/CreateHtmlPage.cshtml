@@ -1,0 +1,114 @@
+﻿@model HtmlPageCreationVM
+@{
+    ViewData["Title"] = "Create Html Page";
+}
+
+
+
+<div class="clearfix">
+    <div class="page-title">
+        <div class="title_left"> 
+            @*<h1>TempData : @TempData["Message"]</h1>*@
+            <h3>Html Page Creating Form</h3>
+        </div>
+        <div class="title_right text-right">
+            <a asp-action="Index"
+               class="btn btn-default"><span class="fa fa-chevron-left"></span>Back to List</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                @{ string target = "CreateHtmlPage"; }
+
+                @using (Html.BeginForm(target, "Pages", FormMethod.Post,
+new
+{
+       enctype = "multipart/form-data",
+       @class = "form-horizontal forn-new form-label-left m-t5",
+       id = "CreateForm"
+}))
+
+                {
+                    @Html.ValidationSummary(true)
+                    <div class="form-group clearfix">
+                        @Html.Label("Title", "Title :", new { @class = "control-label col-md-3 col-sm-3 col-xs-12 " })
+                        <div class="col-md-7 col-sm-5 col-xs-12">
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", required = "required" })
+                            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger invalid_field" })
+                        </div>
+
+                    </div>
+                    <div class="form-group clearfix">
+                        @{
+                            string keywords = string.Empty;
+
+                        }
+                        @Html.Label("Keywords", "Keywords :", new { @class = "control-label col-md-3 col-sm-3 col-xs-12 " })
+                        <div class="col-md-7 col-sm-5 col-xs-12">
+                            <div class="static-form-control">
+                                @Html.TextBoxFor(m => keywords, new { @class = "form-control", id = "keywords", required = "required" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Keywords, "", new { @class = "text-danger invalid_field" })
+                        </div>
+
+                    </div>
+                    <div class="form-group clearfix">
+                        @Html.Label("Content", "Page Content :", new { @class = "control-label col-md-3 col-sm-4 col-xs-12 " })
+                        <div class="col-md-7 col-sm-8 col-xs-12">
+                            @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger " })
+                            @Html.TextAreaFor(m => m.Content, new { @class = "form-control", rows = "5", required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3 col-sm-offset-4 col-sm-6 col-xs-12 ">
+                            <input type="submit" class="btn btn-success p-x-5" value="Create">
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Styles{
+    <link href="~/lib/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script src="~/Admin/js/validator.js"></script>
+
+    <script src="~/Admin/lib/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+
+    <script src="~/Admin/lib/tinymce/tinymce.js"></script>
+
+    <script>
+tinymce.init({
+            selector: 'textarea',
+            branding: false,
+         theme: 'modern',
+        height: 300,
+            plugins : ['advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker ',
+          'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+          'save table contextmenu directionality emoticons template paste textcolor'],
+         toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+    
+});
+    </script>
+    <script>
+$('#keywords').tagsinput({
+            tagClass: 'tag'
+});
+    </script>
+}
+
+

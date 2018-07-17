@@ -1,0 +1,153 @@
+﻿@model IEnumerable< ProductListVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="clearfix">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Products <small></small></h3>
+        </div>
+        <div class="title_right text-right">
+            <a asp-controller="Products"
+               asp-action="Create"
+               class="btn btn-default btn-add-new">
+                <i class="fa fa-plus"></i> Add New
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel p-x-0">
+            <div class="x_content">
+                <div class="table-responsive">
+                    <table class="table table-middle table-striped">
+                        <thead>
+                            <tr class="headings">
+                                <th width="100" class="text-center">Image</th>
+                                <th class="text-center">Product name</th>
+                                <th>Price</th>
+                                <th>SKU</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Published</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @{int i = 1;}
+                            @foreach (var product in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">
+
+                                        <span class="list_thumbnail">
+
+                                            @if (string.IsNullOrEmpty(product.MainImageUrl))
+                                            {
+
+                                                <img src="~/Admin/img/noimage.jpg">
+                                            }
+                                            else
+                                            {
+                                                <img src="@product.MainImageUrl">
+
+                                            }
+
+
+
+
+
+
+                                        </span>
+                                    </td>
+
+
+
+                                    <td class="text-center">@product.Name</td>
+                                    <td>@product.Price</td>
+                                    <td>@product.SKU</td>
+                                    <td class="text-center">@product.StockQuantity</td>
+                                    <td class="text-center">
+                                        @if (product.Published)
+                                        {<i class="fa fa-check c-green"></i> }
+                                        else
+                                        { <i class="fa fa-times c-red"></i>}
+                                    </td>
+                                    <td width="150" class="text-center td-actions">
+                                        <a data-toggle="tooltip"
+                                           data-placement="top"
+                                           title="Edit"
+                                           asp-area="Admin"
+                                           asp-controller="Products"
+                                           asp-action="Edit"
+                                           asp-route-id="@product.Id"
+                                           class="btn btn-edit"><i class="fa fa-edit "></i></a>
+
+                                        <a data-toggle="tooltip"
+                                           data-placement="top"
+                                           data-id="@product.Id"
+                                           title="Remove"
+                                           class="btn btn-remove delete-product"><i class="fa fa-times "></i></a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+         $(document).on('click','.delete-product' ,function(e){
+        e.preventDefault();
+        var $this = $(this);
+        
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'error',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#df4818',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                     url: '/Admin/Products/delete/' + $this.data('id')  ,
+                    type: 'Get',
+                    dataType: "json",  
+                    data: {
+                        redirection : false
+                    }
+                })
+                .done(function(data){
+                    if(data.success){
+                        $notification.success("success", "", 2000, "fa fa-check");
+                        $this.parents('tr').remove();
+                    }else{
+                        $notification.error("Error!", "", 2000, "fa fa-exclamation-circle");
+                    }
+                })
+                .fail(function (jqXHR, Status) {
+                    $notification.error("Error!", jqXHR.statusText, 2000, "fa fa-exclamation-circle");
+                })
+            }
+        })
+    })
+    </script>
+
+}

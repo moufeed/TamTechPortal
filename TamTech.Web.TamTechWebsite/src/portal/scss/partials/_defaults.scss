@@ -1,0 +1,162 @@
+body{
+    font-family: if-ltr('rw-regular','') , $font-family-base ;
+ 
+ @include media-breakpoint-up(md){
+    font-size: rem(18px);
+ }
+}
+
+h1,h2,h3{
+    font-family: if-ltr('rw-black','');
+}
+h4,h5,h6{
+    font-family: if-ltr('rw-semibold','');
+}
+
+.section{
+    padding: rem(70px) 0;
+}
+
+.not-animated{
+    opacity: 0;
+}
+.animated-item{
+    opacity: 1;
+    animation-duration: .7s;
+    animation-fill-mode: both;
+}
+
+
+.section_title{
+        position: relative;
+        margin-bottom : rem(80px);
+             &:before{
+                @include absolute(top $left ,rem(-65px) 0 );
+                content: attr(data-content);
+                z-index: -1;
+                font-size: 8.5vw;
+                font-family: if-ltr('rw-black','');
+                white-space: nowrap;
+                width:100%;
+                overflow: hidden;
+                text-align: center;
+                color: darken(#fff,3%);
+                @include media-breakpoint-down(sm) {
+                   content: none;
+                 }
+            } 
+        
+    h2{
+        font-size: rem(33px);
+        font-family: if-ltr('rw-regular','');
+        margin-bottom:rem(20px);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: darken($deep_navy,5%);
+        position: relative;
+        strong{
+            font-weight: normal; 
+            display: inline-block;
+            position: relative;
+            padding-bottom:rem(20px);  
+            &:before{
+                content: "";
+                @include size(100%,2px);
+                background: darken(#fff,40%); 
+                @include absolute(bottom left , 0 );
+                transform: scaleX(0.4);
+            }
+            &:after{
+                content: "";
+                @include square(8px);
+                @include absolute(bottom $left , -2px #{calc(50% - 4px)});
+                background: $orange;
+                border-radius: 50%;
+                box-shadow: 0  0 0 8px #fff , 15px 1px 0 -1px darken(#fff,40%) , -15px 1px 0 -1px  darken(#fff,40%);
+            } 
+
+            &.gray{
+                &:after{
+                    box-shadow: 0  0 0 8px darken(#fff,3%)  , 15px 1px 0 -1px darken(#fff,40%) , -15px 1px 0 -1px  darken(#fff,40%);
+                } 
+            }
+        } 
+      
+    }
+    p{
+        font-size: rem(18px);
+        letter-spacing: 1px;
+        margin: 15px auto;
+        color: lighten( #000000,40%);
+        @include media-breakpoint-up(sm) {
+             width: 90%;
+          }
+    }
+
+    &.gray-bg{
+        z-index:1;
+          &:before{
+                color: darken(#fff,1%);
+            } 
+    }
+
+
+    @include media-breakpoint-only(xs){
+        h2{
+            font-size: rem(24px);
+        }
+        P{
+            font-size: rem(14px);  
+        }
+    }
+}
+
+.btn-orange{
+    background: $orange;
+    color: #fff;
+    &:hover{
+        background: lighten($orange,5%);
+    }
+}
+
+.back-to-top{
+    @include fixed(bottom $right,15px 15px);
+    @include square(40px);
+    background: rgba($deep_navy, .7);
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+    z-index: 15000;
+    svg{
+        margin-top: 8px;
+        @include size(24px,24px);
+        path{
+            fill: #fff;
+        }
+    }
+    @include media-breakpoint-only(xs){
+        bottom: 45px;
+    }
+}
+.mt150{
+  @include media-breakpoint-up(md){
+
+    margin-top: rem(200px);
+  }
+}
+
+.accessory {
+    height:1px;
+    background: #f7f7f7;
+    background: linear-gradient(to right, #f7f7f7 0%,#a5a5a5 51%,#f7f7f7 100%);
+    position: relative;
+    border: 0;
+    margin: rem(100px) auto;
+    max-width: 100%;
+    background-position: 50%;
+    box-sizing: border-box;
+    @include media-breakpoint-only(xs){
+        margin: 25px auto;
+    }
+  }

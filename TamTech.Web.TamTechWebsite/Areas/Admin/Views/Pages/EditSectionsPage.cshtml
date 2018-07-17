@@ -1,0 +1,231 @@
+﻿@model  SectionsPageEditingVM
+@{
+    ViewData["Title"] = "Edit Sections page";
+
+    int indx = 0;
+}
+
+
+
+<div class="clearfix">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Sections Page Editing Form</h3>
+        </div>
+        <div class="title_right text-right">
+            <a asp-action="Index"
+               class="btn btn-default"><span class="fa fa-chevron-left"></span>Back to List</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                @using (Html.BeginForm("EditSectionsPage", "Pages", FormMethod.Post,
+new
+{
+enctype = "multipart/form-data",
+@class = "form-horizontal forn-new form-label-left m-t5",
+id = "EditPageForm"
+}))
+
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(m => m.Id) 
+
+                    <div class="form-group clearfix">
+                        @Html.Label("Title", "Title :", new { @class = "control-label col-md-3 col-sm-3 col-xs-12 " })
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", required = "required" })
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger " })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        @{
+                            string keywords = string.Empty;
+
+                            if (Model.KeywordsList.Count > 0)
+                            {
+
+                                List<string> list = Model.KeywordsList;
+                                keywords = string.Join(",", list);
+                            }
+                        }
+                        @Html.Label("Keywords", "Keywords :", new { @class = "control-label col-md-3 col-sm-3 col-xs-12 " })
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <div class="static-form-control">
+                                @Html.TextBoxFor(m => keywords, new { @class = "form-control", id = "keywords" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+
+                            @Html.ValidationMessageFor(m => m.Keywords, "", new { @class = "text-danger " })
+
+                        </div>
+                    </div>
+
+                    @*<div class="form-group clearfix">
+                        @Html.Label("IsPublished", "Page Visibility :", new { @class = "control-label col-md-3 col-sm-4 col-xs-12 " })
+                        <div class="col-md-7 col-sm-8 col-xs-12">
+                            @Html.CheckBoxFor(m => m.Published, new { @class = "toggle_switch" })
+                            @Html.ValidationMessageFor(m => m.Published, "", new { @class = "text-danger " })
+
+
+                        </div>
+                    </div>*@
+                    <div class="m-t4 p-t3 p-x-3">
+                        <h4>Content Page</h4>
+                        <hr />
+                        <div class="content_items" id="ContentItems">
+
+                            @if (Model.Content != null && Model.Content.Count > 0)
+                            {
+
+                                @foreach (var item in Model.Content)
+                                {
+                                    <section id="section-@indx" class="m-b3 clearfix">
+                                        <a class="btn btn-remove-content remove-content" data-id="@indx">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                        <div class="form-group">
+                                            <Label for="title-@indx" class="control-label col-md-3 col-sm-4 col-xs-12"> Title :</Label>
+                                            <div class="col-md-7 col-sm-8 col-xs-12" id="">
+                                                <input type="text" name="Content[@indx].Key" id="title-@indx" asp-for="@item.Key" class="form-control m-b2" required="required" />
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <Label for="Content-@indx" class="control-label col-md-3 col-sm-4 col-xs-12 ">Content :</Label>
+                                            <div class="col-md-7 col-sm-8 col-xs-12" id="">
+                                                <textarea rows="4" class="form-control" id="Content-@indx" name="Content[@indx].Value" asp-for="@item.Value" required="required"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <hr class="line" />
+                                    </section>
+                                    indx++;
+                                }
+                            }
+                            else
+                            {
+
+                                <section id="section-@indx" class="m-b3 clearfix">
+                                    <a class="btn btn-remove-content remove-content"   data-id="@indx">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                    <div class="form-group">
+                                        <Label for="title-@indx" class="control-label col-md-3 col-sm-4 col-xs-12"> Title :</Label>
+                                        <div class="col-md-7 col-sm-8 col-xs-12" id="">
+                                            <input type="text" name="Content[@indx].Key" id="title-@indx" class="form-control m-b2" required="required" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <Label for="Content-@indx" class="control-label col-md-3 col-sm-4 col-xs-12 ">Content :</Label>
+                                        <div class="col-md-7 col-sm-8 col-xs-12" id="">
+                                            <textarea rows="4" class="form-control" id="Content-@indx" name="Content[@indx].Value" required="required"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <hr class="line" />
+                                </section>
+                                indx++;
+                            }
+                        </div>
+                        <div>
+                            <a class="btn btn-addContent" id="addContent"><i class="fa fa-plus"></i>  Add Content </a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-7 col-md-offset-3 col-sm-offset-4 col-sm-6 col-xs-12 text-right">
+                            <input type="submit" class="btn btn-success p-x-5" value="Update">
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Styles{
+    <link href="~/Admin/lib/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script src="~/Admin/js/validator.min.js"></script>
+
+    <script src="~/Admin/lib/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+ 
+     
+    <script>
+        var i = @indx || 0;
+        var template =
+            '<section id="section-&&" class="m-b3 clearfix">' +
+            '<a class="btn btn-remove-content remove-content"   data-id="&&">' +
+            '<i class="fa fa-trash-o"></i>' +
+            '</a>' +
+            '<div class="form-group">' +
+            '<Label for="Title-&&" class="control-label col-md-3 col-sm-4 col-xs-12"> Title  :</Label>' +
+            '<div class="col-md-7 col-sm-8 col-xs-12" id="">' +
+            '<input type="text" name="Content[&&].Key" id="Title-&&" class="form-control m-b2" required="required"/>' +
+            '</div></div>' +
+            '<div class="form-group">' +
+            '<Label for="Content-&&" class="control-label col-md-3 col-sm-4 col-xs-12 ">Content :</Label>' +
+            '<div class="col-md-7 col-sm-8 col-xs-12" id="">' +
+            '<textarea rows="4" class="form-control" id="Content-&&" name="Content[&&].Value" required="required"></textarea>' +
+            '</div></div><hr class="line"/>' +
+            '</section>';
+
+
+        $('#addContent').on('click', function (e) {
+            e.preventDefault();
+            let temp = template.replace(/&&/g, i);//.replace(/%%/g, i+1)
+            $('#ContentItems').append(temp);
+            i++;
+        });
+
+
+        $(document).on('click', '.remove-content', function () { 
+            if (i > 1) {
+                let id = $(this).data('id');
+                $('#section-' + id).remove();
+                if (id < (i - 1)) {
+                    let sections = $('#ContentItems').find('section');
+                    sections.each(function (indx, section) {
+                        let sec = $(section),
+                            link = sec.find(".remove-content"),
+                            labTitle = sec.find('.control-label[for^="title-"]'),
+                            labContent = sec.find('.control-label[for^="Content-"]'),
+                            input = sec.find('input[id^="title-"]'),
+                            textarea = sec.find('textarea[id^="Content-"]');
+             
+                            sec.attr("id", "section-" + indx);
+                            link.attr("data-id", indx);
+                            labTitle.attr("for", "title-" + indx);
+                            labContent.attr("for", "Content-" + indx);
+                            input.attr("id", "title-" + indx).attr('name', "Content[" + indx + "].Key");
+                            textarea.attr("id", "Content-" + indx).attr('name', "Content[" + indx + "].Value");
+                    })
+                }
+                i--;
+            }
+        })
+        $('#keywords').tagsinput({
+            tagClass: 'tag'
+        });
+    </script>
+}
