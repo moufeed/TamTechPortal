@@ -1,7 +1,24 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnv
+@using Microsoft.AspNetCore.Hosting
+
 <!doctype html>
 <html>
 <head>
+
+    @if (hostingEnv.IsProduction())
+    {
+        <text>
+            <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TJMQJMR');</script>
+<!-- End Google Tag Manager -->
+        </text>
+    }
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="application/xhtml+html; charset=utf-8" />
@@ -18,6 +35,17 @@
 
 </head>
 <body>
+    @if (hostingEnv.IsProduction())
+    {
+        <text>
+            <!-- Google Tag Manager (noscript) -->
+            <noscript>
+                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJMQJMR"
+                        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            </noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        </text>
+    }
     <header class="main_header d-sm-flex align-items-center" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="row justify-content-between align-items-center">
@@ -69,7 +97,7 @@
                 </div>
                 <div class="col-auto" data-animate="fadeIn" data-delay="200">
                     <nav class="d-flex socialnav">
-                       
+
                         <a href="https://www.linkedin.com/company/tamtechsolutions/">
                             <svg>
                                 <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#linkedin-logo")" />
