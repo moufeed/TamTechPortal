@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AdminPanelWeb.Services;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TamTechSDK.Common.Helpers.Converters;
 using TamTechSDK.Common.Providers.Requests;
 using TamTechSDK.Common.Services.ContentService;
@@ -70,10 +68,10 @@ namespace TamTech.AdminPanel
 
 
             #region Settings
-            var identityServiceSettings = Configuration.GetSection("IdentityService").Get<IdentityServiceSettings>();
-            var smsServiceSettings = Configuration.GetSection("SMSServiceSettings").Get<ServiceBusSettings>();
-            var emailServiceSettings = Configuration.GetSection("EmailServiceSettings").Get<ServiceBusSettings>();
-            var appInsightsSettings = Configuration.GetSection("ApplicationInsights").Get<TelemetryClientSettings>();
+            IdentityServiceSettings identityServiceSettings = Configuration.GetSection("IdentityService").Get<IdentityServiceSettings>();
+            ServiceBusSettings smsServiceSettings = Configuration.GetSection("SMSServiceSettings").Get<ServiceBusSettings>();
+            ServiceBusSettings emailServiceSettings = Configuration.GetSection("EmailServiceSettings").Get<ServiceBusSettings>();
+            TelemetryClientSettings appInsightsSettings = Configuration.GetSection("ApplicationInsights").Get<TelemetryClientSettings>();
             #endregion
 
             #region  Basic Services
@@ -81,34 +79,38 @@ namespace TamTech.AdminPanel
             #endregion
 
             #region Identity Server Configuration
-            services.AddAuthentication(options =>
+
+            if (!string.IsNullOrEmpty(identityServiceSettings.Url))
             {
-                options.DefaultScheme = identityServiceSettings.DefaultScheme;
-                options.DefaultChallengeScheme = identityServiceSettings.DefaultChallengeScheme;
-            })
-            .AddCookie(identityServiceSettings.CookieAuthenticationScheme)
-            .AddOpenIdConnect(identityServiceSettings.OpenIdConnectAuthenticationScheme, options =>
-            {
-                options.SignInScheme = identityServiceSettings.SignInScheme;
-                options.Authority = identityServiceSettings.Url;
-                options.RequireHttpsMetadata = identityServiceSettings.RequireHttpsMetadata;
-                options.ClientId = identityServiceSettings.ClientId;
-                options.ClientSecret = identityServiceSettings.ClientSecrets;
-                options.ResponseType = identityServiceSettings.ResponseType;
-                options.SaveTokens = identityServiceSettings.SaveTokens;
-                options.GetClaimsFromUserInfoEndpoint = identityServiceSettings.GetClaimsFromUserInfoEndpoint;
-                foreach (var scop in identityServiceSettings.Scops)
+                services.AddAuthentication(options =>
                 {
-                    options.Scope.Add(scop);
-                }
-                //options.Events = new Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectEvents ()
-                //{
-                //    OnTokenValidated = tokenValidatedContext =>
-                //    {
-                //        return Task.FromResult(0);
-                //    }
-                //}
-            });
+                    options.DefaultScheme = identityServiceSettings.DefaultScheme;
+                    options.DefaultChallengeScheme = identityServiceSettings.DefaultChallengeScheme;
+                })
+                .AddCookie(identityServiceSettings.CookieAuthenticationScheme)
+                .AddOpenIdConnect(identityServiceSettings.OpenIdConnectAuthenticationScheme, options =>
+                {
+                    options.SignInScheme = identityServiceSettings.SignInScheme;
+                    options.Authority = identityServiceSettings.Url;
+                    options.RequireHttpsMetadata = identityServiceSettings.RequireHttpsMetadata;
+                    options.ClientId = identityServiceSettings.ClientId;
+                    options.ClientSecret = identityServiceSettings.ClientSecrets;
+                    options.ResponseType = identityServiceSettings.ResponseType;
+                    options.SaveTokens = identityServiceSettings.SaveTokens;
+                    options.GetClaimsFromUserInfoEndpoint = identityServiceSettings.GetClaimsFromUserInfoEndpoint;
+                    foreach (string scop in identityServiceSettings.Scops)
+                    {
+                        options.Scope.Add(scop);
+                    }
+                    //options.Events = new Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectEvents ()
+                    //{
+                    //    OnTokenValidated = tokenValidatedContext =>
+                    //    {
+                    //        return Task.FromResult(0);
+                    //    }
+                    //}
+                });
+            }
             #endregion
 
             #region Services Dependency Injection  
@@ -135,10 +137,10 @@ namespace TamTech.AdminPanel
 
             services.AddScoped<IRequestProvider, RequestProvider>((serviceExtension) =>
             {
-                var httpContextAccessor = serviceExtension.GetRequiredService<IHttpContextAccessor>();
+                IHttpContextAccessor httpContextAccessor = serviceExtension.GetRequiredService<IHttpContextAccessor>();
                 // var _token = Task.Run(async () => await httpContextAccessor.HttpContext.GetTokenAsync("access_token")).Result;
                 // var token = GetToken(httpContextAccessor.HttpContext).GetAwaiter().GetResult();
-                var token = GetToken(httpContextAccessor.HttpContext).Result;
+                string token = GetToken(httpContextAccessor.HttpContext).Result;
                 return new RequestProvider(token);
             });
 
@@ -194,17 +196,17 @@ namespace TamTech.AdminPanel
             // Email Grid Sender Configurations
             services.AddTransient<TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.ITelemetryClientService, TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.TelemetryClientService>((serviceExtension) =>
             {
-                var insightsSettings = Configuration.GetSection("Portal_ApplicationInsights").Get<TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.Settings.TelemetryClientSettings>();
-                var httpContextAccessor = serviceExtension.GetRequiredService<IHttpContextAccessor>();
+                TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.Settings.TelemetryClientSettings insightsSettings = Configuration.GetSection("Portal_ApplicationInsights").Get<TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.Settings.TelemetryClientSettings>();
+                IHttpContextAccessor httpContextAccessor = serviceExtension.GetRequiredService<IHttpContextAccessor>();
                 return new TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.TelemetryClientService(httpContextAccessor, insightsSettings);
             });
 
             services.AddTransient<TamTechBackendSDK.EmailService.Services.IEmailSender, TamTechBackendSDK.EmailService.Services.SendGridEmailSender>(
                 (serviceExtension) =>
                 {
-                    var telemetry = serviceExtension.GetService<TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.ITelemetryClientService>();
-                    var settings = Configuration.GetSection("Portal_SendGrid").Get<TamTechBackendSDK.EmailService.Settings.SendGridSettings>();
-                    var sender = new TamTechBackendSDK.EmailService.Services.SendGridEmailSender(telemetry, settings.ApiKey);
+                    TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.ITelemetryClientService telemetry = serviceExtension.GetService<TamTechBackendSDK.Common.Services.ApplicationInsightsTelemetry.ITelemetryClientService>();
+                    TamTechBackendSDK.EmailService.Settings.SendGridSettings settings = Configuration.GetSection("Portal_SendGrid").Get<TamTechBackendSDK.EmailService.Settings.SendGridSettings>();
+                    TamTechBackendSDK.EmailService.Services.SendGridEmailSender sender = new TamTechBackendSDK.EmailService.Services.SendGridEmailSender(telemetry, settings.ApiKey);
 
                     return sender;
                 }
@@ -284,7 +286,7 @@ namespace TamTech.AdminPanel
             app.UseAuthentication();
 
 
-            var routingSettings = Configuration.GetSection("RoutingAppSettings").Get<RoutingAppSettings>();
+            RoutingAppSettings routingSettings = Configuration.GetSection("RoutingAppSettings").Get<RoutingAppSettings>();
             app.UseMvc(routes =>
             {
                 routes.MapRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
