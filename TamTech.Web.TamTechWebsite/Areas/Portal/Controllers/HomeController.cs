@@ -30,15 +30,15 @@ namespace TamTech.Web.TamTechWebsite.Areas.Portal.Controllers
                 if (ModelState.IsValid)
                 {
                     var emailSettings = Configuration.GetSection("Portal_EmailSettings").Get<TamTechBackendSDK.EmailService.Settings.EmailSettings>();
-                    //await emailSender.SendEmail(new TamTechBackendSDK.EmailService.Models.EmailModel
-                    //{
-                    //    From = emailSettings.From,
-                    //    Subject = "Contact Us",
-                    //    Text = $"Message from Email : {model.Email} - Mobile :{model.Mobile} - Message content is : {model.Message}",
-                    //    Recipients = new List<string>() { emailSettings.From },
-                    //    ReasonOfSend = "ContactUs"
+                    await emailSender.SendEmail(new TamTechBackendSDK.EmailService.Models.EmailModel
+                    {
+                        From = emailSettings.From,
+                        Subject = "Contact Us",
+                        Text = $"Message from Email : {model.Email} - Mobile :{model.Mobile} - Message content is : {model.Message}",
+                        Recipients = new List<string>() { emailSettings.From },
+                        ReasonOfSend = "ContactUs"
 
-                    //});
+                    });
 
 
                     return Json(new { success = true });
