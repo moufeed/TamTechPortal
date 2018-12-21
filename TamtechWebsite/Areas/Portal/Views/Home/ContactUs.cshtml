@@ -2,69 +2,130 @@
 @{
     ViewData["Title"] = "TamTech";
     Layout = "_Layout";
-    ViewData["ImageURl"] = @Url.Content("~/portal/img/contact.jpg");
+    ViewData["ImageURl"] = @Url.Content("~/Portal/img/headers/contactus.jpg");
     ViewData["pageTitle"] = Localizer["contact_us"];
 }
 
-@await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_PageHeader.cshtml", @ViewData)
+
+<partial name="~/Areas/Portal/Views/Shared/partials/_PagesHeader.cshtml" model="ViewData" />
 
 
-@section SEO{
-
-<script type="application/ld+json">
-    {
-    "@@context":"http://schema.org",
-    "@@type":"LocalBusiness",
-    "image":"@ViewBag.Host/portal/img/seoLogo.jpg",
-    "name":"Tamtech",
-    "address":{
-    "@@type":"PostalAddress",
-    "streetAddress":"E5 yan yol Civan Cokak",
-    "addressLocality":"Avcılar Üniversite Mh",
-    "addressRegion":"İstanbul",
-    "postalCode":"34320",
-    "addressCountry":"Turkey"
-    },
-    "geo":{
-    "@@type":"GeoCoordinates",
-    "latitude":40.991939 ,
-    "longitude":28.713351
-    },
-    "telephone":"+905354152865"
-    }
-</script>
-
-}
-
- 
-
-<section class="section-contact">
+<section class="contact-section section-content">
     <div class="container">
         <div class="row justify-content-between">
-            <div class="col-sm-auto col-md-12 col-lg-6">
-                @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/_ContactLinks.cshtml", @ViewData)
+            <div class="col-sm-auto col-md-12 col-lg-5">
+                <div class="c-info">
+                    <h4 class="cu-title mb-5">
+                        <strong>@Localizer["Get_in_Touch"]</strong>
+                    </h4>
+
+                    <p class="c-meesage">
+                        @Localizer["Get_in_Touch_msg"]
+                    </p>
+
+                    <ul class="c-list list-unstyled">
+                        <li>
+                            <strong>@Localizer["visit_us"]</strong>
+                            <a href="https://goo.gl/maps/bYkoFX2aSj62" target="_blank">
+                                @Localizer["Address_value"]
+                            </a>
+                        </li>
+                        <li>
+
+                            <strong>@Localizer["feel_like_talking"]</strong>
+                            <a href="tel:00905354152865" dir="ltr">05354152865</a>
+                        </li>
+                        <li>
+
+                            <strong>@Localizer["need_help"]</strong>
+                            <a href="mailto:info@tamtech.solutions">info@tamtech.solutions</a>
+                        </li>
+                    </ul>
+
+
+
+
+                </div>
             </div>
-            <div class="col-sm-auto col-md-12 col-lg-6">
-                @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/_ContactForm.cshtml")
+            <div class="col-sm-auto col-md-12 col-lg-7">
+                <div class="c-form">
+
+                    <h4 class="cu-title mb-5">
+                        <strong>@Localizer["send_us_meesage"]</strong>
+                    </h4>
+
+                    <form id="contact_form" action="@Url.AdminUrl("ContactUs","home" ,new { Area ="portal" })" method="post" class="cform">
+                        <div class="form-group">
+                            <input type="text" class="form-control  " placeholder="@Localizer["name"].." name="Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control   col" placeholder="@Localizer["Phone"].." name="Mobile" id="cphone" />
+                        </div>
+                        <div class="form-group from-row">
+                            <input type="email" class="form-control  col" placeholder="@Localizer["Email"].." name="Email" id="cemail">
+                        </div>
+                        <div class="form-group">
+                            <textarea cols="30" rows="12" class="form-control" placeholder="@Localizer["Message"].." name="Message" required></textarea>
+                        </div>
+                        <div class="form-group  d-flex justify-content-end">
+                            <button type="submit" class="btn btn-send btn-lg d-flex btn-send align-items-center">
+                                <span> @Localizer["Send_it"]</span>
+                                <div class="lds-spinner d-none">
+                                    <partial name="~/Areas/Portal/Views/Shared/utilities/_svg_spinner.cshtml" />
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+       
     </div>
 </section>
 
 
-@section footer {
+@section SEO{
+    <script type="application/ld+json">
+        {
+        "@@context":"http://schema.org",
+        "@@type":"LocalBusiness",
+        "image":"@ViewBag.Host/portal/img/seoLogo.jpg",
+        "name":"Tamtech",
+        "address":{
+        "@@type":"PostalAddress",
+        "streetAddress":"E5 yan yol Civan Cokak",
+        "addressLocality":"Avcılar Üniversite Mh",
+        "addressRegion":"İstanbul",
+        "postalCode":"34320",
+        "addressCountry":"Turkey"
+        },
+        "geo":{
+        "@@type":"GeoCoordinates",
+        "latitude":40.991939 ,
+        "longitude":28.713351
+        },
+        "telephone":"+905354152865"
+        }
+    </script>
+}
+
+
+
+@section scripts{
+    <script src="~/Portal/js/validation.min.js"></script>
+
 
     <div class="modal fade" id="ContactModel" tabindex="-1" role="dialog" aria-labelledby="ContactModelLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
 
                 <div class="modal-body p-5">
-                    <p> @Localizer["dear_customer"] </p>
+                    <p> @Localizer["Dear"]  <strong class="customer_name"></strong>,@Localizer["thanks_for_reaching_out"]  </p>
                     <p>@Localizer["We_have_received_your_message"]</p>
                     <p>
-                        @Localizer["mobile_no"]. <span dir="ltr" style="font-family:tahoma">+90 000111222</span>
+                       @Localizer["Mobile_no"] <span dir="ltr" style="font-family:tahoma">+90 535 415 28 65</span>
                     </p>
-                    <small>@Localizer["have_great_day"]</small>
+                    <small>@Localizer["Have_a_great_day"]</small>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">@Localizer["close"]</button>
@@ -73,9 +134,5 @@
         </div>
     </div>
 
-    <script src="~/portal/js/validation.min.js"></script>
-
-
 
 }
-

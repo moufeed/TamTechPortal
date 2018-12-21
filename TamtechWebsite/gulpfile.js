@@ -35,12 +35,7 @@ const portal_config = {
         outputStyle: 'compressed'
     },
     fonts : [
-        {
-            output : paths.portal_dist + "/fonts/fa/",
-            input : [
-                './node_modules/font-awesome/fonts/*',
-            ]
-        },{
+         {
             output : paths.portal_dist + "/fonts/",
             input : [
                 paths.portal_src + '/fonts/**/*'
@@ -67,8 +62,8 @@ const portal_config = {
                     './node_modules/jquery/dist/jquery.min.js',
                     './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
                     './node_modules/jquery-parallax.js/parallax.min.js',
-                    './node_modules/waypoints/lib/jquery.waypoints.min.js',
-                    './node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
+                    //'./node_modules/waypoints/lib/jquery.waypoints.min.js',
+                 //   './node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
                 ],
             },
             {

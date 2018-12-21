@@ -1,10 +1,23 @@
+<footer class="footer">
+    <div class="top-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <img src="~/Portal/img/logo.png" class="footer-logo" alt="tamtech logo">
 
+                    <p class="footer-aboutus">In what we do, we seek the disruptive and the distinguished along with the edge. We venture into the unusual and the unconventional. </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-@await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_mainFooter.cshtml")
-
-@await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_bottomBar.cshtml")
-
-<a href="javascript:void(0)" class="back-to-top">
-    <i class="fa fa-angle-double-up"></i>
-</a>
+     <div class="bootom-footer">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                    <div class="col-sm-auto">
+                    @Localizer["Copyright_©_2018_tamtech_solutions._All_rights_reserved."]
+                    </div>
+            </div>
+        </div>
+    </div>
+</footer>

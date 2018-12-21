@@ -1,0 +1,192 @@
+/* .contact{
+   
+   position: relative;
+   &:before{
+       @include absolute(top left ,0);
+       content: '';
+       @include square(100%);
+       background: lighten($deep_navy,57%) ;
+       z-index: -1;
+   }
+   &:after{
+    @include absolute(top left ,0);
+    content: '';
+    @include square(100%);
+    background:   url('#{$img}contact.png') top left repeat;
+    background-size:350px  auto;
+    z-index: -1;
+    opacity: .5;
+   }
+
+   
+
+.section_title{
+    position: relative;
+    margin-bottom : rem(80px);
+    z-index: 1;
+         &:before{
+            
+            color : lighten($deep_navy,59%)  ;
+        } 
+    
+h2{
+    
+     
+    
+    strong{
+        
+        &:before{
+           
+            background: darken(#fff,40%); 
+           
+        }
+        &:after{
+             
+            background: $orange;
+            
+            box-shadow: 0  0 0 8px lighten($deep_navy,57%) , 15px 1px 0 -1px darken(#fff,40%) , -15px 1px 0 -1px  darken(#fff,40%);
+        } 
+
+     
+    } 
+  
+}
+}
+   .form-control{
+       border-color:transparent;
+       background: rgba(#fff,.5);
+       &:focus{
+           border-color:$deep_navy;
+           box-shadow: 0 0 0 rem(3px) rgba($deep_navy , .25);
+       }
+   }
+} 
+
+*/
+
+.contact {
+    position: relative;
+    color: #fff;
+    &:before {
+        @include absolute(top left, 0);
+        content: '';
+        @include square(100%);
+        background: $deep_navy;
+        z-index: -1;
+    }
+    &:after {
+        @include absolute(top left, 0);
+        content: '';
+        @include square(100%);
+        background : url('#{$img}contact.png') top left repeat;
+        background-size: 350px auto;
+        z-index: -1;
+        opacity: .5;
+    }
+    .section_title {
+        position: relative;
+        margin-bottom: rem(80px);
+        z-index: 1;
+        &:before {
+            color: lighten($deep_navy,2%);
+        }
+        h2 {
+            color: #fff;
+            strong {
+                &:before {
+                    background: darken(#fff, 40%);
+                }
+                &:after {
+                    background: $orange;
+                    box-shadow: 0 0 0 8px lighten($deep_navy,4%), 15px 1px 0 -1px darken(#fff, 40%), -15px 1px 0 -1px darken(#fff, 40%);
+                }
+            }
+        }
+        p{
+            color: $light_text;
+        }
+    }
+    .form-control {
+        border: 0;
+        background: rgba(lighten($deep_navy, 60%), .3);
+        color: #fff;
+        transition: all .33s;
+        @include placeholder {
+            color: lighten($deep_navy, 50%);
+        }
+        &:focus {
+            background: #fff;
+            color: #000;
+            box-shadow: none;
+        }
+    }
+    .subtitle {
+        color: lighten( $orange, 10%);
+    }
+
+    a[href^="mailto"]{
+        color: $light_text;
+    }
+}
+
+.contact-info {
+    svg {
+        height: 50px;
+        width: 50px;
+        margin-#{$right}: rem(20px);
+    }
+    .row {
+        margin-bottom: rem(25px);
+    }
+
+    @include media-breakpoint-only(xs){
+        text-align: center;
+
+        svg {
+            margin:0 0 25px 0;
+        }
+        .subtitle {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.subtitle {
+    margin-bottom: 0;
+}
+
+.mb-xs {
+    margin-bottom: rem(10px);
+}
+
+.btn-send {
+    padding: 6px 25px;
+    height: 47px;
+    &:disabled{
+        opacity: 1;
+    }
+    .lds-spinner , svg{
+        @include square(28px);
+    }
+}
+
+.contact-form{
+    input ,textarea {
+        &.invalid_field{
+            color: #641518;
+            background-color: #f3d4d5;
+            border-color: #eec3c4;
+            @include placeholder {
+                color: #641518;
+            }
+        }
+        // &.valid_field{
+            
+        // }
+        + .invalid_field{
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+    }
+}

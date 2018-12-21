@@ -182,7 +182,7 @@ msgstr "مشاركة "
 
 #request qute
 
-msgid "request_qute"
+msgid "request_quote"
 msgstr "عرض سعر"
 
 #-------------------------------------------------------------------------

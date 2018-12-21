@@ -1,0 +1,38 @@
+ 
+.main_topbar{
+    font-size: rem(12px);
+    color:darken($gray-500, 10%);
+    border-bottom: 1px solid $gray-300;
+    .row{
+        height: 35px;
+    }
+    address{
+        display: inline;
+        margin: 0 rem(10px);
+    }
+    a,.btn-link{
+        color:darken($gray-500, 10%); 
+        &:hover{
+            color: $orange;
+            text-decoration: none;
+        }
+    }
+
+    .languages-list {
+        .dropdown-menu{
+            border: 0;
+            background: $deep_navy;
+            box-shadow: 0 0 3px rgba(#000, .1) ,  0px 10px 20px rgba(#000, .05);
+            border-radius: 3px;
+            .dropdown-item{
+               color:  #fff ;
+               transition: all .22s;
+               &:hover,&:focus {
+                   color:  #fff ;
+                   background-color:$blue;
+               }
+            }
+       }
+    }
+}
+ 

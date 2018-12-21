@@ -36,15 +36,17 @@
                 <div class="table-responsive">
                     <table class="table table-middle table-striped sections-table" id="sectionsTable">
                         <thead>
-                        <th width="100" class="text-center">@Localizer["t_image"]</th>
-                        <th>@Localizer["t_title"]</th>
+                            <tr>
+                                <th width="100" class="text-center">@Localizer["t_image"]</th>
+                                <th>@Localizer["t_title"]</th>
 
-                        <th>@Localizer["t_summary"]</th>
+                                <th>@Localizer["t_summary"]</th>
 
-                        <th width="150">@Localizer["t_section_parent"]</th>
+                                <th width="150">@Localizer["t_section_parent"]</th>
 
-                        <th width="100" class="text-center">@Localizer["t_visibility"]</th>
-                        <th width="175">@Localizer["t_actions"]</th>
+                                <th width="100" class="text-center">@Localizer["t_visibility"]</th>
+                                <th width="175">@Localizer["t_actions"]</th>
+                            </tr>
                         </thead>
                         <tbody>
                             @if (Model.Count > 0)

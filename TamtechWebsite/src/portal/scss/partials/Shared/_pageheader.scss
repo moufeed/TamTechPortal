@@ -1,0 +1,55 @@
+
+.page-header{
+    padding: rem(60px) 0;
+    position: relative;
+    background-size: 100% auto;
+    
+    &:before{
+        font-family: $boldfont;
+        @include absolute(top $left ,0);
+        content: attr(data-content);
+        color: rgba(#fff,.35);
+        font-size: 10vw;
+        font-weight: bolder;
+        white-space: nowrap; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include square(100%); 
+        overflow: hidden;
+    }
+    @include media-breakpoint-down(sm){
+        background-position: center;
+        background-size: auto  100%;
+    }
+    @include media-breakpoint-only(md){
+        background-position: center;
+        background-size: cover ;
+    }
+    &:after{
+        @include absolute( top left , 0);
+        @include square(100%); 
+        content: '';
+         background:rgba($deep_navy,.6) url('#{$img}overlays/02.png'); 
+    }
+    .container{
+        z-index: 1;
+        position: relative; 
+        .row-content{
+            min-height: 250px;
+        }
+    }  
+
+    h1{
+        color: #fff;
+        font-size: rem(50px);
+        font-weight: 700;
+       
+        strong{
+            padding:0 rem(15px);
+            border-bottom: 2px solid  $orange;
+        }
+    }
+}
+
+

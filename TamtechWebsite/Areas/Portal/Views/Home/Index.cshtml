@@ -1,73 +1,407 @@
 ﻿
+
+
 @{
     ViewData["Title"] = "TamTech";
+
     Layout = "_Layout";
-    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+
+
 }
-@*<h1>-----------------------------------------------------------------</h1>
-    @inject IStringLocalizer<SharedResources> SharedLocalizer
-    <br />
 
-    <p style="margin-left:20px">@SharedLocalizer["Test"]</p>
-    <p style="margin-left:20px">@SharedLocalizer["Yes"]</p>
-    <p style="margin-left:20px">@SharedLocalizer["Cancel"]</p>
-    <p style="margin-left:20px">@SharedLocalizer["No"]</p>
-    <p style="margin-left:20px">@SharedLocalizer["Save"]</p>
-
-
-    <h1> Test Localization :  @ViewData["Test"]  </h1>
-    <h1> Cancel :  @ViewData["Cancel"]</h1>
-*@
-@*@{ ViewBag.} Public Main Slider Call is here .. To be continued..*@
-
+<partial name="~/Areas/Portal/Views/Home/partials/index/_slider.cshtml"/> 
  
-@*<h1> Normal  Date  :  @DateTime.Now</h1>*@
 
-@await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_slider.cshtml")
-@await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_about.cshtml")
-@await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_services.cshtml")
-@await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_promo.cshtml")
-@await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_testimonials.cshtml")
-@await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_clients.cshtml")
-@section footer{
+
+<section class="our_services section" id="services">
+    <div class="container">
+        <div class="section_title text-center" data-content="What we do?">
+            <h2 data-animate="fadeInUp" data-delay="100">
+                <strong>What we do?</strong>
+            </h2>
+            <p data-animate="fadeInUp" data-delay="200">
+                In what we do, we seek the disruptive and the distinguished along with the edge. We venture into the unusual and the unconventional.<br />
+                We do (System/Service/Product)’s Development, Integration, Performance Management, and Business Intelligence along with the needed advising, consultation, and standardization for companies moving towards or being involved in the process of Digital Transformation.
+            </p>
+        </div>
+        <div class="row services-row">
+            <div class="col-md-4">
+                <article class="service_article">
+                    <svg class="icon" data-animate="fadeInDown" data-delay="100">
+                        <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#solution")" />
+                    </svg>
+                    <h4 data-animate="fadeIn" data-delay="150">
+                        Fully customized solutions
+                    </h4>
+                    <p data-animate="fadeIn" data-delay="175">
+                        Based in your requirements, We design and develop fully customized solutions.
+                    </p>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article class="service_article">
+                    <svg class="icon" data-animate="fadeInDown" data-delay="200">
+                        <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#growth")" />
+                    </svg>
+                    <h4 data-animate="fadeIn" data-delay="225">
+                        Growth focused development
+                    </h4>
+                    <p data-animate="fadeIn" data-delay="250">
+                        Technologies are revolutionizing how we work, entertain, shop, socialize, learn & live. We build Apps that enhance people’s
+                        lives.<br />
+                    </p>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article class="service_article">
+                    <svg class="icon" data-animate="fadeInDown" data-delay="275">
+                        <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#diagram")" />
+                    </svg>
+                    <h4 data-animate="fadeIn" data-delay="300">
+                        Data-driven growth
+                    </h4>
+                    <p data-animate="fadeIn" data-delay="325">
+                        You want to build what your customers need, We help you understand your customers behavior and responsd to their needs.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--
+==================================================
+-->
+<section class="section our_products" id="products">
+    <div class="container">
+        <div class="section_title text-center gray-bg" data-content="Our Products">
+            <h2 data-animate="fadeInUp" data-delay="100">
+                <strong>Our Products</strong>
+            </h2>
+            <p data-animate="fadeInUp" data-delay="300">
+
+            </p>
+        </div>
+        <div class="row align-items-start ">
+            <div class="col-lg-6 mr-auto  col-md-5 ">
+                <img src="~/Portal/img/tamcms.png" data-animate="bounceInLeft" data-delay="150" class="img-fluid" alt="">
+
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <h3 data-animate="flipInX" data-delay="150" class="line-title">
+                    <strong>TAM CMS</strong>
+                </h3>
+                <p data-animate="fadeInUp" data-delay="400">
+                    TAM CMS is fully customizable CMS that empowers your business identity in the digital world.
+
+                </p>
+                <ul data-animate="fadeInUp" data-delay="100" class="list-unstyled opts-list">
+                    <li>Simplicity website means more attention to your customers</li>
+                    <li>All websites nowadays looks similar, your website is not</li>
+                    <li>Understanding your visitor behaviors</li>
+                    <li>Keep your visitors up to date with your company's news and products</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="accessory" />
+        <div class="row align-items-start ">
+            <div class="col-lg-5 col-md-6">
+                <h3 data-animate="flipInX" data-delay="200" class="line-title">
+                    <strong>TAM SHOP</strong>
+                </h3>
+                <p data-animate="fadeInUp" data-delay="400">
+                    TAM SHOP is an eCommerce solution for your digital sales channel.
+                </p>
+                <ul data-animate="fadeInUp" data-delay="100" class="list-unstyled opts-list">
+                    <li>Fully customizable solution</li>
+                    <li>Mobile E-commerce (iOS, Android)</li>
+                    <li>Product Attributions</li>
+                    <li>Marketing Analytics Service Integrations</li>
+                    <li>Payment Gateways Integrations</li>
+                    <li>Shipping and Delivery Integrations</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 ml-auto  col-md-4">
+                <div class="device" data-animate="bounceInRight" data-delay="150">
+                    <img class="screen" src="~/Portal/img/tamshop.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!--
+==================================================
+-->
+<section class="section our_offers" id="offers">
+    <svg id="bigTriangle" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 102" preserveAspectRatio="none">
+        <path d="M0 0 L50 100 L100 0 Z"></path>
+    </svg>
+    <div class="container">
+        <div class="section_title text-center" data-content="What We Offer?">
+            <h2 data-animate="fadeInUp" data-delay="400">
+                <strong>What We Offer?</strong>
+            </h2>
+            <p data-animate="fadeInUp">
+                TamTech seeks to further its journey towards leadership position in the Digital Transformation space with a well differentiated solutions and services portfolio.
+                Our belief in efficiency is the motor of our moving towards customer success in his digital transformation.
+            </p>
+        </div>
+        <div class="row offer-item">
+            <div class="col-sm-auto">
+                <span class="icon">
+                    <svg data-animate="flipInX" data-delay="100">
+                        <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#consulting")" />
+                    </svg>
+                </span>
+            </div>
+            <div class="col">
+                <span>
+                    <h4 data-animate="fadeInDown" data-delay="150" class="mb-3">REQUEST A FREE CONSULTATION</h4>
+                    <p data-animate="fadeInUp" data-delay="200">
+                        TamTech is glad to provide a sort of its Advising service to you in regards of any aspects related to ICT field and
+                        Digital Transformation.
+                    </p>
+
+                    <button type="button" class="btn btn-outline-secondary offer-btn" data-animate="fadeIn" data-delay="200" data-content="I would like to request a free consultation about [write your message]"> Get Started!</button>
+                </span>
+            </div>
+        </div>
+
+        <div class="row offer-item">
+            <div class="col-sm-auto">
+                <span class="icon">
+                    <svg data-animate="flipInX" data-delay="250">
+                        <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#question")" />
+                    </svg>
+                </span>
+            </div>
+            <div class="col">
+                <span>
+                    <h4 data-animate="fadeInUp" data-delay="100" class="mb-3">Mobile and Web Application</h4>
+
+                    <p data-animate="fadeInDown" data-delay="120">
+                        If you are looking forward to providing your customer with a highly reliable and consistent mobile and web app solution,
+                        we have the experience and the knowledge to get your vision comes true.
+
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>Content Management System</li>
+                        <li>E-Commerce Solution</li>
+                        <li>Fully Customized Solution</li>
+                    </ul>
+
+
+                    <button type="button" data-animate="fadeIn" data-delay="350 " class="btn btn-outline-secondary offer-btn" data-content="I would like to know more about mobile and web application service [write your message]"> Get Started!</button>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="row offer-item">
+            <div class="col-sm-auto">
+                <span class="icon">
+                    <svg data-animate="flipInX" data-delay="100">
+                        <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#proposal")" />
+                    </svg>
+                </span>
+            </div>
+            <div class="col">
+                <span>
+                    <h4 data-animate="fadeInDown" data-delay="120">Digital Marketing Services</h4>
+                    <p data-animate="fadeInUp" data-delay="150">
+                        TamTech is looking forward to being engaged with you to provide these services/products equipped by its flavored experiences and experts.
+
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>Corporate Identity includes logo design.</li>
+                        <li>Awareness campaigns through social networks.</li>
+                        <li>Initial marketing content creation.</li>
+                        <li>Digital growth strategy.</li>
+                        <li>Conversion Rate Optimization</li>
+                    </ul>
+
+                    <button type="button" class="btn btn-outline-secondary offer-btn" data-animate="fadeIn" data-delay="500" data-content="I would like to know more about digitial marketting services [write your message]"> Get Started!</button>
+                </span>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+<section class="section contact">
+    <div class="container">
+        <div class="section_title text-center" data-content="Contact Us">
+            <h2 data-animate="fadeInUp" data-delay="400">
+                <strong>Contact Us</strong>
+            </h2>
+            <!--<p data-animate="fadeInUp">
+                TAMTech is glad to hear from you.
+            </p>-->
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6 contact-info">
+                <div class="row " data-animate="fadeIn" data-delay="100">
+                    <div class="col-xs-12 col-sm-auto">
+
+                        <svg>
+                            <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#placeholder") " />
+                        </svg>
+
+                    </div>
+                    <div class="col">
+                        <h5 class="subtitle ">Address</h5>
+                        <Address>
+                            University Mh. E5 bypass Civan Cokak No: 1 <br />
+                            Allure Tower Kat 7 Apartment No: 94 <br />
+                            34320 Avcılar, Istanbul
+                        </Address>
+                    </div>
+                </div>
+                <div class="row" data-animate="fadeIn" data-delay="200">
+                    <div class="col-xs-12 col-sm-auto">
+                        <svg>
+                            <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#phone-call")" />
+                        </svg>
+                    </div>
+                    <div class="col">
+                        <h5 class="subtitle">Mobile Number</h5>
+                        <ul class="list-unstyled">
+                            <li>+90 (535) 415 2865</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" data-animate="fadeIn" data-delay="300">
+                    <div class="col-xs-12 col-sm-auto">
+                        <svg>
+                            <use xlink:href="@Url.Content("~/Portal/img/sprite.svg#mail")" />
+                        </svg>
+                    </div>
+                    <div class="col">
+                        <h5 class="subtitle ">Email</h5>
+                        <a href="mailto:info@tamtech.solutions">info@tamtech.solutions</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5 class="subtitle mb-4">Contact form</h5>
+
+                <form action="@Url.Action("ContactUs","Home")" method="post" class="form contact-form" id="contact_form">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-lg" placeholder="name" name="Name" />
+                    </div>
+                    <div class="from-group form-row">
+                        <div class="col-sm mb-xs" data-animate data-delay="100">
+                            <input type="tel" class="form-control form-control-lg" placeholder="phone" name="Mobile" id="phone" />
+                        </div>
+                        <div class="col-sm" data-animate data-delay="200">
+                            <input type="email" class="form-control form-control-lg" placeholder="email" name="Email" id="email">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3" data-animate data-delay="300">
+                        <textarea cols="30" rows="5" class="form-control" placeholder="message" name="Message"></textarea>
+                    </div>
+                    <div class="form-group" data-animate data-delay="400">
+                        <button class="btn d-flex btn-send align-items-center">
+                            <span>send</span>
+                            <div class="lds-spinner d-none">
+                                <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                    <g transform="rotate(0 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(30 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(60 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(90 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(120 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(150 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(180 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(210 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(240 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(270 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(300 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                    <g transform="rotate(330 50 50)">
+                                        <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#1d3f72">
+                                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                </svg>
+                            </div>
+
+
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+@section scripts{
     <script src="~/Portal/js/slider.min.js"></script>
-    <script src="~/portal/js/owl.carousel.min.js"></script>
-    <script>
-        @{
+    <div class="modal fade" id="ContactModel" tabindex="-1" role="dialog" aria-labelledby="ContactModelLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
 
-        }
-        var isRTL = @((lang =="ar") ? "true" :  "false");
-        $('.testimonials_carousel').owlCarousel({
-            items: 1,
-            loop: true,
-            margin: 10,
-            nav: true,
-            navText: ["&#xf104;", "&#xf105;"],
-            dots: false,
-            rtl: isRTL
-        });
-
-        $('.clients_carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            responsiveClass: true,
-            rtl: isRTL,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: false
-                },
-                600: {
-                    items: 3,
-                    nav: false
-                },
-                1000: {
-                    items: 5,
-                    nav: false,
-                    loop: false
-                }
-            }
-        })</script>
+                <div class="modal-body p-5">
+                    <p> Dear  <strong class="customer_name"></strong>, thanks for reaching out! </p>
+                    <p> We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number listed below to talk to us.</p>
+                    <p>
+                        Mobile No. <span dir="ltr" style="font-family:tahoma">+90 535 415 28 65</span>
+                    </p>
+                    <small>Have a great day!</small>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
 @section SEO {

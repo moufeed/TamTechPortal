@@ -12,7 +12,7 @@
             <h3> @Localizer["services"] <small></small></h3>
         </div>
         <div class="title_right">
-            <a href="@Url.AdminUrl("Create" , "services")"
+            <a href="@Url.AdminUrl("Create", "services")"
                class="btn btn-blue btn-add-new ut-create_btn">@Localizer["new_service"]</a>
 
         </div>
@@ -74,7 +74,7 @@
                                         }
                                         else
                                         {
-                                            <a target="_blank" data-href="@Url.AdminUrl("v","services",new {area = "portal" , slug = item.Slug })" class="ser-title"> @item.Title</a>
+                                            <a target="_blank" data-href="@Url.AdminUrl("v", "services", new { area = "portal", slug = item.Slug })" class="ser-title"> @item.Title</a>
                                         }
 
                                     </td>
@@ -117,7 +117,7 @@
                                                 <a data-toggle="tooltip"
                                                    data-placement="top"
                                                    data-status="true"
-                                                   data-url="@Url.AdminUrl("PublishAsync","services" , new { id = item.Id})"
+                                                   data-url="@Url.AdminUrl("PublishAsync", "services", new { id = item.Id })"
                                                    title="@Localizer["t_unpublish"]"
                                                    data-unpublished="@Localizer["t_unpublished"]"
                                                    data-published="@Localizer["t_published"]"
@@ -130,7 +130,7 @@
                                             {
                                                 <a data-toggle="tooltip"
                                                    data-placement="top"
-                                                   data-url="@Url.AdminUrl("PublishAsync","services" , new { id = item.Id})"
+                                                   data-url="@Url.AdminUrl("PublishAsync", "services", new { id = item.Id })"
                                                    title="@Localizer["t_publish"]"
                                                    data-unpublished="@Localizer["t_unpublished"]"
                                                    data-published="@Localizer["t_published"]"
@@ -146,13 +146,13 @@
                                             <a data-toggle="tooltip"
                                                data-placement="top"
                                                title="@Localizer["t_details"]"
-                                               href="@Url.AdminUrl("Details","services",new { id = item.Id })"
+                                               href="@Url.AdminUrl("Details", "services", new { id = item.Id })"
                                                class="btn btn-view btn-round ut-detail_btn"><i class="fa fa-info "></i></a>
 
                                             <a data-toggle="tooltip"
                                                data-placement="top"
                                                title="@Localizer["t_edit"]"
-                                               href="@Url.AdminUrl("Edit" ,"services",new { id = item.Id })"
+                                               href="@Url.AdminUrl("Edit", "services", new { id = item.Id })"
                                                class="btn btn-edit btn-round ut-edit_btn"><i class="fa fa-edit "></i></a>
                                             <if include-if="item.Locked">
                                                 <span data-toggle="tooltip"
@@ -189,14 +189,14 @@
                         </tbody>
                     </table>
                 </div>
-                 <hr class="m-y-2" />
-                    <pagination controller-name="services" filter-model="ViewBag.FilterModel" pagniation-model="ViewBag.pagination" total="true"></pagination>
-                 
+                <hr class="m-y-2" />
+                <pagination controller-name="services" filter-model="ViewBag.FilterModel" pagniation-model="ViewBag.pagination" total="true"></pagination>
+
             </div>
         </div>
     </div>
 </div>
- 
+
 
 @section Styles{
     <link href="~/Admin/lib/select2/dist/css/select2.min.css" rel="stylesheet" />

@@ -49,8 +49,8 @@
                                         @if (item.Published)
                                         {
 
-                                            <a asp-area="Portal" asp-action="v" asp-controller="pages" asp-route-slug="@item.Slug" 
-                                                class="underline ser-title" target="_blank">
+                                            <a asp-area="Portal" asp-action="v" asp-controller="pages" asp-route-slug="@item.Slug"
+                                               class="underline ser-title" target="_blank">
                                                 @item.Title
                                             </a>
                                         }
@@ -58,7 +58,7 @@
                                         {
                                             <a target="_blank" data-href="@Url.AdminUrl("v","pages",new {area = "portal" , slug = item.Slug })" class="ser-title"> @item.Title</a>
                                         }
-                                         
+
                                     </td>
 
                                     <td class="text-center">@item.CreatedDate.ToString("yyyy/MM/dd")</td>
@@ -89,11 +89,11 @@
                                             @if (@item.Published)
                                             {
                                                 <a id="pubunpub-@i"
-                                                   data-toggle="tooltip"
+                                                   @*data-toggle="tooltip" *@
                                                    data-placement="top"
                                                    data-id="@item.Id"
                                                    data-status="true"
-                                                   title="@Localizer["t_publish"]"
+                                                   @*title="@Localizer[" t_unpublish"]"*@
                                                    data-url="@Url.AdminUrl("Publish","Pages", new { type = item.TypeEnum , id = item.Id } )"
                                                    class="btn btn-link-pup ptrue ut-published ">
                                                     <i class="fa fa-eye c-green"></i>
@@ -104,10 +104,10 @@
                                             {
 
                                                 <a id="pubunpub-@i"
-                                                   data-toggle="tooltip"
+                                                   @*data-toggle="tooltip" *@
                                                    data-placement="top"
                                                    data-id="@item.Id"
-                                                   title="@Localizer["t_unpublish"]"
+                                                   @*title="@Localizer[" t_publish"]"*@
                                                    data-url="@Url.AdminUrl("Publish","Pages", new { type = item.TypeEnum , id = item.Id } )"
                                                    class="btn btn-link-pup ut-unpublished">
                                                     <i class="fa fa-eye-slash c-red"></i>
@@ -168,16 +168,16 @@
                     </table>
                 </div>
 
-                 <hr class="m-y-2" />
-                    <pagination controller-name="pages" filter-model="ViewBag.FilterModel" pagniation-model="ViewBag.pagination" total="true"></pagination>
-                 
+                <hr class="m-y-2" />
+                <pagination controller-name="pages" filter-model="ViewBag.FilterModel" pagniation-model="ViewBag.pagination" total="true"></pagination>
+
 
             </div>
         </div>
     </div>
 </div>
 
- 
+
 @section Styles{
     <link href="~/Admin/lib/select2/dist/css/select2.min.css" rel="stylesheet" />
 }
@@ -186,12 +186,12 @@
 @section Scripts {
     <script>
         window.pageLocalization  = {
-            "t_unpublish " :"@Localizer["t_unpublish"]",
-            "t_unpublished " :"@Localizer["t_unpublished"]",
-            "unpublished_successfully " :"@Localizer["unpublished_successfully"]",
-            "t_publish " :"@Localizer["t_publish"]",
-            "t_published " :"@Localizer["t_published"]",
-            "published_successfully " :"@Localizer["published_successfully"]"
+            "t_unpublish" :"@Localizer["t_unpublish"]",
+            "t_unpublished" :"@Localizer["t_unpublished"]",
+            "unpublished_successfully" :"@Localizer["unpublished_successfully"]",
+            "t_publish" :"@Localizer["t_publish"]",
+            "t_published" :"@Localizer["t_published"]",
+            "published_successfully" :"@Localizer["published_successfully"]"
         }
     </script>
     <script src="~/Admin/js/pages.min.js"></script>

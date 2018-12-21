@@ -1,0 +1,33 @@
+.footer{
+    background: $footerBg;
+    padding-top:15px;
+    color: #7f88a6;
+    padding-top:rem(75px); 
+}
+
+
+ .top-footer{
+    border-bottom: 1px solid #e9ecf3;
+     .container > .row {
+        min-height: 250px;
+     }
+    
+    .footer-logo{
+        height: 80px;
+    }
+    .footer-aboutus{
+        margin-top: 25px;
+        color: #677294;
+    }
+ }
+
+
+ 
+.bootom-footer{    
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 27px 0px;
+}
+ 
+

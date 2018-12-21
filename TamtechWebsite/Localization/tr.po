@@ -187,7 +187,7 @@ msgstr "Bu Yazıyı Paylaş"
 
 #request qute
 
-msgid "request_qute"
+msgid "request_quote"
 msgstr "Fiyatlandırma Talebi"
 
 #-------------------------------------------------------------------------

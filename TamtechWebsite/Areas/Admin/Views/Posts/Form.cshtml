@@ -62,11 +62,11 @@
                       method="post"
                       class="form-horizontal forn-new form-label-left"
                       id="PostForm" enctype="multipart/form-data">
-                    <input type="hidden" name="Lang" value="@ViewContext.RouteData.Values["lang"]" />
+                    <input type="hidden" name="Lang" value="@activeLang" />
 
                     @if (!ViewData.ModelState.IsValid)
                     {
-                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        <div asp-validation-summary="All" class="alert alert-danger"></div>
                     }
 
                     @if (ViewBag.IsEditMode)

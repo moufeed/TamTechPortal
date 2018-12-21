@@ -185,10 +185,10 @@ msgid "share_this_post"
 msgstr "Share this Post"
 
 
-#request qute
+#request quote
 
-msgid "request_qute"
-msgstr "Request Qute"
+msgid "request_quote"
+msgstr "Request a quote"
 
 #-------------------------------------------------------------------------
 #:admin panel
@@ -1707,3 +1707,58 @@ msgstr "More info"
 
 msgid "fullscreen"
 msgstr "Fullscreen"
+
+
+
+#::--------------------------------------------------------------------------------------------
+#::------- tamtech website ------------------------------------------------------------------
+#::--------------------------------------------------------------------------------------------
+
+msgid "request"
+msgstr "Request a quote"
+
+msgid "Address_value"
+msgstr "Üniversite Mah. E5 Yanyol No: 54 Avcılar / Istanbul"
+
+msgid "feel_like_talking"
+msgstr "Feel like talking"
+
+msgid "need_help"
+msgstr "Need help?"
+
+msgid "visit_us"
+msgstr "Visit us"
+
+msgid "Get_in_Touch_msg"
+msgstr "Feel free to get in touch with us. we are always open to discussing new projects, creative ideas or opportunities to be part of your visions."
+
+msgid "Dear"
+msgstr "Dear"
+
+msgid "thanks_for_reaching_out"
+msgstr "thanks for reaching out!"
+
+msgid "We_have_received_your_message"
+msgstr "We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number listed below to talk to us."
+
+msgid "Mobile_no"
+msgstr "Mobile No."
+
+msgid "Have_a_great_day"
+msgstr "Have a great day!"
+
+# : request quoto page
+msgid "request_lead_msg"
+msgstr "iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
+
+msgid "thank_you_for_your_quote_request"
+msgstr "Thank You for Your Quote Request"
+
+msgid "We_appreciate_your_taking_the_time_to_submit_your_quote_request"
+msgstr "We appreciate your taking the time to submit your quote request. You will hear from a Tam tech  by phone or email within 24 business hours of receiving your quote request."
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid ""
+msgstr ""

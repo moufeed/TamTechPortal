@@ -1,4 +1,10 @@
-﻿<!doctype html>
+﻿@inject Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnv
+@using Microsoft.AspNetCore.Hosting
+@{
+    string activeController = ViewContext.RouteData.Values["Controller"].ToString();
+    string activeAction = ViewContext.RouteData.Values["Action"].ToString();
+}
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,54 +14,74 @@
     @RenderSection("SEO", required: false)
     <link rel="shortcut icon" href="~/Portal/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="~/Portal/img/favicon.ico" type="image/x-icon">
-    @{ 
-        var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-
-        var styleFile = (lang == "ar") ? "style-rtl.min.css" : "style-ltr.min.css";
-    }
-    <link rel="stylesheet" href="~/Portal/css/@styleFile">
+    @{ var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName; }
+    <link rel="stylesheet" href="~/Portal/css/@((lang == "ar") ? "style-rtl.min.css" : "style-ltr.min.css")">
     @RenderSection("meta", required: false)
     @if (IsSectionDefined("header"))
     {
         @RenderSection("Styles", required: false)
     }
-
-
+    @if (hostingEnv.IsProduction())
+    {
+        <!-- Google Tag Manager   -->
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TJMQJMR');</script>
+        <!-- End Google Tag Manager  -->
+    }
 </head>
 <body>
 
-    @using IdentityServer4.Extensions
-            @{
-                string name = null;
-                if (!true.Equals(ViewData["signed-out"]))
-                {
-                    name = Context.User?.GetDisplayName();
-                }
-            }
+    @if (hostingEnv.IsProduction())
+    {
 
-                <ul class="nav navbar-nav navbar-right">
-                   
-            @if (!string.IsNullOrWhiteSpace(name))
-            {
-                  @await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_AdminBar.cshtml",@name)
-            }
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJMQJMR"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+    }
+
+    <partial name="partials/_AdminBar.cshtml" />
+    <partial name="partials/_TopBar.cshtml" />
+    <partial name="partials/_MainHeader.cshtml" />
 
 
-    @await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_Header.cshtml")
+     
+
 
     @RenderBody()
-    
-    @await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_Footer.cshtml")
 
 
+    @if(activeController =="home"  && activeAction == "index"){
+         
+    }else{
+        <partial name="partials/_Footer.cshtml" />
+    }
+ 
 
     <script src="~/Portal/js/bundle.min.js"></script>
+    @RenderSection("scripts", required: false)
     <script src="~/Portal/js/script.min.js"></script>
-    @RenderSection("footer", required: false)
 
+
+
+    <a href="#" class="back-to-top">
+        <svg viewBox="0 0 32.634 32.634">
+            <path d="M16.317,32.634c-0.276,0-0.5-0.224-0.5-0.5V0.5c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5v31.634
+           C16.817,32.41,16.594,32.634,16.317,32.634z" />
+            <path d="M28.852,13.536c-0.128,0-0.256-0.049-0.354-0.146L16.319,1.207L4.135,13.39c-0.195,0.195-0.512,0.195-0.707,0
+           s-0.195-0.512,0-0.707L15.966,0.146C16.059,0.053,16.186,0,16.319,0l0,0c0.133,0,0.26,0.053,0.354,0.146l12.533,12.536
+           c0.195,0.195,0.195,0.512,0,0.707C29.108,13.487,28.98,13.536,28.852,13.536z" />
+        </svg>
+    </a>
 </body>
 </html>
-
 
 
 

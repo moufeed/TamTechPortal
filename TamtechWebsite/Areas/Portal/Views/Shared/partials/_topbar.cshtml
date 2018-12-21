@@ -1,50 +1,50 @@
 @{
-
-    string _lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName; 
+    string _lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var controller = ViewContext.RouteData.Values["Controller"].ToString();
+    var action = ViewContext.RouteData.Values["Action"].ToString();
+    var routeValues = ViewBag.LanguageTabsRouteValues != null ? (Microsoft.AspNetCore.Routing.RouteValueDictionary)ViewBag.LanguageTabsRouteValues : new Microsoft.AspNetCore.Routing.RouteValueDictionary(); ;
+    routeValues.Add("culture", _lang);
 }
-<div class="topbar d-none d-sm-flex justify-content-end align-items-center pt-3 mb-3">
-    <nav class="header-nav-top ">
-        <ul class="nav nav-pills">
-            <li class="nav-item ">
-                <a href=""> <i class="fa fa-envelope" aria-hidden="true"></i> @Localizer["mail_Us"]</a>
-            </li>
-            <li class="nav-item">
-                <span class="ws-nowrap"><i class="fa fa-phone"></i> +9053533333</span>
-            </li>
-        </ul>
-    </nav>
-    @*
-        @using (Html.BeginForm("index", "Search", FormMethod.Get, new
-        {/*#4D394B*/
 
-            @class = "header-search d-none d-md-block",
-            id = "searchForm"
-        }))
-        {
-
-            <div>
-                <input type="text" class="form-control" name="q" id="q" placeholder="Search...">
-                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+<div class="main_topbar">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-sm-auto">
+                   <address >
+                        @Localizer["Address_value"]
+                   </address>
+                   <a href="tel:00905354152865" dir="ltr" class="phonenumber">05354152865</a>
             </div>
-        }
-    *@
-  
-       
-    <div class="dropdown">
-        <a class="btn btn-language dropdown-toggle text-uppercase" role="button"
-           id="languageMenu"
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         @_lang.ToUpper()
-        </a>
-        <div class="p-0 dropdown-menu" aria-labelledby="languageMenu">
-            @foreach (var culture in TamtechWebsite.Settings.Cultures.CultureConstants.CulturesList)
-            {
-
-                <a class="dropdown-item @((_lang == culture.Lang) ? "active" :"" )"
-                   href="/@culture.Culture/portal">@culture.Name</a>
-
-            }
+            <div class="col-sm-auto">
+                <div>
+                    <if include-if="CultureConstants.CulturesList?.Count > 1">
+                        <div class="languages-list">
+                            <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @foreach (var culture in CultureConstants.CulturesList)
+                                { 
+                                    @if (_lang == culture.Lang)
+                                    {
+                                        @culture.Name
+                                    }
+                                }
+                            </button>
+                            <div class="dropdown-menu">
+                                @foreach (var culture in CultureConstants.CulturesList)
+                                {
+                                    routeValues["culture"] = culture.Lang;
+                                    @if (_lang != culture.Lang)
+                                    {
+                                        <a href="@Url.AdminUrl(action,controller,routeValues)" class="dropdown-item"> @culture.Name </a>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </if>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
+
+
+ 
