@@ -34,6 +34,7 @@ namespace TamtechWebsite.TagHelpers
                       { MenuItemTypeEnum.staticpage.ToString()  , $"/{culture}/portal" },
                       { MenuItemTypeEnum.service.ToString()  , $"/{culture}/portal/services/v" },
                       { MenuItemTypeEnum.section.ToString()  , $"/{culture}/portal/posts/s" },
+                      { MenuItemTypeEnum.gallery.ToString()  , $"/{culture}/portal/galleries/v" }
                    };
         }
   
@@ -131,6 +132,14 @@ namespace TamtechWebsite.TagHelpers
                 stringBuilder.Append(li);
             }
             #endregion
+
+            #region gallery
+            if (Menu.ItemType.Equals(MenuItemTypeEnum.gallery.ToString(), StringComparison.OrdinalIgnoreCase))
+            {
+                Create_Nav_Item(Menu, stringBuilder, (string)paths[MenuItemTypeEnum.gallery.ToString()]);
+            }
+            #endregion
+
         }
 
 
