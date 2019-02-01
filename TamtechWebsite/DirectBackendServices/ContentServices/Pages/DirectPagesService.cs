@@ -9,6 +9,8 @@ using TamTechSDK.Common.Models.Pagination;
 using TamTechSDK.Common.Models.Sort;
 using TamTechSDK.Common.Providers.Requests.Models;
 using TamTechSDK.Common.Services.ContentService.Pages.Models;
+using TamTechSDK.Common.Services.ContentService.Pages;
+using TamTechBackendSDK.ContentService.Services.Pages.Enums;
 
 namespace TamtechWebsite.DirectBackendServices.ContentServices.Pages
 {
@@ -36,11 +38,16 @@ namespace TamtechWebsite.DirectBackendServices.ContentServices.Pages
 
         #region {Public Pages}  
 
-
-        public async Task<IRequestProviderResult<PageDto>> GetPublicBySlugAsync(string slug)
+        public async Task<PageDto> GetPublicBySlugAsync(string slug)
         {
-            var result = await _pageService.GetPublicBySlugAsync(slug);
-            return ReturnResult(result?.MapToFrontendDto());
+            var backendpage = await _pageService.GetPublicBySlugAsync(slug);
+            if (backendpage == null) return null;
+            var page = backendpage?.MapToFrontendDto();
+            if (backendpage.Type == (int)PageTypeEnum.Html)
+                page.HtmlContent = ((TamTechBackendSDK.ContentService.Services.Pages.Dtos.HtmlPageDto)backendpage).Content;
+            else
+                page.SectionsContent = ((TamTechBackendSDK.ContentService.Services.Pages.Dtos.SectionsPageDto)backendpage).Content;
+            return page;
         }
 
         public async Task<IRequestProviderResult<PageSummary>> GetPublicPageSummaryByIdAsync(Guid id)
@@ -154,6 +161,8 @@ namespace TamtechWebsite.DirectBackendServices.ContentServices.Pages
             TamTechBackendSDK.ContentService.Models.Results.IReturnResultModel<bool> result = await _pageService.SoftDeleteSectionsPageAsync(id);
             return MapRequestProviderResult(result);
         }
+
+       
 
 
 

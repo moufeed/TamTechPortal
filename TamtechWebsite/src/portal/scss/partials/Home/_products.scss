@@ -21,7 +21,7 @@
            @include absolute(top $left, 12px -25px);
            @include square(6px);
            border-radius: 50%;
-           background: $orange;  
+           background: $mainColor;  
         }
 
         @include media-breakpoint-only(xs){
@@ -49,7 +49,7 @@
         @include absolute(top left , 0 );
         @include size(4px, 100%);
         content: '';
-        background: $orange;
+        background: $mainColor;
     }
      
     strong{

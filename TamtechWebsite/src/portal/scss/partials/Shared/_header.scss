@@ -54,13 +54,13 @@ body{
 .btn-started.nav-link{
     
     @include media-breakpoint-up(sm){
-        background: lighten($orange ,15%);
+        background: lighten($mainColor ,15%);
         transition: all .33s;
         color: #fff !important;
         border-radius: 5px;
         margin-#{$left}:15px; 
         &:hover{
-            background: $orange;
+            background: $mainColor;
         } 
     }
 }
@@ -96,10 +96,10 @@ body{
             }
         }
         .nav-item:last-of-type a{
-            color: $orange;
+            color: $mainColor;
             padding-#{$left}: rem(5px); 
                 &:hover{
-                    background: $orange;
+                    background: $mainColor;
                     color: #fff;
                 }
         }

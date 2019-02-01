@@ -3,7 +3,7 @@
     ViewData["Title"] = Localizer["create_sections_page"];
     ViewData["UnitTestPageClass"] = "ut-createPage";
     int indx = 0;
-    var activeLang = DataCultureHelper.GetCurrent(Context.Request.Query);
+     var activeLang = DataCultureHelper.GetCurrent(Context.Request.Query);
 }
 
 
@@ -219,13 +219,17 @@
         function tinymceInit(){
             tinymce.init({
                 selector: 'textarea[id^="Content-"]',
+                force_br_newlines: true,
+                force_p_newlines: false,
+                forced_root_block :false,
                 branding: false,
                 theme: 'modern',
                 min_height: 150,
                 statusbar: false,
                 menubar: false,
-
-                plugins: ['code hr anchor pagebreak spellchecker '],
+         
+                plugins: ['code hr anchor pagebreak spellchecker directionality code'],
+                toolbar :['undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify  |   fontselect fontsizeselect  | outdent indent   | code  |  hr ltr rtl |blockquote     removeformat '],
                 setup: function(editor) {
                     editor.on('change', function(e) {
                         editor.save();
@@ -265,6 +269,7 @@
         $(document).on('click', '.remove-content', function () {
             if (i > 1) {
                 let id = $(this).data('id');
+        tinymce.get("Content-"+id).remove();
                 $('#section-' + id).remove();
                 if (id < (i - 1)) {
                     let sections = $('#ContentItems').find('section');

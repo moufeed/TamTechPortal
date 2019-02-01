@@ -111,7 +111,7 @@
           @include square(6px);
           @include absolute(top $left, 33% -25px);
           border-radius: 50%;
-          background: $orange;
+          background: $mainColor;
         }
       }
     }
@@ -128,7 +128,7 @@
       transition: all .3s;
       outline: none !important;
       &.active{
-        background: $orange;
+        background: $mainColor;
         transform: scale(1.3);
       }
     }
@@ -151,7 +151,7 @@
         @include square(6px);
         @include absolute(top $left, 40% -25px);
         border-radius: 50%;
-        background: $orange;
+        background: $mainColor;
       }
     }
   }

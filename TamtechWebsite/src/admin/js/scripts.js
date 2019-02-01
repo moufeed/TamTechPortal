@@ -1,23 +1,5 @@
 ﻿ 
-defaultLocalization ={
-    "error" : 'Error',
-    "success" : "success",
-    "deleted" : "Deleted!",
-    "deleted_successfully" : "Deleted successfully", 
-    "item_deleted" : "Item has been deleted.",
-    "confirm_title" :  "Are you sure?",
-    "confirm_text" : "You won\'t be able to revert this!",
-    "confirm_yes" :"Yes",
-    "Confirm_cancel" : "Cancel",
-    "characters" : "Characters",
-    "text_will_be_truncated" : "be careful your text will be truncated" ,
-    "text_count_be_more_than" : "text count be more than 300 characters long",
-    "updateted_successfully" : "updateted successfully",
-    "something_wrong" : "Something wrong",
-    "published_successfully" : "published successfully",
-    "unpublished_successfully" : "unpublished successfully",
-}
-   window.localization = $.extend({}, defaultLocalization ,window.customLocalization || {});
+
  
  (function ($, sr) {
      // debouncing function from John Hann
@@ -200,7 +182,17 @@ defaultLocalization ={
 
 
  $(document).ready(function () {
+    $('[data-toggle="popover"]').popover();
     $('[data-toggle="tooltip"]').tooltip();
+
+    $('.popover-image').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'top',
+        content: function(){return '<img src="'+$(this).data('img') + '"  class="img-responsive '+ $(this).data("img-class") + '" />';}
+      });
+
+    
  });
   
   window.aspectRatio = function (img, target) {
@@ -306,7 +298,10 @@ function RemoveItem (table , itm ){
                          
                     }else{
                         var errors = data.errors;
-                        $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                        if (errors.length > 0) {
+                            txt = MakeErrorsMsg(errors);
+                            $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                        }
                     }
                 })
                 .fail(function (jqXHR, Status) {
@@ -405,10 +400,12 @@ function togglePublishBtn($this , status , published ,unpublished){
             $this.removeClass('unpublished ut-unpublished').addClass('published ut-published');
             $this.find('small').text( published || 'published');
             $this.find('i').removeClass('fa fa-spinner fa-pulse').addClass('fa fa-eye c-green');
+            $this.attr("data-original-title",window.localization.unpublish)
         }else{
             $this.removeClass('published ut-published').addClass('unpublished ut-unpublished');
             $this.find('small').text(unpublished || 'unpublished');
             $this.find('i').removeClass('fa fa-spinner fa-pulse').addClass('fa fa-eye-slash c-red');
+            $this.attr("data-original-title",window.localization.publish)
         }
     }else{
         if($this.hasClass('unpublished'))
@@ -636,3 +633,20 @@ function toggleFullscreen(elem) {
   }
   
 $(".fullscreen").click(function(){toggleFullscreen()});
+
+
+
+const MakeErrorsMsg = (errors)=>{
+
+    let txt = "";
+    errors.forEach((el)=>{
+        txt += `<strong>${window.localization[el.key]}</strong>`;
+        let div = "<div>";
+        el.value.map((vl)=> div += `${vl}<br/>`)
+        div += "</div>";
+        txt += div;
+    }) 
+
+    return txt;
+}
+ 

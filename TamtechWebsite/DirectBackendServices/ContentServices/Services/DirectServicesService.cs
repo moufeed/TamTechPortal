@@ -91,7 +91,12 @@ namespace TamtechWebsite.DirectBackendServices.ContentServices.Services
             return GetRequestProviderResult(service?.MapToFrontendDto());
         }
 
-
+        public async Task<IRequestProviderResult<List<ServiceDto>>> GetPublicListAsync(string slug)
+        {
+            var services = await _servicesService.GetPublicListAsync(slug);
+            List<ServiceDto> servicesDto = services?.Select(m => m.MapToFrontendDto()).ToList();
+            return GetRequestProviderResult(servicesDto);
+        }
 
 
         public async Task<IRequestProviderResult<List<ServiceDto>>> GetPublicListAsync()
@@ -178,6 +183,8 @@ namespace TamtechWebsite.DirectBackendServices.ContentServices.Services
             var result = await _servicesService.PublishAsync(data.MapToBackend());
             return MapRequestProviderResult(result);
         }
+
+        
 
 
 

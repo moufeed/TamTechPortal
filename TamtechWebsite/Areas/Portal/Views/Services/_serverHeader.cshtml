@@ -1,0 +1,47 @@
+﻿@model ServiceDto
+ 
+@{
+    var ImageURl = (string.IsNullOrEmpty(Model.MainImage)) ? @Url.Content("~/portal/img/headers/services.jpg") : Model.MainImage;
+
+}
+ 
+
+<header class="page-header" data-zoom="@ImageURl">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-10 col-lg-7">
+                <h1><span>@Model.Title</span></h1>
+
+                <div class="d-flex page-meta flex-wrap">
+                    <div>
+                        <span>@Localizer["published"]</span>
+                        <span>@Model.CreatedDate.ToString("MMM dd, yyyy")</span>
+                    </div>
+
+
+
+                    @if (Model.ModifiedDate != null)
+                    {
+                        <div>
+                            <span>@Localizer["ModifiedDate"]</span>
+                            @{
+                                string Mdate = (Model.ModifiedDate != null) ? Model.ModifiedDate.Value.ToString("MMM dd, yyyy") : "";
+                            }
+                            <span>@Mdate</span>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.Section))
+                    {
+                        <div>
+                            <span>@Localizer["Section"]</span>
+                            <span>@Model.Section</span>
+                        </div>
+                    }
+                  
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

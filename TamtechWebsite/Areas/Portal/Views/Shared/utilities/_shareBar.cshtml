@@ -1,0 +1,112 @@
+﻿    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor accessor
+@{
+    Uri GetAbsoluteUri()
+    {
+
+        UriBuilder uriBuilder = new UriBuilder();
+        uriBuilder.Scheme = accessor.HttpContext.Request.Scheme;
+        uriBuilder.Host = accessor.HttpContext.Request.Host.Host;
+        uriBuilder.Path = accessor.HttpContext.Request.Path.ToString();
+        uriBuilder.Query = accessor.HttpContext.Request.QueryString.ToString();
+        return uriBuilder.Uri;
+    }
+
+    var url = GetAbsoluteUri();
+}
+<nav class="socail_bar">
+    
+<a href="https://twitter.com/share?url=@url"
+   title="Share on Twitter" class="share-btn">
+    
+    <i class="fab fa-twitter"></i>
+</a>
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=@url"
+   title="Share on Facebook" class="share-btn">
+    <i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://plus.google.com/share?url=@url"
+   title="Share on Google+" class="share-btn">
+      <i class="fab fa-google-plus-g"></i>
+</a>
+
+<a href="http://www.reddit.com/submit?url=@url"
+   title="Share on Reddit+" class="share-btn">
+     <i class="fab fa-reddit-alien"></i>
+</a>
+
+<a href="https://www.tumblr.com/share/link?url=@url"
+   title="Share on Tumblr" class="share-btn">
+    <i class="fab fa-tumblr"></i>
+</a>
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=@url"
+   title="Share on LinkedIn" class="share-btn">
+     <i class="fab fa-linkedin-in"></i>
+</a>
+
+ 
+
+<a href="http://www.stumbleupon.com/submit?url=@url"
+   title="Share on StumbleUpon" class="share-btn">
+   <i class="fab fa-stumbleupon"></i>
+</a>
+
+ 
+
+<a  href="mailto:?subject=Share Buttons Demo&body=@url"
+   title="Share via Email">
+    <i class="far fa-envelope-open"></i>
+</a>
+
+<a href="https://www.addtoany.com/share_save?linkurl=@url"
+   title="More share options"   class="share-btn">
+     
+    <i class="fas fa-plus"></i>
+</a>
+</nav>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (function () {
+
+        var shareButtons = document.querySelectorAll(".share-btn");
+
+        if (shareButtons) {
+            [].forEach.call(shareButtons, function (button) {
+                button.addEventListener("click", function (event) {
+                    var width = 650,
+                     height = 450;
+                    event.preventDefault();
+                    window.open(this.href, 'Share Dialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=' + width + ',height=' + height + ',top=' + (screen.height / 2 - height / 2) + ',left=' + (screen.width / 2 - width / 2));
+                });
+            });
+        }
+
+    })();
+
+</script>
+
+
+ 

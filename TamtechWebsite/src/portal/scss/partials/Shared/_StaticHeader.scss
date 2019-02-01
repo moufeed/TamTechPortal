@@ -1,6 +1,6 @@
 
-.page-header{
-    padding: rem(60px) 0;
+.static-header{
+    //padding: rem(60px) 0;
     position: relative;
     background-size: 100% auto;
     
@@ -30,7 +30,9 @@
         @include absolute( top left , 0);
         @include square(100%); 
         content: '';
-         background:rgba($deep_navy,.6) url('#{$img}overlays/02.png'); 
+         background:rgba($deep_navy,.6) ; 
+         @include linears(45deg ,rgba($deep_navy,.9) , rgba($deep_navy,.9), transparent 50);
+        // @include  repeatlinear(-45deg,rgba($deep_navy,.1) 15px ,rgba($deep_navy,.5) 40px,rgba($deep_navy,.1) 25px); 
     }
     .container{
         z-index: 1;
@@ -44,10 +46,12 @@
         color: #fff;
         font-size: rem(50px);
         font-weight: 700;
-       
+       @include media-breakpoint-down(sm){
+           font-size: rem(30px); 
+       }
         strong{
             padding:0 rem(15px);
-            border-bottom: 2px solid  $orange;
+            border-bottom: 2px solid  $mainColor;
         }
     }
 }

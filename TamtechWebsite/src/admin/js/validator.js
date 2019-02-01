@@ -129,7 +129,7 @@ $("#DiscountPrice").on('keyup',function(){
     Productvalidator.element( "#Price" );
 })
 
-$('#BrandForm ,#CategoriesForm ,#ListPageForm ,#EmailForm ,#CreateUserForm'   ).validate({
+$('#BrandForm ,#CategoriesForm ,#ListPageForm ,#EmailForm ,#CreateUserForm ,#GalleryItemForm'   ).validate({
     errorClass: "invalid_field",
     validClass: "valid_field",
     ignore: ".ignore",

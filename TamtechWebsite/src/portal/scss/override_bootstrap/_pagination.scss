@@ -1,0 +1,36 @@
+.pagination {
+  @include border-radius(0);
+} 
+
+.page-link {
+  border: 0 ;
+  color: $dark_text;
+  &:hover {
+    border:0;
+  }
+  &:focus {
+    z-index: 2;
+    outline:none;
+    box-shadow: none;
+  }
+} 
+
+.page-item {
+  &:first-child {
+    .page-link {
+      margin-left: 0; 
+      @include border-left-radius(0);
+    }
+  }
+  &:last-child {
+    .page-link {
+      @include border-right-radius(0);
+    }
+  }
+
+  &.active .page-link {
+    border:0;
+  }
+}
+
+ 

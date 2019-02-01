@@ -4,22 +4,28 @@
     color:darken($gray-500, 10%);
     border-bottom: 1px solid $gray-300;
     .row{
-        height: 35px;
+        @include media-breakpoint-up(md){
+            height: 35px;
+        }
     }
-    address{
+    address{ 
         display: inline;
         margin: 0 rem(10px);
     }
     a,.btn-link{
         color:darken($gray-500, 10%); 
         &:hover{
-            color: $orange;
+            color: $mainColor;
             text-decoration: none;
         }
     }
 
     .languages-list {
         .dropdown-menu{
+            @include if-ltr{
+                left: unset;
+                right: 0;
+            }
             border: 0;
             background: $deep_navy;
             box-shadow: 0 0 3px rgba(#000, .1) ,  0px 10px 20px rgba(#000, .05);

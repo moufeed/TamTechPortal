@@ -1,6 +1,5 @@
 
-@import 'lib/slider' ,
-        'lib/flaticon';
+@import 'lib/slider' ;
   
 @import 
 
@@ -9,7 +8,9 @@
 'partials/Shared/mainHeader',
 'partials/Shared/topbar',
 'partials/Shared/footer',
-'partials/Shared/pageheader',
+'partials/Shared/StaticHeader',
+
+'partials/Shared/shareBar',
 
 
 //home
@@ -24,6 +25,16 @@
 
 
 // Blog
-'partials/Blog/BlogList'
+'partials/Blog/BlogList',
+'partials/Blog/_blog_header',
+'partials/Blog/blog',
+
+// pages
+'partials/pages/pageheader',
+
+// services
+'partials/Services/index',
+'partials/Services/server_header',
+'partials/Services/details'
 ;  
  

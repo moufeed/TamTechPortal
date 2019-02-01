@@ -5,19 +5,24 @@
 <nav class="my-4">
     <ul class="pagination">
 
+
+
+
         @if (Model.SectionInfo != null)
         {
             @if (Model.Pagination != null && Model.Pagination.TotalPages > 1)
             {
-                @if (Model.Pagination.PreviousPage)
-                {
-                    <li class="page-item ">
-                        @{ int PreviousPage = Int32.Parse(Model.Pagination.PageNumber) - 1; }
 
-                        <a class="page-link" href="@Url.AdminUrl("s", "posts", new { PageNumber = PreviousPage.ToString(),
-                                                  slug = Model.SectionInfo.Slug.Trim('/') }).Replace("%2F", "/")" tabindex="-1">@Localizer["Previous"]</a>
-                    </li>
-                }
+                <li class="page-item @((Model.Pagination.PreviousPage) ? "" :"disabled")">
+                    @{ int PreviousPage = Int32.Parse(Model.Pagination.PageNumber) - 1; }
+
+                    <a class="page-link" href="@Url.AdminUrl("s", "posts", new { PageNumber = PreviousPage.ToString(),
+                                                  slug = Model.SectionInfo.Slug.Trim('/') }).Replace("%2F", "/")" tabindex="-1">
+                        &#8426;  &nbsp;&nbsp; @Localizer["Previous"]
+                    </a>
+                </li>
+
+
 
                 @for (int i = 1; i <= Model.Pagination.TotalPages; i++)
                 {
@@ -28,16 +33,16 @@
                     </li>
                 }
 
-                @if (Model.Pagination.NextPage)
-                {
-                    <li class="page-item ">
-                        @{ int NextPage = Int32.Parse(Model.Pagination.PageNumber) + 1; }
+                <li class="page-item @((Model.Pagination.NextPage) ? "" :"disabled")">
+                    @{ int NextPage = Int32.Parse(Model.Pagination.PageNumber) + 1; }
 
-                        <a class="page-link" href="@Url.AdminUrl("s", "posts", new { PageNumber = NextPage.ToString(),
-                                                  slug = Model.SectionInfo.Slug.Trim('/') }).Replace("%2F", "/")" tabindex="-1">@Localizer["Next"]</a>
+                    <a class="page-link" href="@Url.AdminUrl("s", "posts", new { PageNumber = NextPage.ToString(),
+                                                  slug = Model.SectionInfo.Slug.Trim('/') }).Replace("%2F", "/")" tabindex="-1">
+                        @Localizer["Next"]
+                        &#8594;
+                    </a>
 
-                    </li>
-                }
+                </li>
 
             }
         }
@@ -45,14 +50,16 @@
         {
             @if (Model.Pagination != null && Model.Pagination.TotalPages > 1)
             {
-                @if (Model.Pagination.PreviousPage)
-                {
-                    <li class="page-item ">
-                        @{ int PreviousPage = Int32.Parse(Model.Pagination.PageNumber) - 1; }
+                <li class="page-item @((Model.Pagination.PreviousPage) ? "" :"disabled")">
+                    @{ int PreviousPage = Int32.Parse(Model.Pagination.PageNumber) - 1; }
 
-                        <a class="page-link" href="@Url.AdminUrl("index", "posts", new { PageNumber = PreviousPage.ToString()})" >@Localizer["Previous"]</a>
-                    </li>
-                }
+                    <a class="page-link " href="@Url.AdminUrl("index", "posts", new { PageNumber = PreviousPage.ToString()})">
+
+                        &#8426;   &nbsp;&nbsp;@Localizer["Previous"]
+
+                    </a>
+                </li>
+
 
                 @for (int i = 1; i <= Model.Pagination.TotalPages; i++)
                 {
@@ -63,16 +70,16 @@
                     </li>
                 }
 
-                @if (Model.Pagination.NextPage)
-                {
-                    <li class="page-item ">
-                        @{ int NextPage = Int32.Parse(Model.Pagination.PageNumber) + 1; }
 
-                        <a class="page-link" href="@Url.AdminUrl("index", "posts", new { PageNumber = NextPage.ToString() })"  >@Localizer["Next"]</a>
+                <li class="page-item @((Model.Pagination.NextPage) ? "" :"disabled")">
+                    @{ int NextPage = Int32.Parse(Model.Pagination.PageNumber) + 1; }
 
-                    </li>
-                }
+                    <a class="page-link" href="@Url.AdminUrl("index", "posts", new { PageNumber = NextPage.ToString() })">
+                        @Localizer["Next"]
+                        &#8594;
+                    </a>
 
+                </li>
             }
         }
 

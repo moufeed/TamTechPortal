@@ -3,6 +3,8 @@ $dir :rtl;
 @import 'variables';
 @import 'mixins/config';
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
-@import 'lib/animate' , 'lib/fonts'  ;
+
+@import 'lib/animate' , 'lib/fonts'  , 'lib/bootstrap.rtl' ;
     
-@import 'partials';
+@import 'partials'; 
+@import 'override'; 

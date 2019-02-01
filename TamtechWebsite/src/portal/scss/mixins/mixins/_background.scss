@@ -48,7 +48,7 @@
 ///    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#fff',GradientType=1 );
 ///  }
 @mixin linears($direction, $startcolor, $endcolor, $colors:false) {
-    background-color: nth($startcolor, 1);
+    
     @if $colors {
         @each $prefix in $prefixes {
             background-image: unquote("-#{$prefix}-linear-gradient(#{$direction, $startcolor 0%,colors($colors), $endcolor 100% })");

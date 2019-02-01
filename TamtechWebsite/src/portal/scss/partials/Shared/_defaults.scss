@@ -1,6 +1,7 @@
 body{
     font-family: $regularfont ;
     font-size: rem(14px); 
+   
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -26,15 +27,18 @@ h1,h2,h3,h4,h5,h6{
 .section-content{
     padding: rem(100px) 0;
     position: relative;
+    @include media-breakpoint-down(sm){
+        padding: rem(30px) 0;
+    }
 }
 
 .btn-send{
-    background: $orange;
+    background: $mainColor;
     color: #fff;
     font-size: rem(14px); 
 
     &:focus{
-        box-shadow: 0 0 0 2px rgba($orange,.5); 
+        box-shadow: 0 0 0 2px rgba($mainColor,.5); 
     }
 
     svg{
@@ -119,7 +123,7 @@ h1,h2,h3,h4,h5,h6{
                 content: "";
                 @include square(8px);
                 @include absolute(bottom $left , -2px #{calc(50% - 4px)});
-                background: $orange;
+                background: $mainColor;
                 border-radius: 50%;
                 box-shadow: 0  0 0 8px #fff , 15px 1px 0 -1px darken(#fff,40%) , -15px 1px 0 -1px  darken(#fff,40%);
             } 
@@ -169,19 +173,21 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .back-to-top{
-    @include fixed(bottom $right,15px 15px);
-    @include square(40px);
-    background: rgba($deep_navy, .7);
-    color: #fff;
+    @include fixed(bottom $right, 35px 10px );
+    @include square(45px);
+     background: #fff;
+    color: #000;
     text-align: center;
     line-height: 40px;
     display: none;
-    z-index: 15000;
+    z-index: 15000; 
+    border-radius: 5px;
+    box-shadow: 0px 5px 30px rgba(0,0,0,0.05);
     svg{
         margin-top: 8px;
-        @include size(24px,24px);
+        @include square(25px);
         path{
-            fill: #fff;
+            fill: #000;
         }
     }
     @include media-breakpoint-only(xs){
@@ -209,3 +215,60 @@ h1,h2,h3,h4,h5,h6{
         margin: 25px auto;
     }
   }
+
+
+.title-border-bottom{
+    h1,h2,h3,h4,h5,h6{
+        border-bottom: 1px solid rgba(#000,.1);
+        margin-bottom: rem(25px);
+        span{
+            display: inline-block;
+            margin-bottom: -1px;
+            border-bottom: 1px solid $mainColor;
+            padding-bottom: rem(15px);
+        }
+    }
+}
+
+.bb-title{
+    border-bottom: 1px solid rgba(#000,.1);
+    margin-bottom: rem(25px);
+    span,a{
+        color: #444;
+        display: inline-block;
+        margin-bottom: -1px;
+        border-bottom: 1px solid $mainColor;
+        padding-bottom: rem(15px);
+    }
+    a:hover{
+        text-decoration: none
+    }
+}
+
+   
+
+.cu-title{
+    position: relative;
+    margin-bottom: rem(25px);
+    color: darken($deep_navy,5%);
+    strong,span{
+        display: inline-block;
+        position: relative;
+        text-shadow: 2px -1px 0 #fff;
+        z-index: 1;
+        &:before{
+            content: '';
+            @include absolute(top  $left , 0  -4px);
+            @include size(30px ,15px);
+            background: lighten($mainColor ,10%);
+            z-index: -1;
+            transform: rotate(-30deg);
+        }
+    }
+}
+
+@include media-breakpoint-down(sm){
+    .text-xs-center{
+        text-align: center; 
+    }
+}

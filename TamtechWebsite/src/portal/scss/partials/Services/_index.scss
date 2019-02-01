@@ -1,0 +1,108 @@
+
+.sections-list{
+    position: relative;
+    &:before{
+        @include absolute(top $left,0);
+        @include square(100%);
+        content: '';
+        opacity: .5;
+       // background: url('#{$img}rings.png')  center / 100% auto  no-repeat; 
+        //background: url('#{$img}stripes-light.png')  center ; 
+        z-index: -1;
+    }
+    .service-icon{
+        @include media-breakpoint-down(sm){
+           text-align: center;
+        }
+
+        i{
+            font-size: rem(150px);
+            color: $mainColor;
+        }
+        .Image{
+            overflow: hidden;
+            @include size(100%,225px);
+             img{
+                 height: 100%;
+                 width: auto;
+             }
+        }
+    }
+
+    .service-description{  
+        @include media-breakpoint-down(sm){
+            margin-top: rem(15px);
+        }
+        >h3{
+            color: $secondaryColor;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+        .summary{
+            //font-size: rem(17px);
+            @include if-ltr{
+                letter-spacing: 1px;
+            }
+            color: darken($light_text, 15%);
+            @include max-ellipse(17px , 1.6,3);
+        }
+        .jump-link{
+            color: #000;
+            border :2px dotted transparent;
+            border-bottom-color:  #000;
+            display: inline-block;
+            padding: 5px;
+            transition: all .2s;
+            &:hover{
+                border-color: #000;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .service-item{
+        padding: rem(100px) 0;
+        position: relative;
+
+        @include media-breakpoint-down(md){
+            padding: rem(35px) 0;
+        }
+
+        &:first-child{
+            padding-top: 0;
+        }
+       
+        
+        &.reverse:not(:last-child){ 
+            background: #f6f9fc ;//url('#{$img}overlays/09.png')
+            color: #fff;
+            .service-icon{
+                i{
+                    color: mix(darken(#f6f9fc ,25%) ,#444);//4A4E69
+                }
+            }
+            .service-description{  
+                >h3{
+                    color:  $secondaryColor;
+                      
+                }
+                .summary{
+                    color:  $secondaryColor;
+                }
+                 
+            }
+             
+             &:before{
+                 content: '';
+                 @include absolute(top left , 0 16% );
+
+                 border-left: 5vw solid transparent;
+                 border-right: 5vw solid transparent;
+                 border-top: 2vw solid #fff;
+             }
+        }
+
+    }
+}
+ 
+ 

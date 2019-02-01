@@ -24,6 +24,11 @@ namespace TamtechWebsite.Areas.Portal.Controllers
 
     public class HomeController : HomeBaseController
     {
+        private readonly IPageService _pageService;
+        private readonly IWebApplicationSettingsService _appSettingsService;
+        private readonly ISlidersServices _sliderService;
+        private readonly IServicesService _servicesservice;
+
         public HomeController(ITelemetryClientService telemetryClientService,
                                IPageService pageService,
                                IMenusServices menusServices,
@@ -37,7 +42,57 @@ namespace TamtechWebsite.Areas.Portal.Controllers
                                         servicesservice, sliderService, requestService, cityService)
 
         {
+            _pageService = pageService;
+            _appSettingsService = appSettingsService;
+             
+            _sliderService = sliderService;
+           
+            _servicesservice = servicesservice;
+        }
 
+
+        public override async Task<IActionResult> Index()
+        {
+            try
+            {
+                var publicMainSlider = await _sliderService.GetPublicByKeyAsync(_appSettingsService.GetHomePageMainSliderKey());
+                if (publicMainSlider.Success)
+                {
+                    ViewBag.publicMainSlider = publicMainSlider.Data;
+                }
+
+               
+
+                var aboutSummary = await _pageService.GetPublicPageSummaryByIdAsync(_appSettingsService.GetHomePageSummuryId());
+
+                if (aboutSummary.Success)
+                {
+                    ViewBag.aboutSummary = aboutSummary.Data;
+                }
+
+                var services = await _servicesservice.GetPublicListAsync(4);
+
+                if (services.Success)
+                {
+                    ViewBag.services = services.Data;
+                }
+
+                var publicClientsSlider = await _sliderService.GetPublicByKeyAsync(_appSettingsService.GetHomePageCarouselSliderKey());
+
+                if (publicClientsSlider.Success)
+                {
+                    ViewBag.publicClientsSlider = publicClientsSlider.Data;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TrackException(ex);
+            }
+
+
+
+            return base.View();
         }
     }
 }

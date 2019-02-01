@@ -1,0 +1,8 @@
+msgid "Address_value"
+msgstr "Üniversite Mah. E5 Yanyol No: 54 Avcılar / Istanbul"
+
+msgid "Address_Link"
+msgstr "https://goo.gl/maps/ba9rEAU7wi42"
+
+msgid "phone_number"
+msgstr "05354152865"

@@ -2,15 +2,74 @@
 @{
     ViewData["Title"] = Localizer["Services"];
     Layout = "_Layout";
-    ViewData["ImageURl"] = @Url.Content("~/portal/img/services.jpg");
+    ViewData["ImageURl"] = @Url.Content("~/portal/img/headers/services.jpg");
     ViewData["pageTitle"] = Localizer["our_services"];
  
 }
 
-@await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_PageHeader.cshtml", @ViewData)
+<partial name="~/Areas/Portal/Views/Shared/partials/_StaticHeader.cshtml" model="ViewData" />
 
 
 
+<section class="section-content sections-list">
+
+    @if (Model != null && Model.Count > 0)
+    {
+        int i = 1;
+        foreach (var service in Model)
+        {
+    <div class="@(i%2 ==0 ? "reverse" :"") service-item  ">
+        <div class="container">
+            <div class="row justify-content-between align-items-center  @(i%2 ==0 ? "flex-row-reverse":"")">
+                <div class="col-md-4 col-lg-3 service-icon">
+                    @if (service.IconVisibility && !string.IsNullOrEmpty(service.Icon))
+                    {
+                        <i class="fa @service.Icon"></i>
+                    }
+                    else if (!string.IsNullOrEmpty(service.MainImage) && !service.IconVisibility)
+                    {
+                        <div class="Image d-flex justify-content-center align-items-center">
+                            <img src="@service.MainImage" alt="">
+                        </div>
+                    }
+                    else
+                    {
+                        <i class="fa fa-cubes"></i>
+                    }
+
+                </div>
+                <div class="col-md-8">
+                    <div class="service-description">
+                        <h3 class="bb-title">
+                            <a asp-controller="services"
+                               asp-action="v"
+                               asp-route-slug="@service.Slug"  >@service.Title</a>
+                             
+                        </h3>
+                        <p class="summary">
+                            @Html.Raw(service.Summary)
+                        </p>
+                        @if (!string.IsNullOrEmpty(service.Content))
+                        {
+                            <a asp-controller="services"
+                               asp-action="v"
+                               asp-route-slug="@service.Slug" class="jump-link">@Localizer["read_more"]</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+            i++;
+        }
+    }
+
+        
+
+</section>
 
 <section class="services-section">
 
@@ -25,34 +84,14 @@
                 <div class="container">
                     
                     <div class="row align-items-center">
-                        <div class="col-md-4 text-center @(((i % 2) == 0)? "order-last" :"")">
-                            <div class="service-icon">
-
-                                @if (service.IconVisibility && !string.IsNullOrEmpty(service.Icon))
-                                {
-                                        <i class="fa @service.Icon"></i>  
-                                }
-                                else if (!string.IsNullOrEmpty(service.MainImage) && !service.IconVisibility)
-                                {
-                                    <img src="@service.MainImage" class="img-fluid" alt="">
-                                }
-                                else
-                                {           
-                                        <i class="fa fa-cubes"></i>
-                                }
-
-                            </div>
-                            </div>
+                         
                         <div class="col-md-8  @(((i % 2) == 0)? "order-first" :"")">
                             <div class="service-description">
-                                <h3 class="c-title"><strong>@service.Title</strong></h3>
+                               
                                 <div>
-                                    @Html.Raw(service.Summary)
+                                   
                                 </div>
-                                @if (!string.IsNullOrEmpty(service.Content))
-                                { 
-                                <a  asp-controller="services" asp-action="v" asp-route-slug="@service.Slug" class="btn">@Localizer["read_more"]</a>
-                                }
+                               
                             </div>
                         </div>
                     </div>

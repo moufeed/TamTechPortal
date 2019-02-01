@@ -1,194 +1,14 @@
-﻿msgid ""
+msgid ""
 msgstr ""
-"Project-Id-Version: tamtech cms 0.0.7\n"
-"Last-Translator: tamtech solution <support@tamtech.solution>\n"
-"Language: ar\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
- 
-
-# adminbar
-msgid "Dashboard"
-msgstr "Dashboard"
-
-msgid "Log_Out"
-msgstr "Log Out"
-
-# tobbar
-msgid "mail_Us"
-msgstr "Mail Us"
-
-# bootombar
-msgid "Copyright_©_2018_tamtech_solutions._All_rights_reserved."
-msgstr "Copyright © 2018 tamtech solutions. All rights reserved."
-
-msgid "Powered_by"
-msgstr "Powered by"
-
-msgid "tamtech"
-msgstr "Tamtech"
-
-# index
-msgid "Welcome_Totamtech"
-msgstr "Welcome Totamtech"
-
-msgid "Who_we_are"
-msgstr "Who we are?"
-
-msgid "services_we_offer"
-msgstr "Services we offer"
-
-msgid "What_we_do"
-msgstr "What we do"
-
-msgid "Why_Choose_Us"
-msgstr "Why Choose Us?"
-
-msgid "What_Clients_say"
-msgstr "What Clients say?"
-
-msgid "Our_Clients"
-msgstr "Our Clients"
-
-msgid "meet_our_clients"
-msgstr "Meet our clients"
-
-#about us
-
-msgid "our_mission"
-msgstr "Our Mission"
-
-msgid "happy_clients"
-msgstr "Happy Clients"
-
-msgid "years_in_business"
-msgstr "Years in Business"
-
-msgid "cups_of_coffee"
-msgstr "Cups of Coffee"
-
-msgid "no_projects"
-msgstr "No. of Projects"
-
-msgid "our_values"
-msgstr "Our Value"
-
-msgid "our_vision"
-msgstr "Our Vision"
-
- 
-
-#: contact us
-msgid "contact_us"
-msgstr "Contact Us"
-
-msgid "Address"
-msgstr "Address"
-
-msgid "Phone"
-msgstr "Phone"
-
-msgid "Mobile"
-msgstr "Mobile"
-
-msgid "Email"
-msgstr "Email"
-
-msgid "Find_us"
-msgstr "Find us"
-
-msgid "Get_in_Touch"
-msgstr "Get in Touch"
-
-msgid "send_us_meesage"
-msgstr "Send us a meesage"
-
-msgid "name"
-msgstr "Name"
-
-msgid "Message"
-msgstr "Message"
-
-msgid "Send_it"
-msgstr "Send it"
-
-msgid "close"
-msgstr "Close"
-
-msgid "mobile_no"
-msgstr "Mobile No"
-
-msgid "dear_customer"
-msgstr  "Dear  <strong class=\"customer_name\"></strong>, thanks for reaching out!"
-
-msgid  "We_have_received_your_message"
-msgstr  "We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number listed below to talk to us."
-
-msgid  "have_great_day"
-msgstr  "Have a great day!"
-
-
-msgid "About_Us"
-msgstr "About Us"
-
-msgid "Call_us_today_at_<span>{0}</span>_or_Email_us_at_<span>{1}</span>"
-msgstr "Call us today at <span>{0}</span> or Email us at <span>{1}</span>"
-
-msgid  "Start_Now"
-msgstr "Start Now"
-
-#:galleries
-msgid "our_galleries"
-msgstr "Our Galleries"
-
-msgid "Galleries"
-msgstr "Galleries"
-
-msgid "Gallery"
-msgstr "Gallery"
-
-msgid "Services"
-msgstr "Services"
-
-msgid "our_services"
-msgstr "Our Services"
-
-msgid "read_more"
-msgstr "Read More"
-
-#: Products
-
-msgid "Products"
-msgstr "Products"
-
-msgid "Our_products"
-msgstr "Our Products"
-
-msgid "Previous"
-msgstr "Previous"
-
-msgid "Next"
-msgstr "Next"
-
-msgid "Description"
-msgstr "Description"
-
-msgid "By"
-msgstr "By"
-
-msgid "share_this_post"
-msgstr "Share this Post"
-
-
-#request quote
-
-msgid "request_quote"
-msgstr "Request a quote"
+"Project-Id-Version: asp.net 1.0.0"
+"Last-Translator: tamtech solution <support@tamtech.solution>"
+"MIME-Version: 1.0"
+"Content-Type: text/plain; charset=UTF-8"
+"Content-Transfer-Encoding: 8bit"
+"Plural-Forms: nplurals=2; plural=(n != 1);"
+"POT-Creation-Date:"
+"PO-Revision-Date:"
+"Language-Team:"
 
 #-------------------------------------------------------------------------
 #:admin panel
@@ -406,6 +226,15 @@ msgstr "Section :"
 msgid  "f_main_image"
 msgstr "Main Image :"
 
+msgid  "f_video_thumbnail"
+msgstr "Video thumbnail :"
+
+msgid "f_video_url"
+msgstr "Video url :"
+
+msgid "f_video_id"
+msgstr "Video Id "
+ 
 msgid  "choose_file"
 msgstr "Choose file."
  
@@ -647,6 +476,9 @@ msgstr "Detials"
 msgid "t_city"
 msgstr "Citt"
 
+msgid "T_POSITION"
+msgstr "Postion"
+
 #labels
 
 msgid "l_full_name"
@@ -751,6 +583,13 @@ msgstr "The Slider creation was done successfully."
 
 msgid "slider_updating_successfully"
 msgstr "The Slider updating was done successfully."
+
+
+msgid "gallery_item_creation_successfully"
+msgstr "The gallery item creation was done successfully."
+
+msgid "gallery_item_updating_successfully"
+msgstr "The gallery item updating was done successfully."
 
 msgid "deleted_successfully"
 msgstr "Deleted successfully"
@@ -1113,6 +952,15 @@ msgstr "Static Page"
 
 msgid "service"
 msgstr "Service"
+ 
+msgid "gallery"
+msgstr "Gallery"
+
+msgid "posts_section"
+msgstr "Posts Section"
+
+msgid "services_section"
+msgstr "Services Section"
 
 msgid "add_to_menu"
 msgstr "Add to menu"
@@ -1121,6 +969,8 @@ msgctxt "admin.Views.Menus.partials._modal"
 msgid "product"
 msgstr "Product"
 
+msgid "Create_section"
+msgctxt "Create Section"
 
 #:users Controller
 msgid "c_roles"
@@ -1244,6 +1094,9 @@ msgstr "Slider Items"
  
 msgid "upload_single_image"
 msgstr "Upload Single Image"
+
+msgid "add_video"
+msgstr "Add Video"
  
 #: sliders Details.cshtml
 msgid "slider_details"
@@ -1277,6 +1130,11 @@ msgstr "Update Gallery Item"
 msgid "back_to_gallery"
 msgstr "Back to Gallery"
 
+msgid "create_video_item"
+msgstr "Create Video"
+
+msgid "edit_video_item"
+msgstr "Edit Video"
 
 #:FormGallery.cshtml 
 msgid "create_gallery"
@@ -1708,11 +1566,223 @@ msgstr "More info"
 msgid "fullscreen"
 msgstr "Fullscreen"
 
+msgid "Log_Out"
+msgstr "Log out"
 
 
-#::--------------------------------------------------------------------------------------------
-#::------- tamtech website ------------------------------------------------------------------
-#::--------------------------------------------------------------------------------------------
+msgid "Slug_en"
+msgstr "Slug"
+
+msgid "Title_en"
+msgstr "Title"
+
+msgid "MainImage_en"
+msgstr "Main Image"
+
+msgid "VideoUrl_en"
+msgstr "Video Url"
+
+msgid "Content_en"
+msgstr "Content"
+
+msgid "Image_en"
+msgstr "Main Image"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+# adminbar
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Log_Out"
+msgstr "Log Out"
+
+# tobbar
+msgid "mail_Us"
+msgstr "Mail Us"
+
+# bootombar
+msgid "Copyright_©_2018_tamtech_solutions._All_rights_reserved."
+msgstr "Copyright © 2018 tamtech solutions. All rights reserved."
+
+msgid "Powered_by"
+msgstr "Powered by"
+
+msgid "tamtech"
+msgstr "Tamtech"
+
+# index
+msgid "Welcome_Totamtech"
+msgstr "Welcome Totamtech"
+
+msgid "Who_we_are"
+msgstr "Who we are?"
+
+msgid "services_we_offer"
+msgstr "Services we offer"
+
+msgid "What_we_do"
+msgstr "What we do"
+
+msgid "Why_Choose_Us"
+msgstr "Why Choose Us?"
+
+msgid "What_Clients_say"
+msgstr "What Clients say?"
+
+msgid "Our_Clients"
+msgstr "Our Clients"
+
+msgid "meet_our_clients"
+msgstr "Meet our clients"
+
+#about us
+
+msgid "our_mission"
+msgstr "Our Mission"
+
+msgid "happy_clients"
+msgstr "Happy Clients"
+
+msgid "years_in_business"
+msgstr "Years in Business"
+
+msgid "cups_of_coffee"
+msgstr "Cups of Coffee"
+
+msgid "no_projects"
+msgstr "No. of Projects"
+
+msgid "our_values"
+msgstr "Our Value"
+
+msgid "our_vision"
+msgstr "Our Vision"
+
+ 
+
+#: contact us
+msgid "contact_us"
+msgstr "Contact Us"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Find_us"
+msgstr "Find us"
+
+msgid "Get_in_Touch"
+msgstr "Get in Touch"
+
+msgid "send_us_meesage"
+msgstr "Send us a meesage"
+
+msgid "name"
+msgstr "Name"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Send_it"
+msgstr "Send it"
+
+msgid "close"
+msgstr "Close"
+
+msgid "mobile_no"
+msgstr "Mobile No"
+
+msgid "dear_customer"
+msgstr  "Dear  <strong class=\"customer_name\"></strong>, thanks for reaching out!"
+
+msgid  "We_have_received_your_message"
+msgstr  "We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number listed below to talk to us."
+
+msgid  "have_great_day"
+msgstr  "Have a great day!"
+
+
+msgid "About_Us"
+msgstr "About Us"
+
+msgid "Call_us_today_at_<span>{0}</span>_or_Email_us_at_<span>{1}</span>"
+msgstr "Call us today at <span>{0}</span> or Email us at <span>{1}</span>"
+
+msgid  "Start_Now"
+msgstr "Start Now"
+
+#:galleries
+msgid "our_galleries"
+msgstr "Our Galleries"
+
+msgid "Galleries"
+msgstr "Galleries"
+
+msgid "Gallery"
+msgstr "Gallery"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "our_services"
+msgstr "Our Services"
+
+msgid "read_more"
+msgstr "Read More"
+
+#: Products
+
+msgid "Products"
+msgstr "Products"
+
+msgid "Our_products"
+msgstr "Our Products"
+
+msgid "Previous"
+msgstr "Previous"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "By"
+msgstr "By"
+
+msgid "share_this_post"
+msgstr "Share this Post"
+
+
+#request quote
+
+msgid "request_quote"
+msgstr "Request a quote"
+
 
 msgid "request"
 msgstr "Request a quote"
@@ -1760,5 +1830,23 @@ msgstr "We appreciate your taking the time to submit your quote request. You wil
 msgid "Blog"
 msgstr "Blog"
 
-msgid ""
-msgstr ""
+msgid "featured_posts"
+msgstr "featured posts"
+
+msgid "ModifiedDate"
+msgstr "Modified Date"
+
+ 
+
+
+
+
+msgid "Address_value"
+msgstr "Üniversite Mah. E5 Yanyol No: 54 Avcılar / Istanbul"
+
+msgid "Address_Link"
+msgstr "https://goo.gl/maps/ba9rEAU7wi42"
+
+msgid "phone_number"
+msgstr "05354152865"
+

@@ -64,7 +64,7 @@
                                    class="toggle_switch "
                                    data-toggle="tooltip"
                                    id="publish-service"
-                                   data-placement="@(activeLang == "ar" ? "left" : "right")"
+                                   data-placement="@(activeLang == "ar" ? "right" : "left")"
                                    data-url="@Url.AdminUrl("PublishAsync","services" , new { id = Model.Id})"
                                    title="@Localizer["publish_unpublish"]" />
                         </label>
@@ -100,14 +100,14 @@
                             }
                         }
                         <div class="form-group clearfix">
-                            <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_name"]</label>
+                            <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_name"] <i class="fa fa-asterisk c-red fz-10 "></i></label>
                             <div class="col-md-7 col-sm-9 col-xs-12">
                                 <input asp-for="Title" class="form-control" required data-seo-name />
                                 <span asp-validation-for="Title" class="text-danger invalid_field"></span>
                             </div>
                         </div>
                         <div class="form-group clearfix">
-                            <label asp-for="Slug" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_slug"]</label>
+                            <label asp-for="Slug" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_slug"] <i class="fa fa-asterisk c-red fz-10 "></i></label>
                             <div class="col-md-7 col-sm-9 col-xs-12">
                                 @if (Model.Locked)
                                 {
@@ -190,14 +190,14 @@
                         </div>
 
                         <div class="form-group clearfix">
-                            <label asp-for="Summary" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_summary"]</label>
+                            <label asp-for="Summary" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_summary"] <i class="fa fa-asterisk c-red fz-10 "></i></label>
                             <div class="col-md-7 col-sm-9 col-xs-12">
                                 <textarea asp-for="Summary" class="form-control" required rows="5" maxlength="1000" data-seo-description></textarea>
                                 <span asp-validation-for="Summary" class="text-danger invalid_field"></span>
                             </div>
                         </div>
                         <div class="form-group clearfix">
-                            <label asp-for="Content" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_content"] </label>
+                            <label asp-for="Content" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_content"] <i class="fa fa-asterisk c-red fz-10 "></i></label>
                             <div class="col-md-7 col-sm-9 col-xs-12">
                                 <textarea asp-for="Content" class="form-control" required rows="5"></textarea>
                                 <span asp-validation-for="Content" class="text-danger invalid_field"></span>
@@ -230,7 +230,7 @@
                         {
                             <input type="hidden" name="DatePublished" value="@(String.Format("{0:yyyy-MM-dd}", Model.PublishedDate))" data-seo-published />
                             <input type="hidden" name="DateModified" value="@(String.Format("{0:yyyy-MM-dd}", Model.ModifiedDate))" data-seo-modified />
-                            @await Html.PartialAsync("~/Areas/admin/Views/Shared/_SeoFields.cshtml", Model.SEOMarkup);
+                            @await Html.PartialAsync("~/Areas/admin/Views/Shared/Seo/_SeoFields.cshtml", Model.SEOMarkup);
                         }
 
 
@@ -285,8 +285,11 @@
                     if (data.success) {
                         $notification.success(window.localization.success, msg, 2000, "fa fa-check");
                     } else {
-                        var errors = data.errors;
-                        $notification.error("<strong>" + errors[0].key + "</strong>", "<span>" + errors[0].value[0] + "</span>", 2000, "fa fa-exclamation-circle");
+                      var errors = data.errors;
+                            if (errors.length > 0) {
+                                txt = MakeErrorsMsg(errors);
+                                $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                            }
                         togglePublishBtn($this, false, published, unpublished);
                     }
                 })
@@ -304,7 +307,7 @@
 
     </script>
 
-    @if (!ViewBag.isUpdate)
+    @if (!ViewBag.isUpdate || string.IsNullOrEmpty(Model.Slug))
             {
        <script>
            $("#Title").on("keyup", function() {

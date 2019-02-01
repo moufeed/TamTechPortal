@@ -78,3 +78,24 @@
     -moz-appearance:$value;
     appearance:$value;
 }
+
+@mixin  ellipse($fontSize,$line-height,$lines-to-show){
+  height: $fontSize*$line-height*$lines-to-show;  
+  font-size: $fontSize;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+@mixin  max-ellipse($fontSize,$line-height,$lines-to-show){
+  max-height: $fontSize*$line-height*$lines-to-show;  
+  font-size: $fontSize;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

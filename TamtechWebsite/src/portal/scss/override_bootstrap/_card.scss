@@ -1,0 +1,36 @@
+ 
+//
+// Columns
+//
+.card{
+  margin-bottom: $card-columns-gap ;
+  border: 0 ;
+  box-shadow: 0px 5px 30px rgba(0,0,0,0.08);
+  .card-body {
+  
+    padding: rem(35px) rem(25px);
+    color: darken($light_text ,15%); 
+    @include if-ltr{
+      letter-spacing: 1px;
+    }
+  }
+  
+  .card-title {
+    margin-bottom: $card-spacer-y;
+  }
+}
+.card-columns {
+  .card{
+    margin-bottom: $card-columns-gap ;
+  }
+  @include media-breakpoint-down(sm) {
+    column-count:1;
+  }
+
+  @include media-breakpoint-up(md) {
+    column-count: 2;
+  }
+  
+}
+
+ 

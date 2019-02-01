@@ -1,0 +1,26 @@
+
+
+.service-bg{
+    position: relative;
+    &:before{
+        @include absolute(top $left,0);
+        @include square(100%);
+        content: '';
+        opacity: .5;
+        background: url('#{$img}rings.png')  center / 100% auto  no-repeat; 
+        z-index: -1;
+    }
+}
+.serviceicon{
+    padding: rem(50px);
+    background: #fff;
+    box-shadow: 0px 5px 30px rgba(0,0,0,0.08);
+    margin-bottom: rem(15px);
+    @include media-breakpoint-down(sm){
+        box-shadow: none
+    }
+    .sc-icon{
+        font-size: rem(100px);
+        color: $mainColor;
+    }
+}

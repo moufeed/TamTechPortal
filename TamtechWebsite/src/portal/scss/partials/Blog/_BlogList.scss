@@ -1,0 +1,147 @@
+
+%content{
+    position: relative;
+    z-index: 1;
+    margin-#{$left}: 15px ;
+    background: #fff;
+    padding: 15px;
+}
+.sticky_header{
+    .blog-list{
+        .sticky-top{
+            top: 100px
+        }
+    }
+}
+
+.blog-item{
+    border-bottom: 1px solid $gray-300;
+    margin-bottom: rem(25px);
+    padding-bottom: rem(10px);
+    .blog-image{
+        
+        max-height: 350px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        margin-bottom: rem(-15px);
+        background:darken(#fff,5%);
+        &:after{
+            @include absolute(top left ,50%);
+            @include square(5px);
+            content : '';
+            background: #fff;
+            z-index: 10;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            @include keyframe(circle){
+                0%{
+                    opacity: .4;
+                }
+                 
+                100%{
+                    opacity: 0;
+                    transform: scale(300)
+                }
+            }
+        } 
+        &:hover{
+           &:after{
+            @include animation(circle .4s ease-in);
+           }
+           img{
+            filter: blur(3px);
+           }
+        }
+        img{ 
+            min-height: 100%;
+           transition: all .5s .15s;
+        }
+    }
+    .blog-content{
+        @extend %content;
+    }
+    .meta{
+        &,a{
+            color: $gray-600;
+        }
+        margin-bottom: rem(10px);
+        small{
+            display: inline-block;
+            margin-#{$right}:rem(3px);
+        }
+        i{
+            color: $deep_navy; 
+        }
+         
+    }
+    .title{
+        @extend %content;
+        font-weight: normal;
+        margin-bottom: 0;
+        display: inline-block;
+        
+        a{
+            color: #000;
+        }
+    }
+    .text{
+        color: lighten($gray-600 ,5%);
+        
+        @include max-ellipse(14px ,1.4 ,2);
+    }
+    .btn-link{
+        color: $deep_navy; 
+    }
+}
+
+
+
+
+.SectionsList{
+    > li > a {
+       
+    } 
+
+    li{
+        a{
+            padding: 5px ;
+            color: $dark_text;
+            display: block;
+            position: relative;
+            border-bottom: 1px solid darken(#fff,10%); 
+            &:before{
+                @include absolute(top $left , calc(50% - 1px) -7px);
+                content: ''; 
+                background:  $mainColor  ;
+                @include square(5px);
+                border-radius: 50%;
+                 
+                @include keyframe(shadow){
+                    from{
+                        box-shadow: 0 0 0 $mainColor;
+                    }
+                    to{
+                        box-shadow: 0 0 5px 5px rgba($mainColor , 0);
+                    }
+                }
+            }
+            &:hover{
+                text-decoration: none;
+                &:before{
+                    @include animation(shadow .7s ease-in  infinite);
+                }
+            }
+        }
+        
+    }
+  
+    ul{
+        margin-#{$left}:rem(15px) ;
+    }
+}
+ 

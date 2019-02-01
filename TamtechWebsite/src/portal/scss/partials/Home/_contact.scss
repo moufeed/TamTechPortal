@@ -42,7 +42,7 @@ h2{
         }
         &:after{
              
-            background: $orange;
+            background: $mainColor;
             
             box-shadow: 0  0 0 8px lighten($deep_navy,57%) , 15px 1px 0 -1px darken(#fff,40%) , -15px 1px 0 -1px  darken(#fff,40%);
         } 
@@ -97,7 +97,7 @@ h2{
                     background: darken(#fff, 40%);
                 }
                 &:after {
-                    background: $orange;
+                    background: $mainColor;
                     box-shadow: 0 0 0 8px lighten($deep_navy,4%), 15px 1px 0 -1px darken(#fff, 40%), -15px 1px 0 -1px darken(#fff, 40%);
                 }
             }
@@ -121,7 +121,7 @@ h2{
         }
     }
     .subtitle {
-        color: lighten( $orange, 10%);
+        color: lighten( $mainColor, 10%);
     }
 
     a[href^="mailto"]{

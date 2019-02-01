@@ -284,6 +284,19 @@
         img{
             max-height: 100%;
         } 
+
+        i{
+            position: absolute;
+            z-index: 10;
+            font-size: 25px;
+            color: rgba(255, 255, 255, 0.74);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+            text-align: center;
+            line-height: 60px;
+        }
     }
     .info{
         border: 1px solid #dfdfdf;
@@ -366,62 +379,33 @@
     justify-content: space-between;
     align-items: center;
 }
+ 
+.image-thumbnail{
+    position: relative;
+    display: inline-block;
+    .btn-removeImage{
+        cursor: pointer;
+        @include absolute(top $right ,-10px);
+        background: #fff;
+        @include square(40px);
+        border-radius: 50% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.34);
+        &:hover{
+            background: $red;
+            color: #fff;
+        }
+        &:active{
+            transform: scale(.95);
+        }
+     }
+}
 /*
- <div class="">
-     
-
-
-                            <h4>@item.Title</h4>
-                            <div class="">
-                                <span class="image-info">
-                                    <i class="fa fa-calendar"></i> @(String.Format("{0:d/M/yyyy  }", item.CreatedDate))
-                                </span>
-
-                                <span>
-                                    @if (item.Published)
-                                    {
-                                        <a data-toggle="tooltip"
-                                           data-placement="top"
-                                           data-status="true"
-                                           data-url="/admin/galleries/Items/Publish/@activeLang/@Model.Id/@item.Id"
-                                           title="unpublish"
-                                           data-type="item"
-                                           class="btn btn-link-pup published toggle__publish">
-                                            <span class="fa fa-eye-slash"></span> unpublish
-
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a data-toggle="tooltip"
-                                           data-placement="top"
-                                           data-url="/admin/galleries/Items/Publish/@activeLang/@Model.Id/@item.Id"
-                                           title="publish"
-                                           data-type="item"
-                                           class="btn btn-link-pup unpublished toggle__publish">
-                                            <span class="fa fa-eye"></span>publish
-                                        </a>
-                                    }
-                                    <a href="/admin/Galleries/Items/edit/@activeLang/@Model.Id/@item.Id"
-                                       data-toggle="tooltip"
-                                       data-placement="top"
-                                       title="Edit"
-                                       class="btn btn-link-edit">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
-
-                                    <a data-toggle="tooltip"
-                                       data-placement="top"
-                                       title="Delete"
-                                       class="btn btn-link-delete delete__gallery"
-                                       data-parent-id="@Model.Id"
-                                       data-target="#@item.Id"
-                                       data-url="/admin/galleries/Items/Delete/@Model.Id/@item.Id">
-                                        <span class="fa fa-times"></span>
-                                    </a>
-                                </span>
-
-
-                            </div>
-                        </div>
+   <div class="">
+                                        <img src="@Model.MainImage" style="max-width:300px" class="img-thumbnail m-b3">
+                                        <a class="btn btn-link "><i class="fa fa-times"></i></a>
+                                        <input type="hidden" name="MainImage" value="@Model.MainImage" />
+                                    </div> 
 */

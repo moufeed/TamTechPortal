@@ -29,7 +29,8 @@
         @await Html.PartialAsync("~/Areas/Admin/Views/Shared/partials/_LanguageTabs.cshtml")
         <div class="x_panel">
             <div class="x_content">
-                @if (!Model.Locked) { 
+                @if (!Model.Locked)
+                {
                     <div class="text-right flip">
                         <label asp-for="Published">
 
@@ -38,7 +39,7 @@
                                    class="toggle_switch "
                                    data-toggle="tooltip"
                                    id="publish-page"
-                                   data-placement="@(activeLang == "ar" ? "left" : "right")"
+                                   data-placement="@(activeLang == "ar" ? "right" : "left")"
                                    data-url="@Url.AdminUrl("Publish","Pages", new { type = "Sections" , id = Model.Id } )"
                                    title="@Localizer["publish_unpublish"]" />
                         </label>
@@ -73,17 +74,18 @@
                         </div>
                     }
                     <div class="form-group clearfix">
-                        <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_title"]</label>
+                        <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_title"] <i class="fa fa-asterisk c-red fz-10 "></i></label>
                         <div class="col-md-7 col-sm-9 col-xs-12">
                             <input type="text" asp-for="Title" class="form-control" required data-seo-name />
                             <span asp-validation-for="Title" class="text-danger invalid_field"></span>
                         </div>
                     </div>
                     <div class="form-group clearfix">
-                        <label asp-for="Slug" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_slug"]</label>
+                        <label asp-for="Slug" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_slug"] <i class="fa fa-asterisk c-red fz-10 "></i></label>
                         <div class="col-md-7 col-sm-9 col-xs-12">
                             @if (Model.Locked)
                             {
+                                <input type="hidden" asp-for="Slug" class="form-control"  />
                                 <div class="input-group input-locked">
                                     <p class="form-control-static">@Model.Slug</p>
                                     <span class="input-group-addon"
@@ -103,7 +105,7 @@
                     <div class="form-group clearfix">
                         <label asp-for="Section" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_section"]</label>
                         <div class="col-md-7 col-sm-9 col-xs-12">
-                            @Html.TextBoxFor(m => m.Section, new { @class = "form-control", required = "required" })
+                            @Html.TextBoxFor(m => m.Section, new { @class = "form-control" })
                             <span asp-validation-for="Section" class="text-danger invalid_field"></span>
                         </div>
                     </div>
@@ -139,14 +141,14 @@
                     </div>
 
                     @*<div class="form-group clearfix">
-                @Html.Label("IsPublished", "Page Visibility :", new { @class = "control-label col-md-3 col-sm-4 col-xs-12 " })
-                <div class="col-md-7 col-sm-8 col-xs-12">
-                    @Html.CheckBoxFor(m => m.Published, new { @class = "toggle_switch" })
-                    @Html.ValidationMessageFor(m => m.Published, "", new { @class = "text-danger " })
+                            @Html.Label("IsPublished", "Page Visibility :", new { @class = "control-label col-md-3 col-sm-4 col-xs-12 " })
+                            <div class="col-md-7 col-sm-8 col-xs-12">
+                                @Html.CheckBoxFor(m => m.Published, new { @class = "toggle_switch" })
+                                @Html.ValidationMessageFor(m => m.Published, "", new { @class = "text-danger " })
 
 
-                </div>
-            </div>*@
+                            </div>
+                        </div>*@
                     <div class="m-t4 p-t3 p-x-3">
                         <h4>@Localizer["page_content"]</h4>
                         <hr />
@@ -161,13 +163,13 @@
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                         <div class="form-group">
-                                            <Label for="title-@indx" class="control-label col-md-3 col-sm-3 col-xs-12"> @Localizer["f_title"]</Label>
+                                            <Label for="title-@indx" class="control-label col-md-3 col-sm-3 col-xs-12"> @Localizer["f_title"] <i class="fa fa-asterisk c-red fz-10 "></i></Label>
                                             <div class="col-md-7 col-sm-5 col-xs-12" id="">
                                                 <input type="text" name="Content[@indx].Key" id="title-@indx" asp-for="@item.Key" class="form-control m-b2" required="required" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <Label for="Content-@indx" class="control-label col-md-3 col-sm-3 col-xs-12 "> @Localizer["f_content"] </Label>
+                                            <Label for="Content-@indx" class="control-label col-md-3 col-sm-3 col-xs-12 "> @Localizer["f_content"] <i class="fa fa-asterisk c-red fz-10 "></i></Label>
                                             <div class="col-md-7 col-sm-9 col-xs-12" id="">
                                                 <textarea rows="4" class="form-control" id="Content-@indx" name="Content[@indx].Value" asp-for="@item.Value" required="required"></textarea>
                                             </div>
@@ -178,30 +180,30 @@
                                 }
                             }
                             @*else
-                    {
+                                {
 
-                        <section id="section-@indx" class="m-b3 clearfix">
-                            <a class="btn btn-remove-content remove-content" data-id="@indx">
-                                <i class="fa fa-trash-o"></i>
-                            </a>
-                            <div class="form-group">
-                                <Label for="title-@indx" class="control-label col-md-3 col-sm-3 col-xs-12"> @Localizer["f_title"]</Label>
-                                <div class="col-md-7 col-sm-5 col-xs-12" id="">
-                                    <input type="text" name="Content[@indx].Key" id="title-@indx" class="form-control m-b2" required="required" />
-                                </div>
+                                    <section id="section-@indx" class="m-b3 clearfix">
+                                        <a class="btn btn-remove-content remove-content" data-id="@indx">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                        <div class="form-group">
+                                            <Label for="title-@indx" class="control-label col-md-3 col-sm-3 col-xs-12"> @Localizer["f_title"] <i class="fa fa-asterisk c-red fz-10 "></i></Label>
+                                            <div class="col-md-7 col-sm-5 col-xs-12" id="">
+                                                <input type="text" name="Content[@indx].Key" id="title-@indx" class="form-control m-b2" required="required" />
+                                            </div>
 
-                            </div>
-                            <div class="form-group">
-                                <Label for="Content-@indx" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_content"]</Label>
-                                <div class="col-md-7 col-sm-9 col-xs-12" id="">
-                                    <textarea rows="4" class="form-control" id="Content-@indx" name="Content[@indx].Value" required="required"></textarea>
-                                </div>
-                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <Label for="Content-@indx" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_content"] <i class="fa fa-asterisk c-red fz-10 "></i></Label>
+                                            <div class="col-md-7 col-sm-9 col-xs-12" id="">
+                                                <textarea rows="4" class="form-control" id="Content-@indx" name="Content[@indx].Value" required="required"></textarea>
+                                            </div>
+                                        </div>
 
-                            <hr class="line" />
-                        </section>
-                        indx++;
-                    }*@
+                                        <hr class="line" />
+                                    </section>
+                                    indx++;
+                                }*@
                         </div>
                         <div>
                             <a class="btn btn-addContent" id="addContent"><i class="fa fa-plus"></i>@Localizer["add_content"] </a>
@@ -245,7 +247,7 @@
                         </div>
                     </div>
 
-                    @await Html.PartialAsync("~/Areas/admin/Views/Shared/_SeoFields.cshtml", Model.SEOMarkup);
+                    @await Html.PartialAsync("~/Areas/admin/Views/Shared/Seo/_SeoFields.cshtml", Model.SEOMarkup);
 
                     <div class="form-group">
                         <div class="col-md-7 col-md-offset-3 col-sm-offset-3 col-sm-9 col-xs-12 text-right">
@@ -272,7 +274,7 @@
 
     <script src="~/Admin/lib/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
 
-    @{await Html.RenderPartialAsync("~/Areas/Admin/Views/Shared/_seoLabels.cshtml"); }
+    @{await Html.RenderPartialAsync("~/Areas/Admin/Views/Shared/Seo/_seoLabels.cshtml"); }
     <script src="~/Admin/js/serializejson.min.js"></script>
     <script src="~/Admin/js/seo.min.js"></script>
 
@@ -306,12 +308,12 @@
             '<i class="fa fa-trash-o"></i>' +
             '</a>' +
             '<div class="form-group">' +
-            '<Label for="Title-&&" class="control-label col-md-3 col-sm-3 col-xs-12"> @Localizer["f_title"]</Label>' +
+            '<Label for="Title-&&" class="control-label col-md-3 col-sm-3 col-xs-12"> @Localizer["f_title"] <i class="fa fa-asterisk c-red fz-10 "></i></Label>' +
             '<div class="col-md-7 col-sm-5 col-xs-12" id="">' +
             '<input type="text" name="Content[&&].Key" id="Title-&&" class="form-control m-b2" required="required"/>' +
             '</div></div>' +
             '<div class="form-group">' +
-            '<Label for="Content-&&" class="control-label col-md-3 col-sm-3 col-xs-12 "> @Localizer["f_content"]</Label>' +
+            '<Label for="Content-&&" class="control-label col-md-3 col-sm-3 col-xs-12 "> @Localizer["f_content"] <i class="fa fa-asterisk c-red fz-10 "></i></Label>' +
             '<div class="col-md-7 col-sm-9 col-xs-12" id="">' +
             '<textarea rows="4" class="form-control" id="Content-&&" name="Content[&&].Value" required="required"></textarea>' +
             '</div></div><hr class="line"/>' +
@@ -364,8 +366,11 @@
                 if (data.success) {
                     $notification.success(window.localization.success,msg, 2000, "fa fa-check");
                 } else {
-                    var errors = data.errors;
-                    $notification.error("<strong>" + errors[0].key + "</strong>", "<span>" + errors[0].value[0] + "</span>", 2000, "fa fa-exclamation-circle");
+                  var errors = data.errors;
+                            if (errors.length > 0) {
+                                txt = MakeErrorsMsg(errors);
+                                $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                            }
                     togglePublishBtn($this, false, published, unpublished);
                 }
             })
@@ -374,6 +379,16 @@
                 togglePublishBtn($this, false, published, unpublished);
             }); })
 
-        
+
     </script>
+
+    @if (string.IsNullOrEmpty(Model.Slug))
+    {
+        <script>
+          $("#Title").on("keyup", function() {
+              $("#Slug").val($(this).val().replace(/\s / g, "_")).valid();
+          })
+        </script>
+
+    }
 }

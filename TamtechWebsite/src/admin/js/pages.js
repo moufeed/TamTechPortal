@@ -18,7 +18,7 @@ $(document).on('click','a[id^="pubunpub-"]',function(){
     let OldClass = $el.find('i').attr("class");
     $el.find('i').removeClass().addClass("fa fa-spinner fa-pulse");
     var $tr  =  $el.parents("tr");
-    $.get(url,()=>{}).done(function(data){
+    $.get(url,()=>{}).done(function(data){ 
  
        if(data.success){
         var title = $tr.find(".ser-title");
@@ -62,7 +62,10 @@ $(document).on("click",".remove_page",function(){
                         $this.parents('tr')[0].remove();
                     }else{
                         var errors = data.errors;
-                        $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                        if (errors.length > 0) {
+                            txt = MakeErrorsMsg(errors);
+                            $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                        }
                     }
                 })
                 .fail(function (jqXHR, Status) {

@@ -77,7 +77,10 @@ $(document).on('click','.toggle__publish',function(e){
             togglePublishBtn($this , true , published  ,unpublished )
         }else{
             var errors = data.errors;
-            $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+            if (errors.length > 0) {
+                txt = MakeErrorsMsg(errors);
+                $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+            }
             togglePublishBtn($this , false , published ,unpublished);
         }
     })
@@ -122,7 +125,10 @@ $(document).on('click','.delete-menuitem' ,function(e){
                     itm.remove();
                }else{ 
                 var errors = data.errors;
-                $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                if (errors.length > 0) {
+                    txt = MakeErrorsMsg(errors);
+                    $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                }
                }
               
                   
@@ -225,7 +231,11 @@ const SaveItem = ($this)=> {
             $this.find(".fa").removeClass().addClass('fa fa-floppy-o');
             let errors = data.errors;
             $input.val(tmpVal);
-            $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+            
+            if (errors.length > 0) {
+                txt = MakeErrorsMsg(errors);
+                $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+            }
         } 
         
            
@@ -254,7 +264,7 @@ const toggleEdit_menuitem = ($this)=>{
     tmpVal = $input.val();
     $input.removeAttr("disabled");
     $order.removeAttr("disabled");
-    $this.removeClass('btn-edit').addClass('btn-save editable').attr('data-original-title',"save");
+    $this.removeClass('btn-edit').addClass('btn-save editable').attr('data-original-title',window.localization.save);
     $this.find(".fa").removeClass().addClass('fa fa-floppy-o');
     $tr.find(".btn-remove").addClass("hidden");
     $tr.find(".btn-cancel").removeClass("hidden");
@@ -314,7 +324,10 @@ $(document).on("click", ".delete__menu", function (event) {
                         $(target).remove();
                     } else {
                         var errors = data.errors;
-                        $notification.error("<strong>" + errors[0].key + "</strong>", "<span>" + errors[0].value[0] + "</span>", 2000, "fa fa-exclamation-circle");
+                        if (errors.length > 0) {
+                            txt = MakeErrorsMsg(errors);
+                            $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                        }
                     }
                 }).fail(function (jqXHR, Status) {
                     $notification.error(errorTitle, jqXHR.statusText, 2000, "fa fa-exclamation-circle");
@@ -344,4 +357,8 @@ $('#gallery-Url').on('change',function(){
 })
 $('#section-Url').on('change',function(){
     getText(this,'#section-Title')
+})
+
+$('#section_of_service-Url').on('change',function(){
+    getText(this,'#section_of_service-Title')
 })

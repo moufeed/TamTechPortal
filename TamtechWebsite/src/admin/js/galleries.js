@@ -22,8 +22,12 @@ $(document).ready(() => {
                             $notification.success("", deleted , 2000, "fa fa-check");
                             $(target).remove();
                         } else {
+                            
                             var errors = data.errors;
-                            $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                            if (errors.length > 0) {
+                                txt = MakeErrorsMsg(errors);
+                                $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                            }
                         }
                     }).fail(function (jqXHR, Status) {
                         $notification.error(error, jqXHR.statusText, 2000, "fa fa-exclamation-circle");
@@ -66,7 +70,10 @@ $(document).ready(() => {
                     togglePublishBtn($this, true , published ,unpublished)
                 } else {
                     var errors = data.errors;
-                    $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                    if (errors.length > 0) {
+                        txt = MakeErrorsMsg(errors);
+                        $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                    }
 
                     togglePublishBtn($this, false, published ,unpublished);
  
@@ -108,6 +115,7 @@ $(document).ready(() => {
                         $this.find('.fa').removeClass().addClass("fa fa-eye-slash");
                         $this.find(".text").text(unpublish)
                     }else{
+                        
                         $this.attr("title", publish);
                         $this.toggleClass("unpublished published  ut-unpublished ut-published");
                         $this.find('.fa').removeClass().addClass("fa fa-eye");
@@ -116,8 +124,12 @@ $(document).ready(() => {
 
 
                 } else {
+                    
                     var errors = data.errors;
-                    $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                    if (errors.length > 0) {
+                        txt = MakeErrorsMsg(errors);
+                        $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                    }
                 }
             })
             .fail(function (jqXHR, Status) {
@@ -170,7 +182,10 @@ $(document).ready(() => {
 
                 } else {
                     var errors = data.errors;
-                    $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                    if (errors.length > 0) {
+                        txt = MakeErrorsMsg(errors);
+                        $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                    }
                 }
             }).fail(function (jqXHR, Status) {
                 $notification.error(window.localization.error, jqXHR.statusText, 2000, "fa fa-exclamation-circle");
@@ -207,3 +222,6 @@ $(document).ready(function(){
 
 
 })
+
+
+

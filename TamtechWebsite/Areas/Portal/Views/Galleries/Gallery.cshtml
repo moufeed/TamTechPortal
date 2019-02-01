@@ -8,66 +8,68 @@
 
 }
 
-@await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_PageHeader.cshtml")
+<partial name="~/Areas/Portal/Views/Shared/partials/_StaticHeader.cshtml" model="ViewData" />
+
+
 @section SEO{
     <meta name="description" content="@Html.Raw(Model.MetaDescription)" />
     <partial name="~/Areas/Portal/Views/Shared/partials/_SEO.cshtml" model="Model.SEOMarkup" />
 }
 @if (Model != null && Model.Id != default(Guid))
-{ 
+{
 
-<section class="gallery-section my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12  mb-4">
-                <div class="gallery-meta mb-3">
-                    <span>
-                        <i class="fa fa-calendar"></i>
-                        @(String.Format("{0:d/M/yyyy}", Model.CreatedDate))
-                    </span>
+    <section class="gallery-section my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12  mb-4">
+                    <div class="gallery-meta mb-3">
+                        <span>
+                            <i class="fa fa-calendar"></i>
+                            @(String.Format("{0:d/M/yyyy}", Model.CreatedDate))
+                        </span>
 
-                </div>
-                <div class="summary text-center">
-                    @Html.Raw(Model.Summary)
-                </div>
-            </div>
-
-            @if (Model.Items != null && Model.Items.Count > 0)
-            {
-                foreach (GalleryItemDto item in Model.Items)
-                {
-                    <div class="col-md-4 col-sm-6">
-                        <figure class="gallery-item">
-                            @if (string.IsNullOrEmpty(item.MainImage))
-                            {
-                                <img src="~/Portal/img/no-image.svg" alt="@item.Title">
-                            }
-                            else
-                            {
-                                <img src="@item.MainImage" alt="@item.Title">
-                            }
-                            <figcaption>
-                                <h5><strong>@item.Title</strong></h5>
-                                <p><i class="fa fa-search-plus"></i></p>
-
-                                <a href="@((string.IsNullOrEmpty(item.MainImage)) ? "/Portal/img/no-image.svg" : item.MainImage)" class="gallery-item-link">
-                                    <div style="display:none">
-                                        <strong class="title">@item.Title</strong>
-                                        <p>@Html.Raw(item.Summary)</p>
-                                    </div>
-                                </a>
-                            </figcaption>
-                        </figure>
                     </div>
+                    <div class="summary text-center">
+                        @Html.Raw(Model.Summary)
+                    </div>
+                </div>
+
+                @if (Model.Items != null && Model.Items.Count > 0)
+                {
+                    foreach (GalleryItemDto item in Model.Items)
+                    {
+                        <div class="col-md-4 col-sm-6">
+                            <figure class="gallery-item">
+                                @if (string.IsNullOrEmpty(item.MainImage))
+                                {
+                                    <img src="~/Portal/img/no-image.svg" alt="@item.Title">
+                                }
+                                else
+                                {
+                                    <img src="@item.MainImage" alt="@item.Title">
+                                }
+                                <figcaption>
+                                    <h5><strong>@item.Title</strong></h5>
+                                    <p><i class="fa fa-search-plus"></i></p>
+
+                                    <a href="@((string.IsNullOrEmpty(item.MainImage)) ? "/Portal/img/no-image.svg" : item.MainImage)" class="gallery-item-link">
+                                        <div style="display:none">
+                                            <strong class="title">@item.Title</strong>
+                                            <p>@Html.Raw(item.Summary)</p>
+                                        </div>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    }
                 }
-            }
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 }
- 
+
 
 
 

@@ -55,7 +55,7 @@
            aria-controls="@MenuItemTypeEnum.gallery.ToString()"
            role="tab"
            class="ut-gallery-tab"
-           data-toggle="tab"><strong>@Localizer["Gallery"]</strong></a>
+           data-toggle="tab"><strong>@Localizer["gallery"]</strong></a>
     </li>
 
     <li role="presentation" data-type="section">
@@ -63,6 +63,14 @@
            aria-controls="@MenuItemTypeEnum.section.ToString()"
            role="tab"
            class="ut-section-tab"
-           data-toggle="tab"><strong>@Localizer["section"]</strong></a>
+           data-toggle="tab"><strong>@Localizer["posts_section"]</strong></a>
+    </li>
+
+    <li role="presentation" data-type="section">
+        <a href="#@MenuItemTypeEnum.section_of_service.ToString()"
+           aria-controls="@MenuItemTypeEnum.section_of_service.ToString()"
+           role="tab"
+           class="ut-section_of_service-tab"
+           data-toggle="tab"><strong>@Localizer["services_section"]</strong></a>
     </li>
 </ul>

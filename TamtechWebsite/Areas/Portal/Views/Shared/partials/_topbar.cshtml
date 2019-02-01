@@ -9,13 +9,15 @@
 <div class="main_topbar">
     <div class="container">
         <div class="row justify-content-between align-items-center">
-            <div class="col-sm-auto">
+            <div class="col-9 col-sm-auto text-xs-center">
+                
                    <address >
-                        @Localizer["Address_value"]
+                        <a href="@Localizer["Address_Link"]" rel="nofollow" target="_blank">@Localizer["Address_value"]</a>
                    </address>
-                   <a href="tel:00905354152865" dir="ltr" class="phonenumber">05354152865</a>
+
+                   <a href="tel:@Localizer["phone_number"]" dir="ltr" class="phonenumber" rel="nofollow" target="_blank">@Localizer["phone_number"]</a>
             </div>
-            <div class="col-sm-auto">
+            <div class="col-3 col-sm-auto">
                 <div>
                     <if include-if="CultureConstants.CulturesList?.Count > 1">
                         <div class="languages-list">
@@ -34,7 +36,7 @@
                                     routeValues["culture"] = culture.Lang;
                                     @if (_lang != culture.Lang)
                                     {
-                                        <a href="@Url.AdminUrl(action,controller,routeValues)" class="dropdown-item"> @culture.Name </a>
+                                        <a href="@Url.AdminUrl("index","home",routeValues)" class="dropdown-item"> @culture.Name </a>
                                     }
                                 }
                             </div>

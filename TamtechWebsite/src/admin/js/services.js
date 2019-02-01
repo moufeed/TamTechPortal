@@ -7,7 +7,7 @@ $(document).ready(()=>{
         event.preventDefault();
         var $this = $(this);
         var dataurl = $this.data('url');
-
+        var id = $this.data('id');
         $Confirm({},function(result){
             if (result.value) {
                 $.ajax({
@@ -19,10 +19,13 @@ $(document).ready(()=>{
                 .done(function(data){
                     if(data.success){
                         $notification.success("",window.localization.deleted_successfully , 2000, "fa fa-check");
-                        $this.parent().parent().remove();
+                        $this.parents('tr[id="tr-'+id+'"]').remove();
                     }else{ 
                         var errors = data.errors;
-                        $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                        if (errors.length > 0) {
+                            txt = MakeErrorsMsg(errors);
+                            $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                        }
                     }
   
                  }
@@ -56,10 +59,12 @@ $(document).ready(()=>{
                 title.attr("data-href",title.attr("href")).removeAttr("href").removeClass("underline");
              }
             if(data.success){
-                togglePublishBtn($this , true , published ,unpublished)
+                
+                togglePublishBtn($this , true , published ,unpublished);
+               
             }else{
-                var errors = data.errors;
-                $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                var errors =  MakeErrorsMsg(data.errors);
+                $notification.error("", errors , 3500, "fa fa-exclamation-circle");
                 togglePublishBtn($this , false ,published ,unpublished);
             }
         })

@@ -1,6 +1,10 @@
 
 .main_header{
     padding: rem(25px ) 0;
+    @include media-breakpoint-only(md){
+        padding-bottom:0;
+    }
+
 }
 .main-logo{
     height: 70px;
@@ -16,14 +20,37 @@
 }
  
 .main-navbar{
+    @include media-breakpoint-only(md){
+        padding: rem(8px) 0;
+    }
     .navbar-nav{
+
         .nav-item{
+            &:first-child{
+                a{
+                    padding-#{$left} : 0; 
+                }
+                @include if-rtl{
+                    .dropdown-menu{
+                        left: unset;
+                        right: 0;
+                    }
+                }
+            }
             &.active .nav-link{
-                color: darken($orange ,5%);
+                color: darken($mainColor ,5%);
             }
             &.show .nav-link{
                 color: $blue;
             }
+           @include if-ltr{
+            &:last-child{
+                .dropdown-menu{
+                    left: unset;
+                    right: 0;
+                }
+            }
+           }
         }
         .nav-link{
             color: lighten($dark_text , 30%);
@@ -32,11 +59,17 @@
            //font-weight: 600;
            font-size: rem(13px); 
             &:hover{
-                color: $orange;
+                color: $mainColor;
+            }
+            @include media-breakpoint-down(sm){
+                border-bottom : 1px solid #eee; 
             }
         }
         .dropdown-toggle:after{
             border-top-color:darken(#fff,15%); 
+            @include media-breakpoint-down(sm){
+             @include absolute(top $right , 50% 25px);
+            }
         }
         .dropdown-menu{
              border: 0;
@@ -51,6 +84,14 @@
                     background-color:$blue;
                 }
              }
+             @include media-breakpoint-down(sm){
+                background: darken(#fff,2%);
+                box-shadow: none;
+                border-radius: 0;
+                .dropdown-item{
+                    color:  #666 ;
+                }
+            }
         }
         
     }
@@ -69,4 +110,28 @@ body.sticky_header{
     .main-logo{
         height: 50px;
     }
+}
+
+
+.mobile-bar{
+    @include absolute (bottom $right , 0 10px);
+    display: inline-block;
+    .btn_request_quote{
+        margin: 0 5px ;
+        padding:6px 12px; 
+        color: #000;
+    }
+    .navbar-toggler{
+        color: $blue;
+        &[aria-expanded="true"]{
+            .fas:before {
+                content: "\f00d";
+            }
+        }
+        
+    }
+}
+.btn-tablet{
+    float: $right;
+    margin-top: rem(15px);
 }

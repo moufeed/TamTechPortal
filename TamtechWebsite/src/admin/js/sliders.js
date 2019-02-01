@@ -23,7 +23,10 @@ $(document).ready(() => {
                                 $(target).remove();
                             } else {
                                 var errors = data.errors;
-                                $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                                if (errors.length > 0) {
+                                    txt = MakeErrorsMsg(errors);
+                                    $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                                }
                             }
                         }).fail(function (jqXHR, Status) {
                             $notification.error(errorTitle, jqXHR.statusText, 2000, "fa fa-exclamation-circle");
@@ -63,7 +66,10 @@ $(document).ready(() => {
 
                 } else {
                     var errors = data.errors;
-                    $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                    if (errors.length > 0) {
+                        txt = MakeErrorsMsg(errors);
+                        $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                    }
                     if (type == 'slider')
                         togglePublishBtn($this, false);
                     else {
@@ -90,6 +96,7 @@ $(document).ready(() => {
 $(document).on("click", ".toggle_publish_slider_item", function (event) {
     event.preventDefault();
     var $this = $(this),
+        className =$this.find('.fa').attr("class")
         dataurl = $this.data('url'),
         unpublish = $this.data('unpublish') || "unpublish",
         publish = $this.data('publish') || "publish";
@@ -120,11 +127,17 @@ $(document).on("click", ".toggle_publish_slider_item", function (event) {
 
             } else {
                 var errors = data.errors;
-                $notification.error("<strong>"+errors[0].key+"</strong>", "<span>"+errors[0].value[0]+"</span>", 2000, "fa fa-exclamation-circle");
+                            if (errors.length > 0) {
+                                txt = MakeErrorsMsg(errors);
+                                $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                            }
+                            $this.find('.fa').removeClass().addClass(className);
+                            
+
             }
         })
         .fail(function (jqXHR, Status) {
             $notification.error(errorTitle, jqXHR.statusText, 2000, "fa fa-exclamation-circle");
         });
 })
- 
+  

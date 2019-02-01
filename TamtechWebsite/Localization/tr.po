@@ -1,194 +1,14 @@
-﻿msgid ""
+msgid ""
 msgstr ""
-"Project-Id-Version: tamtech cms 0.0.7\n"
-"Last-Translator: tamtech solution <support@tamtech.solution>\n"
-"Language: ar\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
- 
-
-# adminbar
-msgid "Dashboard"
-msgstr "Kontrol Paneli"
-
-msgid "Log_Out"
-msgstr "Çıkış Yap"
-
-# tobbar
-msgid "mail_Us"
-msgstr "Bize E-Posta ile Ulaşın"
-
-# bootombar
-msgid "Copyright_©_2018_tamtech_solutions._All_rights_reserved."
-msgstr "Copyright © 2018 TamTech Solutions. Tüm Hakları Saklıdır."
-
-msgid "Powered_by"
-msgstr "Tarafından Desteklenmektedir"
-
-msgid "tamtech"
-msgstr "TamTech"
-
-# index
-msgid "Welcome_Totamtech"
-msgstr "TamTech'e Hoşgeldiniz"
-
-msgid "Who_we_are"
-msgstr "Biz Kimiz?"
-
-msgid "services_we_offer"
-msgstr "Sunduğumuz Hizmetler"
-
-msgid "What_we_do"
-msgstr "Neler Yapıyoruz?"
-
-msgid "Why_Choose_Us"
-msgstr "Neden Bizi Tercih Etmelisiniz?"
-
-msgid "What_Clients_say"
-msgstr "Müşterilerimiz Ne Diyor?"
-
-msgid "Our_Clients"
-msgstr "Müşterilerimiz"
-
-msgid "meet_our_clients"
-msgstr "Müşterilerimizle Tanışın"
-
-#about us
-
-msgid "our_mission"
-msgstr "Misyonumuz"
-
-msgid "happy_clients"
-msgstr "Mutlu Müşteriler"
-
-msgid "years_in_business"
-msgstr "İşletmelerde Yıllardır"
-
-msgid "cups_of_coffee"
-msgstr "Kahve Fincanları"
-
-msgid "no_projects"
-msgstr "Projelerin Sayısı"
-
-msgid "our_values"
-msgstr "Değerlerimiz"
-
-msgid "our_vision"
-msgstr "Vizyonumuz"
-
- 
-
-#: contact us
-msgid "contact_us"
-msgstr "Bizimle İletişime Geçin"
-
-msgid "Address"
-msgstr "Adres"
-
-msgid "Phone"
-msgstr "Telefon"
-
-msgid "Mobile"
-msgstr "Cep Telefonu"
-
-msgid "Email"
-msgstr "E-posta"
-
-msgid "Find_us"
-msgstr "Bizi Bulun"
-
-msgid "Get_in_Touch"
-msgstr "Temasa Geçin"
-
-msgid "send_us_meesage"
-msgstr "Bize Mesaj Gönderin"
-
-msgid "name"
-msgstr "İsim"
-
-msgid "Message"
-msgstr "Mesaj"
-
-msgid "Send_it"
-msgstr "Gönder"
-
-msgid "close"
-msgstr "Kapat"
-
-msgid "mobile_no"
-msgstr "Cep Telefon Numarası"
-
-msgid "dear_customer"
-msgstr  "Sayın  <strong class=\"customer_name\"></strong>, İletişime Geçtiğiniz İçin Teşekkürler!"
-
-msgid  "We_have_received_your_message"
-msgstr  "Mesajınızı Aldık Ve Bize Yazdığınız İçin Teşekkür Ederiz. Acilse, Bizimle Konuşmak İçin Aşağıda Listelenen Cep Telefonu Numarasını Da Kullanabilirsiniz."
-
-msgid  "have_great_day"
-msgstr  "İyi Günler!"
-
-
-msgid "About_Us"
-msgstr "Hakkımızda"
-
-msgid "Call_us_today_at_<span>{0}</span>_or_Email_us_at_<span>{1}</span>"
-msgstr "Bizimle İletişim Kurmak İçin <span>{0}</span> Numarayı Arayın Veya <span>{1}</span> Adresinie E-posta Gönderin."
-
-msgid  "Start_Now"
-msgstr "Şimdi Başlayın"
-
-#:galleries
-msgid "our_galleries"
-msgstr "Galerilerimiz"
-
-msgid "Galleries"
-msgstr "Galeriler"
-
-msgid "Gallery"
-msgstr "Galeri"
-
-msgid "Services"
-msgstr "Hizmetler"
-
-msgid "our_services"
-msgstr "Hizmetlerimiz"
-
-msgid "read_more"
-msgstr "Devamını Okuyun"
-
-#: Products
-
-msgid "Products"
-msgstr "Ürünler"
-
-msgid "Our_products"
-msgstr "Ürünlerimiz"
-
-msgid "Previous"
-msgstr "Önceki"
-
-msgid "Next"
-msgstr "Sonraki"
-
-msgid "Description"
-msgstr "Açıklama"
-
-msgid "By"
-msgstr "Yapan"
-
-msgid "share_this_post"
-msgstr "Bu Yazıyı Paylaş"
-
-
-#request qute
-
-msgid "request_quote"
-msgstr "Fiyatlandırma Talebi"
+"Project-Id-Version: asp.net 1.0.0"
+"Last-Translator: tamtech solution <support@tamtech.solution>"
+"MIME-Version: 1.0"
+"Content-Type: text/plain; charset=UTF-8"
+"Content-Transfer-Encoding: 8bit"
+"Plural-Forms: nplurals=2; plural=(n != 1);"
+"POT-Creation-Date:"
+"PO-Revision-Date:"
+"Language-Team:"
 
 #-------------------------------------------------------------------------
 #:admin panel
@@ -405,6 +225,16 @@ msgstr "Bölüm :"
 
 msgid  "f_main_image"
 msgstr "Ana Resim :"
+
+msgid  "f_video_thumbnail"
+msgstr "Video resmi :"
+
+msgid "f_video_url"
+msgstr "Video linki :"
+
+msgid "f_video_id"
+msgstr "Video kimliği"
+
 
 msgid  "choose_file"
 msgstr "Dosya Seçin."
@@ -647,6 +477,9 @@ msgstr "Ayrıntılar"
 msgid "t_city"
 msgstr "Şehir"
 
+msgid "T_POSITION"
+msgstr "POZİSYON"
+
 #labels
 
 msgid "l_full_name"
@@ -751,6 +584,12 @@ msgstr "Slider Oluşturma Başarıyla Yapıldı."
 
 msgid "slider_updating_successfully"
 msgstr "Slider Güncelleme Başarıyla Yapıldı."
+ 
+msgid "gallery_item_creation_successfully"
+msgstr "galeri öğesi Oluşturma Başarıyla Yapıldı."
+
+msgid "gallery_item_updating_successfully"
+msgstr "galeri öğesi Güncelleme Başarıyla Yapıldı."
 
 msgid "deleted_successfully"
 msgstr "Başarıyla Silindi."
@@ -1117,6 +956,16 @@ msgstr "Statik Sayfa"
 msgid "service"
 msgstr "Hizmet"
 
+
+msgid "gallery"
+msgstr "Galeri"
+
+msgid "posts_section"
+msgstr "Yazılar bölüm"
+
+msgid "services_section"
+msgstr "hizmetler bölümü"
+
 msgid "add_to_menu"
 msgstr "Menüye Ekle"
 
@@ -1125,6 +974,8 @@ msgctxt "admin.Views.Menus.partials._modal"
 msgid "product"
 msgstr "Ürün"
 
+msgid "Create_section"
+msgctxt "Yeni Bölüm"
 
 #:users Controller
 msgid "c_roles"
@@ -1250,6 +1101,9 @@ msgstr "Slider Öğeleri"
 msgid "upload_single_image"
 msgstr "Tek Resim Yükle"
  
+msgid "add_video"
+msgstr "Video ekle"
+
 #: sliders Details.cshtml
 msgid "slider_details"
 msgstr "Slider Ayrıntıları"
@@ -1280,6 +1134,13 @@ msgstr "Galeri Öğesi Düzenle"
 
 msgid "back_to_gallery"
 msgstr "Galeriye Geri Dön"
+
+msgid "create_video_item"
+msgstr "Video Oluştur"
+
+msgid "edit_video_item"
+msgstr "Video Düzenle"
+
 
 
 #:FormGallery.cshtml 
@@ -1716,3 +1577,215 @@ msgstr "Daha Fazla Bilgi"
 
 msgid "fullscreen"
 msgstr "Tam Ekran"
+
+msgid "Log_Out"
+msgstr "çıkış yap"
+
+
+
+msgid "Slug_tr"
+msgstr "Slug"
+
+msgid "Title_tr"
+msgstr "Başlık"
+
+msgid "MainImage_tr"
+msgstr "Ana Resim"
+
+msgid "VideoUrl_tr"
+msgstr "Video linki"
+
+msgid "Content_tr"
+msgstr "İçerik"
+
+msgid "Image_tr"
+msgstr "Ana Resim"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+# adminbar
+msgid "Dashboard"
+msgstr "Kontrol Paneli"
+
+msgid "Log_Out"
+msgstr "Çıkış Yap"
+
+# tobbar
+msgid "mail_Us"
+msgstr "Bize E-Posta ile Ulaşın"
+
+# bootombar
+msgid "Copyright_©_2018_tamtech_solutions._All_rights_reserved."
+msgstr "Copyright © 2018 TamTech Solutions. Tüm Hakları Saklıdır."
+
+msgid "Powered_by"
+msgstr "Tarafından Desteklenmektedir"
+
+msgid "tamtech"
+msgstr "TamTech"
+
+# index
+msgid "Welcome_Totamtech"
+msgstr "TamTech'e Hoşgeldiniz"
+
+msgid "Who_we_are"
+msgstr "Biz Kimiz?"
+
+msgid "services_we_offer"
+msgstr "Sunduğumuz Hizmetler"
+
+msgid "What_we_do"
+msgstr "Neler Yapıyoruz?"
+
+msgid "Why_Choose_Us"
+msgstr "Neden Bizi Tercih Etmelisiniz?"
+
+msgid "What_Clients_say"
+msgstr "Müşterilerimiz Ne Diyor?"
+
+msgid "Our_Clients"
+msgstr "Müşterilerimiz"
+
+msgid "meet_our_clients"
+msgstr "Müşterilerimizle Tanışın"
+
+#about us
+
+msgid "our_mission"
+msgstr "Misyonumuz"
+
+msgid "happy_clients"
+msgstr "Mutlu Müşteriler"
+
+msgid "years_in_business"
+msgstr "İşletmelerde Yıllardır"
+
+msgid "cups_of_coffee"
+msgstr "Kahve Fincanları"
+
+msgid "no_projects"
+msgstr "Projelerin Sayısı"
+
+msgid "our_values"
+msgstr "Değerlerimiz"
+
+msgid "our_vision"
+msgstr "Vizyonumuz"
+
+ 
+
+#: contact us
+msgid "contact_us"
+msgstr "Bizimle İletişime Geçin"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Mobile"
+msgstr "Cep Telefonu"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "Find_us"
+msgstr "Bizi Bulun"
+
+msgid "Get_in_Touch"
+msgstr "Temasa Geçin"
+
+msgid "send_us_meesage"
+msgstr "Bize Mesaj Gönderin"
+
+msgid "name"
+msgstr "İsim"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Send_it"
+msgstr "Gönder"
+
+msgid "close"
+msgstr "Kapat"
+
+msgid "mobile_no"
+msgstr "Cep Telefon Numarası"
+
+msgid "dear_customer"
+msgstr  "Sayın  <strong class=\"customer_name\"></strong>, İletişime Geçtiğiniz İçin Teşekkürler!"
+
+msgid  "We_have_received_your_message"
+msgstr  "Mesajınızı Aldık Ve Bize Yazdığınız İçin Teşekkür Ederiz. Acilse, Bizimle Konuşmak İçin Aşağıda Listelenen Cep Telefonu Numarasını Da Kullanabilirsiniz."
+
+msgid  "have_great_day"
+msgstr  "İyi Günler!"
+
+
+msgid "About_Us"
+msgstr "Hakkımızda"
+
+msgid "Call_us_today_at_<span>{0}</span>_or_Email_us_at_<span>{1}</span>"
+msgstr "Bizimle İletişim Kurmak İçin <span>{0}</span> Numarayı Arayın Veya <span>{1}</span> Adresinie E-posta Gönderin."
+
+msgid  "Start_Now"
+msgstr "Şimdi Başlayın"
+
+#:galleries
+msgid "our_galleries"
+msgstr "Galerilerimiz"
+
+msgid "Galleries"
+msgstr "Galeriler"
+
+msgid "Gallery"
+msgstr "Galeri"
+
+msgid "Services"
+msgstr "Hizmetler"
+
+msgid "our_services"
+msgstr "Hizmetlerimiz"
+
+msgid "read_more"
+msgstr "Devamını Okuyun"
+
+#: Products
+
+msgid "Products"
+msgstr "Ürünler"
+
+msgid "Our_products"
+msgstr "Ürünlerimiz"
+
+msgid "Previous"
+msgstr "Önceki"
+
+msgid "Next"
+msgstr "Sonraki"
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "By"
+msgstr "Yapan"
+
+msgid "share_this_post"
+msgstr "Bu Yazıyı Paylaş"
+
+
+#request quote
+
+msgid "request_quote"
+msgstr "Fiyatlandırma Talebi"
+
+

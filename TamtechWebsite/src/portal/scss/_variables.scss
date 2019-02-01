@@ -1,18 +1,18 @@
 
 $img:"../img/";
 $font:"../fonts/";
-
+$fa-font-path:        "#{$font}webfonts"; 
 $orange : #f6a417;
 $blue:#3e9fd9;
 $deep_navy : #363f6f;
 $red :#C1292E;
- 
+$navy :#80539d;
 $light_text:#A2AEBB;
 $dark_text :#30323D;
 
 $medium_text : lighten($dark_text ,25%);
 
-$navy :#80539d;
+
 
 
 $colors: ();
@@ -28,3 +28,12 @@ $theme-colors: (
 
 $footerBg : #eff2f9;  
     
+$mainColor : $orange;
+$secondaryColor : $deep_navy;
+
+// override bootstrap 
+$pagination-hover-color : $blue;
+$pagination-hover-bg :transparent;
+
+$pagination-active-color : #fff; 
+$pagination-active-bg : $mainColor;

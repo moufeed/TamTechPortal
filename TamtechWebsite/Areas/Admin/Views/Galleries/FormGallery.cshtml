@@ -26,7 +26,7 @@
     {
         <div class="alert alert-danger alert-dismissible alert-flex" role="alert">
             <div class="flex-display">
-                <i class="fa fa-times-circle fa-3x m-r4" aria-hidden="true"></i>
+                <i class="fa fa-times-circle  m-r4" aria-hidden="true"></i>
                 @Localizer["upload_failed"]
             </div>
             <button type="button" class="close btn-alert-close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -70,7 +70,7 @@
                                    class="toggle_switch "
                                    data-toggle="tooltip"
                                    id="publish-gallery"
-                                   data-placement="@(activeLang == "ar" ? "left" : "right")"
+                                  data-placement="@(activeLang == "ar" ? "right" : "left")"
                                    data-url="@Url.AdminUrl("PublishAsync" ,"galleries" , new { id= Model.Id })"
                                    title="@Localizer["publish_unpublish"]" />
                         </label>
@@ -97,7 +97,8 @@
                     <input type="hidden" asp-for="Lang" value="@activeLang" class="ignore" />
 
                     <div class="form-group clearfix">
-                        <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_title"]</label>
+                        <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_title"]<i class="fa fa-asterisk c-red fz-10 "></i>
+</label>
                         <div class="col-md-7 col-sm-9 col-xs-12">
                             <input asp-for="Title" class="form-control" required data-seo-name />
                             <span asp-validation-for="Title" class="text-danger invalid_field"></span>
@@ -105,12 +106,14 @@
                     </div>
 
                     <div class="form-group clearfix">
-                        <label asp-for="Slug" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_slug"]</label>
+                        <label asp-for="Slug" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_slug"] <i class="fa fa-asterisk c-red fz-10 "></i>
+</label>
                         <div class="col-md-7 col-sm-9 col-xs-12">
                             @if (Model.Locked)
                             {
                                 <div class="input-group input-locked">
-                                    <input type="text" asp-for="Slug" class="form-control" disabled />
+                                    <input type="hidden" asp-for="Slug"  />
+                                    <input type="text"   class="form-control" disabled  value="@Model.Slug" />
                                     <span class="input-group-addon"
                                           data-toggle="tooltip"
                                           data-placement="top"
@@ -128,7 +131,8 @@
 
 
                     <div class="form-group clearfix">
-                        <label asp-for="MainImage" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_main_image"]</label>
+                        <label asp-for="MainImage" class="control-label col-md-3 col-sm-3 col-xs-12 ">@Localizer["f_main_image"] <i class="fa fa-asterisk c-red fz-10 "></i>
+</label>
                         <div class="col-md-7 col-sm-9 col-xs-12">
 
                             @if (!string.IsNullOrEmpty(Model.MainImage))
@@ -138,7 +142,7 @@
                             }
 
                             <label class="form-control clearfix uploadfile">
-                                @if (ViewBag.isUpdate)
+                                @if (ViewBag.isUpdate && !string.IsNullOrEmpty(Model.MainImage))
                                 {
                                     <input type="file" name="NewMainImage" id="NewMainImage" class="upload-input" data-text="@Localizer["choose_file"]" accept="image/*" />
                                 }
@@ -189,7 +193,8 @@
                     </div>
 
                     @*<div class="form-group clearfix">
-                            <label asp-for="Content" class="control-label col-md-3 col-sm-3 col-xs-12 ">Service Content</label>
+                            <label asp-for="Content" class="control-label col-md-3 col-sm-3 col-xs-12 ">Service Content <i class="fa fa-asterisk c-red fz-10 "></i>
+</label>
                             <div class="col-md-7 col-sm-9 col-xs-12">
                                 <textarea asp-for="Content" class="form-control" required rows="5"></textarea>
                                 <span asp-validation-for="Content" class="text-danger invalid_field"></span>
@@ -222,7 +227,7 @@
                         <input type="hidden" name="DateModified" value="@(String.Format("{0:yyyy-MM-dd}", (Model.ModifiedDate != null ) ? Model.ModifiedDate  : Model.CreatedDate  ))" data-seo-modified />
 
 
-                        @await Html.PartialAsync("~/Areas/admin/Views/Shared/_SeoFields.cshtml", Model.SEOMarkup);
+                        @await Html.PartialAsync("~/Areas/admin/Views/Shared/Seo/_SeoFields.cshtml", Model.SEOMarkup);
 
                     }
 
@@ -310,26 +315,32 @@
 
     @if (ViewBag.isUpdate)
     {
-        await Html.RenderPartialAsync("~/Areas/Admin/Views/Shared/_seoLabels.cshtml");
+        await Html.RenderPartialAsync("~/Areas/Admin/Views/Shared/Seo/_seoLabels.cshtml");
         <script src="~/Admin/js/serializejson.min.js"></script>
         <script src="~/Admin/js/seo.min.js"></script>
         <script>
 
             $('#publish-gallery').on('change', function () {
-                var msg = ($(this).prop('checked')) ? "@Localizer["published_successfully"]" : "@Localizer["unpublished_successfully"]";
-                var url = $(this).data('url');
+
+                var $this = $(this);
+               
+                var msg = ($this.prop('checked')) ? "@Localizer["published_successfully"]" : "@Localizer["unpublished_successfully"]";
+                var url = $this.data('url');
                 $.get(url, function () { }).done(function (data) {
                     if (data.success) {
                         $notification.success(window.localization.success,msg, 2000, "fa fa-check");
                     } else {
                         var errors = data.errors;
-                        $notification.error("<strong>" + errors[0].key + "</strong>", "<span>" + errors[0].value[0] + "</span>", 2000, "fa fa-exclamation-circle");
-                        togglePublishBtn($this, false, published, unpublished);
+                        if (errors.length > 0) {
+                            txt = MakeErrorsMsg(errors);
+                            $notification.error("", txt , 3500, "fa fa-exclamation-circle");
+                        }
+                        $this.prop('checked', !$this.prop('checked'))
                     }
                 })
                 .fail(function (jqXHR, Status) {
                     $notification.error(errorTitle, jqXHR.statusText, 2000, "fa fa-exclamation-circle");
-                    togglePublishBtn($this, false, published, unpublished);
+                    
                 }); })
 
         </script>
@@ -344,7 +355,7 @@
                 $('.sms_messages .characters').text( length - this.value.length);
             });
     </script>
-    @if (!ViewBag.isUpdate)
+    @if (!ViewBag.isUpdate || string.IsNullOrEmpty(Model.Slug))
     {
         <script>
            $("#Title").on("keyup", function() {

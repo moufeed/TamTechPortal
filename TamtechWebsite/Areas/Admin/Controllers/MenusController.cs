@@ -17,10 +17,9 @@ namespace TamtechWebsite.Areas.Admin.Controllers
     {
         public MenusController(ITelemetryClientService telemetryClientService, IMenusServices MenusServices,
        IWebApplicationSettingsService appSettingsService, IStringLocalizer<AdminBaseController> localizer)
-            : base(telemetryClientService, MenusServices, appSettingsService, localizer)
+            : base(telemetryClientService, MenusServices, appSettingsService, localizer,1)
         {
         }
-
 
     }
 }

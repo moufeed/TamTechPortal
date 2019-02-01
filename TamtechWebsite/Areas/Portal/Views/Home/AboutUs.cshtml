@@ -6,7 +6,7 @@
     ViewData["pageTitle"] = Localizer["About_Us"];
 }
 
-@await Html.PartialAsync("~/Areas/Portal/Views/Shared/partials/_PageHeader.cshtml", @ViewData)
+<partial name="~/Areas/Portal/Views/Shared/partials/_StaticHeader.cshtml" model="ViewData" />
 
 
 
@@ -39,26 +39,15 @@
 
 <section class="about_us_section">
 
-    @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/aboutus/_description.cshtml")
+    @*@await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/aboutus/_description.cshtml")
     @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/aboutus/_vision.cshtml")
     @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/aboutus/_mission.cshtml")
     @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/aboutus/_statistics.cshtml")
     @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/aboutus/_value.cshtml")
-    @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_promo.cshtml")
+    @await Html.PartialAsync("~/Areas/Portal/Views/Home/partials/Index/_promo.cshtml")*@
 
 
 
 </section>
 
-
-@section footer{
-    <script src="~/Portal/js/counterup.min.js"></script>
-
-
-    <script>
-    $('.counter').counterUp({
-    delay: 10,
-    time: 1000
-});
-    </script>
-}
+ 

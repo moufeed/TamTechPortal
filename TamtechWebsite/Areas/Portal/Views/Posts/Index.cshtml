@@ -16,29 +16,45 @@
 
     Layout = "_Layout";
     ViewData["ImageURl"] = @Url.Content("~/portal/img/headers/blog.jpg");
+
+    bool HasSections = Model.Sections != null && Model.Sections.Count > 0 ;
 }
-<partial name="~/Areas/Portal/Views/Shared/partials/_PagesHeader.cshtml" model="ViewData" />
+<partial name="~/Areas/Portal/Views/Shared/partials/_StaticHeader.cshtml" model="ViewData" />
 
 
 
-<section class="btn-login section-content">
+<section class="blog-list section-content">
     <div class="container">
         <div class="row justify-content-bettwen">
-            <div class="col-md-8">
+            
+            <div class="@( (HasSections) ? "col-md-8" : "col-md-12") ">
                 <if include-if="Model.Posts != null && Model.Posts.Count > 0">
-                    <div class="blog-list">
+                    <header class="title-border-bottom">
+                        <h3>
+                            <span>@Localizer["featured_posts"]</span>
+                        </h3>
+                    </header>
+                    <div class="blog-list @( !HasSections ? "row" :"")">
                         @foreach (PostDto post in Model.Posts)
                         {
-                            <article class="blog-item">
-                                <div class="blog-image">
-                                    <if include-if="string.IsNullOrEmpty(post.MainImage)">
-                                        <img src="~/Portal/img/empty.jpg" class="img-fluid" />
-                                    </if>
-                                    <if exclude-if="string.IsNullOrEmpty(post.MainImage)">
-                                        <img src="@post.MainImage" alt="@post.Title" class="img-fluid" />
-                                    </if>
-                                </div>
+                        <article class="blog-item  @( !HasSections ? "col-lg-6" :"")">
 
+
+                            <div class="blog-image">
+                                <if include-if="string.IsNullOrEmpty(post.MainImage)">
+                                    <img src="~/Portal/img/empty.jpg" class="img-fluid" />
+                                </if>
+                                <if exclude-if="string.IsNullOrEmpty(post.MainImage)">
+                                    <img src="@post.MainImage" alt="@post.Title" class="img-fluid" />
+                                </if>
+                            </div>
+
+
+
+
+                            @{string slug = @post.SectionSlug.Trim('/');}
+                            <h5 class="title"> <a href="@Url.Action("p","Posts",new{slug=$"{@slug}/{@post.Slug}"}).Replace("%2F", "/")">@post.Title</a></h5>
+                            <div class="blog-content">
                                 <div class="meta">
                                     <small>
                                         <i class="fi fi-calendar"></i> @post.CreatedDate.ToShortDateString()
@@ -48,34 +64,41 @@
                                         <a href="@Url.Action("s","posts",new{slug=$"{@post.SectionSlug.Trim('/')}"}).Replace("%2F", "/")">@post.Section</a>
                                     </small>
                                 </div>
-
-                                @{string slug = @post.SectionSlug.Trim('/');}
-                                <h5 class="title"> <a href="@Url.Action("p","Posts",new{slug=$"{@slug}/{@post.Slug}"}).Replace("%2F", "/")">@post.Title</a></h5>
-
-                                <div class="text mt-3 mb-1">
+                                <div class="text">
                                     @post.Summary
                                 </div>
                                 <a href="@Url.AdminUrl("p","Posts",new{slug=$"{@slug}/{@post.Slug}"}).Replace("%2F", "/")" class=" px-0 btn btn-link">
-                                    @Localizer["read_more"] <i class="fi fi-next"></i>
+                                    @Localizer["read_more"] ...
                                 </a>
-                            </article>
+                            </div>
+                        </article>
                         }
                     </div>
-                    @*<partial name="_pagination" model="Model" />
-        @Html.Partial("_pagination.cshtml", @Model)*@
+                    <partial name="_pagination" model="Model" />
+         
                 </if>
             </div>
-            <div class="col-md-4">
-                @if (Model.Sections != null && Model.Sections.Count > 0)
+                @if (HasSections)
                 {
-                    <div class="sections-list widget">
-                        <h4 class="widget-title"><strong>@Localizer["sections"]</strong></h4>
-                        <sections-list sections="Model.Sections"
+                     <div class="col-md-4">
+                     <div class="sticky-top">
+                <div class="sections-list widget">
+                        
+                        <header class="title-border-bottom">
+                            <h3>
+                                <span> @Localizer["sections"] </span>
+                            </h3>
+                        </header>
+                        <sections sections="Model.Sections"
+                                       class-name="SectionsList"
+                                       root-id="Model.SectionInfo?.Id"
                                        action-name="s"
-                                       controller-name="Posts"></sections-list>
+                                       controller-name="Posts"></sections>
                     </div>
-                }
             </div>
+                    
+            </div>
+                }
         </div>
     </div>
 </section>

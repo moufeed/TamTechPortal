@@ -1,0 +1,31 @@
+﻿@model PostDto
+
+
+@{ 
+    var ImageURl = (string.IsNullOrEmpty(Model.MainImage)) ? @Url.Content("~/portal/img/headers/blog.jpg") : Model.MainImage;
+    
+}
+
+<section class="blog-header d-flex align-items-end" data-grayscale="@ImageURl" >
+    <div class="long-shadow w-100 pt-5 pb-4">
+        <div class="container">
+            <div class="row justify-content-start align-items-end">
+                <div class="col-md-10 col-lg-7">
+                    <h1 class="b-title"><strong>@Model.Title</strong></h1>
+
+                    <div class="d-flex blog-meta flex-wrap">
+                        <div>
+                            <span>@Localizer["published"]</span>
+                            <span>@Model.CreatedDate.ToString("MMM dd, yyyy")</span>
+                        </div>
+                        <div>
+                            <span>@Localizer["section"]</span>
+                            <a href="@Url.AdminUrl("s","posts",new{slug=$"{@Model.SectionSlug.Trim('/')}"}).Replace("%2F", "/")">@Model.Section</a>
+                        </div>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
