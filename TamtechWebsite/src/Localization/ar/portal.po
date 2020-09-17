@@ -12,7 +12,7 @@ msgstr "راسلنا"
 
 # bootombar
 msgid "Copyright_©_2018_tamtech_solutions._All_rights_reserved."
-msgstr "جميع الحقوق محفوظة لصالح تام تك ©2018"
+msgstr "جميع الحقوق محفوظة لصالح تام تك ©2019"
 
 msgid "Powered_by"
 msgstr "تطوير"

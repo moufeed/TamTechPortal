@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: asp.net 1.0.0"
+"Project-Id-Version: tamtech_cms 0.0.2"
 "Last-Translator: tamtech solution <support@tamtech.solution>"
 "MIME-Version: 1.0"
 "Content-Type: text/plain; charset=UTF-8"
@@ -321,6 +321,13 @@ msgstr "Position :"
 
 msgid "f_public_url"
 msgstr "Public url :"
+
+msgid "f_created_date"
+msgstr "Create date"
+
+msgid "f_post_date"
+msgstr "Post Date"
+
 #seo form 
 msgid "f_headline"
 msgstr "HeadLine :"
@@ -348,6 +355,22 @@ msgstr "Cuisine :"
 
 msgid "f_section_parent"
 msgstr "Section parent :"
+
+msgid "f_company"
+msgstr "Company :"
+
+msgid "f_job_position"
+msgstr "Job postion :"
+
+msgid "f_avater_image"
+msgstr "Image :"
+
+msgid "f_rating"
+msgstr "Rating :"
+
+msgid "f_message"
+msgstr "Message :"
+
 
 #global Tables
 msgid  "t_title"
@@ -476,8 +499,25 @@ msgstr "Detials"
 msgid "t_city"
 msgstr "Citt"
 
-msgid "T_POSITION"
+msgid "t_position"
 msgstr "Postion"
+
+
+msgid "t_section"
+msgstr "Section"
+
+
+msgid "t_company"
+msgstr "Company"
+
+msgid "t_job_position"
+msgstr "Job Position"
+
+msgid "t_rating"
+msgstr "Rating"
+
+msgid "t_message"
+msgstr "Message"
 
 #labels
 
@@ -961,6 +1001,9 @@ msgstr "Posts Section"
 
 msgid "services_section"
 msgstr "Services Section"
+
+msgid "gallery_section"
+msgstr "Gallery Sections"
 
 msgid "add_to_menu"
 msgstr "Add to menu"
@@ -1526,6 +1569,9 @@ msgstr  "The @type is required and cannot be an empty string "
 msgid "url_msg"
 msgstr "Url must be in this form : http://example.com"
  
+msgid "filesize_msg"
+msgstr "File size must be less than "
+
 # :controller adminbaseController.cs // filters
 
 msgid "title_a_to_z"
@@ -1588,265 +1634,586 @@ msgstr "Content"
 msgid "Image_en"
 msgstr "Main Image"
 
-msgid ""
-msgstr ""
+msgid "section_projects"
+msgstr "projects"
+
+msgid "section_works"
+msgstr "works"
+
+msgid "View_in_website"
+msgstr "View In website"
+
+msgid "new_tab"
+msgstr "New tab"
+
+msgid "same_tab"
+msgstr "Same tab"
+
+msgid "start_chat_in_whatsapp"
+msgstr "start chat"
+
+msgid "mobile_number_not_confirmed"
+msgstr "mobile number not confirmed"
+
+msgid "TAMCMS_UsersAdmin"
+msgstr "Users Admin"
+
+msgid "TAMCMS_MenusContentAdmin"
+msgstr "Menus Content Admin"
+
+msgid "TAMCMS_PagesContentAdmin"
+msgstr "Pages Content Admin"
+
+msgid "TAMCMS_PostAuthor"
+msgstr "PostAuthor"
+
+msgid "TAMCMS_GalleriesContentAdmin"
+msgstr "Galleries Content Admin"
+
+msgid "TAMCMS_SlidersContentAdmin"
+msgstr "Sliders Content Admin"
+
+msgid "TAMCMS_PostsContentAdmin"
+msgstr "Posts Content Admin"
+
+msgid "TAMCMS_ServicesContentAdmin"
+msgstr "Services Content Admin"
+
+msgid "TAMCMS_ProductsContentAdmin"
+msgstr "Products Content Admin"
+
+msgid "TAMCMS_PostsEditor"
+msgstr "Posts Editor"
+
+msgid "email_to"
+msgstr "New message to"
+
+msgid "email_sent"
+msgstr "Message sent."
+
+
+# testimonials
+msgid "new_testimonial"
+msgstr "New Testimonial"
+
+msgid "edit_testimonial"
+msgstr "Edit testimonial"
+
+msgid "create_testimonial"
+msgstr "Create testimonial"
+
+msgid "testimonial_details"
+msgstr "Testimonial details"
 
 msgid ""
 msgstr ""
+msgid "website_title"
+msgstr "Tan tum"
 
-msgid ""
-msgstr ""
+msgid "our_business"
+msgstr "our<br/>Business"
 
-msgid ""
-msgstr ""
+msgid "copyright"
+msgstr "Copyright © {0} <span>Tantum projects CO</span> - All Rights Reserved"
 
-msgid ""
-msgstr ""
+msgid "keep_in_touch"
+msgstr "keep in touch"
 
-msgid ""
-msgstr ""
-# adminbar
-msgid "Dashboard"
-msgstr "Dashboard"
 
-msgid "Log_Out"
-msgstr "Log Out"
 
-# tobbar
-msgid "mail_Us"
-msgstr "Mail Us"
+msgid "your_name"
+msgstr "Your name"
 
-# bootombar
-msgid "Copyright_©_2018_tamtech_solutions._All_rights_reserved."
-msgstr "Copyright © 2018 tamtech solutions. All rights reserved."
+msgid "your_email_address"
+msgstr "Your email address"
 
-msgid "Powered_by"
-msgstr "Powered by"
+msgid "your_phone_number"
+msgstr "Your phone number"
 
-msgid "tamtech"
-msgstr "Tamtech"
+msgid "your_subject"
+msgstr "Your subject"
 
-# index
-msgid "Welcome_Totamtech"
-msgstr "Welcome Totamtech"
+msgid "your_message"
+msgstr "Write your message here"
 
-msgid "Who_we_are"
-msgstr "Who we are?"
-
-msgid "services_we_offer"
-msgstr "Services we offer"
-
-msgid "What_we_do"
-msgstr "What we do"
-
-msgid "Why_Choose_Us"
-msgstr "Why Choose Us?"
-
-msgid "What_Clients_say"
-msgstr "What Clients say?"
-
-msgid "Our_Clients"
-msgstr "Our Clients"
-
-msgid "meet_our_clients"
-msgstr "Meet our clients"
-
-#about us
-
-msgid "our_mission"
-msgstr "Our Mission"
-
-msgid "happy_clients"
-msgstr "Happy Clients"
-
-msgid "years_in_business"
-msgstr "Years in Business"
-
-msgid "cups_of_coffee"
-msgstr "Cups of Coffee"
-
-msgid "no_projects"
-msgstr "No. of Projects"
-
-msgid "our_values"
-msgstr "Our Value"
-
-msgid "our_vision"
-msgstr "Our Vision"
-
- 
-
-#: contact us
 msgid "contact_us"
-msgstr "Contact Us"
-
-msgid "Address"
-msgstr "Address"
-
-msgid "Phone"
+msgstr "Contact us"
+ 
+msgid "phone"
 msgstr "Phone"
-
-msgid "Mobile"
-msgstr "Mobile"
-
-msgid "Email"
+ 
+msgid "email"
 msgstr "Email"
 
-msgid "Find_us"
-msgstr "Find us"
+msgid "work_time"
+msgstr "Work time"
 
-msgid "Get_in_Touch"
-msgstr "Get in Touch"
-
-msgid "send_us_meesage"
-msgstr "Send us a meesage"
-
-msgid "name"
-msgstr "Name"
-
-msgid "Message"
-msgstr "Message"
-
-msgid "Send_it"
-msgstr "Send it"
-
-msgid "close"
-msgstr "Close"
-
-msgid "mobile_no"
-msgstr "Mobile No"
-
-msgid "dear_customer"
-msgstr  "Dear  <strong class=\"customer_name\"></strong>, thanks for reaching out!"
-
+msgid "Sunday_to_Thursday"
+msgstr "Sunday to Thursday"
+  
+ 
 msgid  "We_have_received_your_message"
-msgstr  "We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number listed below to talk to us."
+msgstr "We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number to talk to us."
 
-msgid  "have_great_day"
-msgstr  "Have a great day!"
+msgid "depratments"
+msgstr "Subsidiaries"
 
+msgid "offices"
+msgstr "Offices"
 
-msgid "About_Us"
-msgstr "About Us"
+#construction
+msgid "construction"
+msgstr "Construction"
 
-msgid "Call_us_today_at_<span>{0}</span>_or_Email_us_at_<span>{1}</span>"
-msgstr "Call us today at <span>{0}</span> or Email us at <span>{1}</span>"
+msgid "we_make"
+msgstr "we make"
+  
+msgid "great_projects"
+msgstr "great projects"
 
-msgid  "Start_Now"
-msgstr "Start Now"
+msgid "construction_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-#:galleries
-msgid "our_galleries"
-msgstr "Our Galleries"
+msgid "construction_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed"
 
-msgid "Galleries"
-msgstr "Galleries"
+msgid "construction_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed"
 
-msgid "Gallery"
-msgstr "Gallery"
+msgid "construction_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed"
 
-msgid "Services"
-msgstr "Services"
+#events
+msgid "Event_we_make"
+msgstr "we make"
 
-msgid "our_services"
-msgstr "Our Services"
+msgid "Event_great_projects"
+msgstr "great projects"
 
-msgid "read_more"
-msgstr "Read More"
+msgid "event_management_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+ 
+msgid "Event_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-#: Products
+msgid "Event_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "Products"
-msgstr "Products"
+msgid "Event_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "Our_products"
-msgstr "Our Products"
+#design_and_animation
+msgid "Design_we_make"
+msgstr "we make"
 
-msgid "Previous"
-msgstr "Previous"
+msgid "Design_great_projects"
+msgstr "great projects"
 
-msgid "Next"
-msgstr "Next"
-
-msgid "Description"
-msgstr "Description"
-
-msgid "By"
-msgstr "By"
-
-msgid "share_this_post"
-msgstr "Share this Post"
-
-
-#request quote
-
-msgid "request_quote"
-msgstr "Request a quote"
+msgid "Design_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
 
-msgid "request"
-msgstr "Request a quote"
+msgid "Design_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "Address_value"
-msgstr "Üniversite Mah. E5 Yanyol No: 54 Avcılar / Istanbul"
+msgid "Design_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "feel_like_talking"
-msgstr "Feel like talking"
+msgid "Design_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "need_help"
-msgstr "Need help?"
+#smart system
+msgid "smart_we_make"
+msgstr "we make"
 
-msgid "visit_us"
-msgstr "Visit us"
+msgid "smart_great_projects"
+msgstr "great projects"
 
-msgid "Get_in_Touch_msg"
-msgstr "Feel free to get in touch with us. we are always open to discussing new projects, creative ideas or opportunities to be part of your visions."
+msgid "smart_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "Dear"
-msgstr "Dear"
+msgid "smart_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "thanks_for_reaching_out"
-msgstr "thanks for reaching out!"
+msgid "smart_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "We_have_received_your_message"
-msgstr "We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number listed below to talk to us."
+msgid "smart_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "Mobile_no"
-msgstr "Mobile No."
+#GiftItems
+msgid "GiftItems_we_make"
+msgstr "we make"
 
-msgid "Have_a_great_day"
-msgstr "Have a great day!"
+msgid "GiftItems_great_projects"
+msgstr "great projects"
 
-# : request quoto page
-msgid "request_lead_msg"
-msgstr "iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel."
+msgid "GiftItems_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "thank_you_for_your_quote_request"
-msgstr "Thank You for Your Quote Request"
+msgid "GiftItems_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "We_appreciate_your_taking_the_time_to_submit_your_quote_request"
-msgstr "We appreciate your taking the time to submit your quote request. You will hear from a Tam tech  by phone or email within 24 business hours of receiving your quote request."
+msgid "GiftItems_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "Blog"
-msgstr "Blog"
+msgid "GiftItems_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "featured_posts"
-msgstr "featured posts"
+# SoftwareSolution
+msgid "SoftwareSolution_we_make"
+msgstr "we make"
 
-msgid "ModifiedDate"
-msgstr "Modified Date"
+msgid "SoftwareSolution_great_projects"
+msgstr "great projects"
+
+msgid "SoftwareSolution_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "SoftwareSolution_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "SoftwareSolution_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "SoftwareSolution_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+#Telecommunications
+
+msgid "Telecommunications_we_make"
+msgstr "we make"
+
+msgid "Telecommunications_great_projects"
+msgstr "great projects"
+
+msgid "Telecommunications_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Telecommunications_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Telecommunications_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Telecommunications_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+
+# InteriorDesign
+
+msgid "InteriorDesign_we_make"
+msgstr "we make"
+
+msgid "InteriorDesign_great_projects"
+msgstr "great projects"
+
+msgid "InteriorDesign_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "InteriorDesign_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "InteriorDesign_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "InteriorDesign_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+
+msgid "view_projects"
+msgstr "view projects"
+
+msgid "about_us_title"
+msgstr "<span>who</span> we are"
+
+msgid "our_services_title"
+msgstr "<span>our</span> services"
+
+msgid "our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+ 
+msgid "our_portfolio_title"
+msgstr "<span>our</span> portfolio"
+
+msgid "our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+ 
+msgid "our_clients_title"
+msgstr "<span>our</span> Clients"
+
+msgid "our_clients_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
  
+msgid "contact_us_title"
+msgstr "<span>contact</span> us"
 
+msgid "contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
+msgid "send"
+msgstr "Send"
 
+msgid "Index"
+msgstr "Index"
 
-msgid "Address_value"
-msgstr "Üniversite Mah. E5 Yanyol No: 54 Avcılar / Istanbul"
+msgid "Event-Management"
+msgstr "Event Management"
 
-msgid "Address_Link"
-msgstr "https://goo.gl/maps/ba9rEAU7wi42"
+msgid "Design-And-Animation"
+msgstr "Design And Animation"
+
+msgid "Smart-Systems"
+msgstr "Smart Systems"
+
+msgid "Construction"
+msgstr "Construction"
+
+msgid "Software-Solutions"
+msgstr "Software Solutions"
+
+msgid "Telecommunications"
+msgstr "Telecommunications"
+
+msgid "Gift-Items"
+msgstr "Gift Items"
+
+msgid "Interior-Design"
+msgstr "Interior Design"
+
+# app settings 
+
+msgid "m_work_time"
+msgstr "9:00 AM – 7:00 PM"
 
 msgid "phone_number"
-msgstr "05354152865"
+msgstr "0112002335"
 
+msgid "email_address"
+msgstr "info@tantumproj.com"
+
+msgid "MissionVisionSliderKey"
+msgstr "mission_vision"
+
+msgid "contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "contact_phone_a"
+msgstr "+96656716721"
+
+msgid "contact_phone_b"
+msgstr "+96640928731"
+
+
+# Construction
+msgid "Construction_aboutus_summary"
+msgstr "2f5fd074-89f9-4216-b647-931ec0fd3389"
+
+msgid "constructions_clients_slider_key"
+msgstr "constructions_clients"
+
+msgid "Construction_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+
+msgid "construction_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "construction_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "construction_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "construction_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "construction_contact_phone_b"
+msgstr "+96640928731"
+
+
+# EventManagement
+msgid "EventManagement_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+
+msgid "Event_clients_slider_key"
+msgstr "Event_clients"
+
+msgid "Event_aboutus_summary"
+msgstr "c5ba5a64-f379-4242-bcf1-1f0a2292bfbb"
+
+msgid "Event_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "Event_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "Event_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "Event_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "Event_contact_phone_b"
+msgstr "+96640928731"
+
+
+# DesignAndAnimation
+msgid "DesignAndAnimation_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+
+
+msgid "Design_clients_slider_key"
+msgstr "Design_clients"
+
+msgid "Design_aboutus_summary"
+msgstr "9b66ecb5-4629-4f39-ac37-9d20466990f1"
+
+msgid "Design_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "Design_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "Design_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "Design_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "Design_contact_phone_b"
+msgstr "+96640928731"
+
+
+# SmartSystems
+msgid "SmartSystems_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+
+msgid "smart_clients_slider_key"
+msgstr "smart_clients"
+
+msgid "smart_aboutus_summary"
+msgstr "c92967af-ede3-4f59-90d8-f2acdbb463a9"
+
+msgid "smart_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "smart_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "smart_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "smart_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "smart_contact_phone_b"
+msgstr "+96640928731"
+
+# GiftItems
+msgid "GiftItems_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+ 
+msgid "GiftItems_clients_slider_key"
+msgstr "GiftItems_clients"
+
+msgid "GiftItems_aboutus_summary"
+msgstr "aec1ea40-0326-4df9-9e28-3d2c0b53160f"
+
+msgid "GiftItems_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "GiftItems_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "GiftItems_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "GiftItems_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "GiftItems_contact_phone_b"
+msgstr "+96640928731"
+
+# SoftwareSolution
+msgid "SoftwareSolutions_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+
+msgid "SoftwareSolutions_clients_slider_key"
+msgstr "SoftwareSolutions_clients"
+
+msgid "SoftwareSolutions_aboutus_summary"
+msgstr "51c65fa3-0bc9-45de-8663-044be6f86cfd"
+
+msgid "SoftwareSolution_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "SoftwareSolution_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "SoftwareSolution_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "SoftwareSolution_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "SoftwareSolution_contact_phone_b"
+msgstr "+96640928731"
+
+# telecommunications
+
+msgid  "Telecommunications_aboutus_summary"
+msgstr "3ccf8e42-1ccd-40c3-b7a3-85f5f4e7fd76"
+
+msgid "Telecommunications_clients_slider_key"
+msgstr "Telecommunications_clients"
+
+msgid "Telecommunications_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+
+msgid "Telecommunications_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "Telecommunications_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "Telecommunications_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "Telecommunications_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "Telecommunications_contact_phone_b"
+msgstr "+96640928731"
+
+# InteriorDesign
+
+msgid  "InteriorDesign_aboutus_summary"
+msgstr "707eec08-a0b8-45e0-948a-9a5430b95df6"
+
+msgid "InteriorDesign_contact_email"
+msgstr "m.jobakji@tamtech.solutions"
+
+msgid "InteriorDesign_clients_slider_key"
+msgstr "InteriorDesign_clients"
+
+msgid "InteriorDesign_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "InteriorDesign_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "InteriorDesign_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "InteriorDesign_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "InteriorDesign_contact_phone_b"
+msgstr "+96640928731"

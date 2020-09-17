@@ -11,7 +11,7 @@ msgstr "Mail Us"
 
 # bootombar
 msgid "Copyright_©_2018_tamtech_solutions._All_rights_reserved."
-msgstr "Copyright © 2018 tamtech solutions. All rights reserved."
+msgstr "Copyright © 2019 tamtech solutions. All rights reserved."
 
 msgid "Powered_by"
 msgstr "Powered by"
